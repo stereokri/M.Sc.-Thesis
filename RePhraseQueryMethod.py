@@ -71,3 +71,4 @@ with open(f"{answer_path}/{configuration}.txt", "w") as answer_file:
         formatted_context +  "\n\n\n\nRephrased Quetion: " + rephrased_question +
         "\n\n\n\nAnswer: " + chain_output
     )
+
