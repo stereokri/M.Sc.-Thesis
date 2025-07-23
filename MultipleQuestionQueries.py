@@ -1,0 +1,88 @@
+import warnings
+from langchain._api import LangChainDeprecationWarning
+warnings.simplefilter("ignore", category=LangChainDeprecationWarning)
+from langchain.vectorstores.chroma import Chroma
+from langchain.schema.output_parser import StrOutputParser
+import os
+import Utils
+import hashlib
+
+_chunkNumber = 4
+_chunkSize = 1000
+_chunkOverlap = 200
+
+configuration = "TestMethodSimpleChunk{}_{}_{}".format(_chunkSize, _chunkOverlap, _chunkNumber)
+chroma_configuration = "SimpleChunk{}_{}".format(_chunkSize, _chunkOverlap)
+chroma_persist_path = f"/home/kristian/chromadb/{chroma_configuration}"
+
+
+#-------------------------- 1. Load ----------------------------------
+docs = Utils.load_langchain_docs()
+
+#-------------------------- 2. Split ---------------------------------
+all_splits = Utils.split_docs(docs, _chunkSize, _chunkOverlap)
+
+
+#-------------------------- 3. Embed ---------------------------------
+if os.path.exists(chroma_persist_path):
+     # Look up persisted directory
+    vectorstore = Chroma(
+        collection_name="langchain",
+        embedding_function=Utils.embeddings,
+        persist_directory=chroma_persist_path,
+    )
+else:
+    # First‐time build: embed and persist
+    os.makedirs(chroma_persist_path, exist_ok=True)
+    vectorstore = Chroma.from_documents(
+        documents=all_splits,
+        embedding=Utils.embeddings,
+        persist_directory=chroma_persist_path,
+    )
+    vectorstore.persist()
+
+
+
+#----------------------4. Retrieve ----------------------------------
+retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={ "k": _chunkNumber })
+
+
+#--------------------- 5. Generate -----------------------------------
+response_generator = (Utils.prompt | Utils.ollama | StrOutputParser()).with_config(
+    run_name="GenerateResponse",
+)
+
+
+# # ---------------------- Generate Answer ----------------------
+query = "How do I load YouTube transcripts and CSV documents?"
+questions = Utils.split_multiple_questions(query)
+question_vec = [q for q in questions.split('+++')]
+
+answer_path = f"/home/kristian/QA/{query}"
+os.makedirs(answer_path, exist_ok=True)
+
+final_answer = ""
+for Q in question_vec:
+
+    formatted_context = Utils.format_docs(retriever.invoke(Q))
+
+    chain_output = response_generator.invoke({
+        "context": formatted_context,
+        "question": Q
+    })
+
+    with open(f"{answer_path}/{configuration}.txt", "a") as answer_file:
+        answer_file.write(formatted_context +  "\n\n\n\n")
+
+    final_answer += " " + chain_output
+
+with open(f"{answer_path}/{configuration}.txt", "a") as answer_file:
+    answer_file.write("\n\n\n\nAnswer: " + final_answer)
+
+
+
+# questions = Utils.split_multiple_questions("How do I load YouTube transcripts and CSV documents?")
+# question_vec = [q for q in questions.split('+++')]
+
+# for i in question_vec:
+#     print(i)
