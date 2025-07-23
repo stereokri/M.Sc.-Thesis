@@ -1,0 +1,235 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content>YouTube transcripts | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# YouTube transcripts
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by Google.
+
+This notebook covers how to load documents from `YouTube transcripts`.
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+```python
+# !pip install youtube-transcript-api
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content>YouTube transcripts | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# YouTube transcripts
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by Google.
+
+This notebook covers how to load documents from `YouTube transcripts`.
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+```python
+# !pip install youtube-transcript-api
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content>YouTube transcripts | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# YouTube transcripts
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by Google.
+
+This notebook covers how to load documents from `YouTube transcripts`.
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+```python
+# !pip install youtube-transcript-api
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/platforms/google</source>
+<doc_content>Use `YoutubeAudioLoader` to fetch / download the audio files.
+
+Then, use `OpenAIWhisperParser` to transcribe them to text.
+
+We need to install several python packages.
+
+```bash
+pip install yt_dlp pydub librosa
+```
+
+See a [usage example and authorization instructions](/docs/integrations/document_loaders/youtube_audio).
+
+```python
+from langchain.document_loaders.blob_loaders.youtube_audio import YoutubeAudioLoader
+from langchain.document_loaders.parsers import OpenAIWhisperParser, OpenAIWhisperParserLocal
+```
+
+### YouTube transcripts​
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by `Google`.
+
+We need to install `youtube-transcript-api` python package.
+
+```bash
+pip install youtube-transcript-api
+```
+
+See a [usage example](/docs/integrations/document_loaders/youtube_transcript).
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+- [LLMs](#llms)- [Vertex AI](#vertex-ai)
+
+- [Model Garden](#model-garden)</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/providers/scann</source>
+<doc_content>Use `YoutubeAudioLoader` to fetch / download the audio files.
+
+Then, use `OpenAIWhisperParser` to transcribe them to text.
+
+We need to install several python packages.
+
+```bash
+pip install yt_dlp pydub librosa
+```
+
+See a [usage example and authorization instructions](/docs/integrations/document_loaders/youtube_audio).
+
+```python
+from langchain.document_loaders.blob_loaders.youtube_audio import YoutubeAudioLoader
+from langchain.document_loaders.parsers import OpenAIWhisperParser, OpenAIWhisperParserLocal
+```
+
+### YouTube transcripts​
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by `Google`.
+
+We need to install `youtube-transcript-api` python package.
+
+```bash
+pip install youtube-transcript-api
+```
+
+See a [usage example](/docs/integrations/document_loaders/youtube_transcript).
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+- [LLMs](#llms)- [Vertex AI](#vertex-ai)
+
+- [Model Garden](#model-garden)</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content>```python
+# !pip install youtube-transcript-api
+```
+
+```python
+loader = YoutubeLoader.from_youtube_url(
+    "https://www.youtube.com/watch?v=QsYGlZkevEg", add_video_info=True
+)
+```
+
+```python
+loader.load()
+```
+
+### Add video info​
+
+```python
+# ! pip install pytube
+```
+
+```python
+loader = YoutubeLoader.from_youtube_url(
+    "https://www.youtube.com/watch?v=QsYGlZkevEg", add_video_info=True
+)
+loader.load()
+```
+
+### Add language preferences​</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content>```python
+# !pip install youtube-transcript-api
+```
+
+```python
+loader = YoutubeLoader.from_youtube_url(
+    "https://www.youtube.com/watch?v=QsYGlZkevEg", add_video_info=True
+)
+```
+
+```python
+loader.load()
+```
+
+### Add video info​
+
+```python
+# ! pip install pytube
+```
+
+```python
+loader = YoutubeLoader.from_youtube_url(
+    "https://www.youtube.com/watch?v=QsYGlZkevEg", add_video_info=True
+)
+loader.load()
+```
+
+### Add language preferences​</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: To load YouTube transcripts, you can use the `YoutubeLoader` from `langchain.document_loaders`. First, install the required package by running `!pip install youtube-transcript-api`. Then, import the loader using `from langchain.document_loaders import YoutubeLoader`.

@@ -1,0 +1,158 @@
+<documents>
+<document index='0'>
+<source>/home/kristian/BenchMarkingPythonScripts/AdditionalDocs/Redis.txt</source>
+<doc_content>## Hybrid Filtering​
+
+With the Redis Filter Expression language one can filter metdata in Redis vectorstore.
+
+The following are the available filter types:
+
+- `RedisText`: Filter by full-text search against metadata fields. Supports exact, fuzzy, and wildcard matching.
+
+- `RedisNum`: Filter by numeric range against metadata fields.
+
+- `RedisTag`: Filter by exact match against string based categorical metadata fields. Multiple tags can be specified like "tag1,tag2,tag3".
+
+The following are examples of utilizing these filters.
+
+```python
+
+from langchain.vectorstores.redis import RedisText, RedisNum, RedisTag
+
+# exact matching
+has_high_credit = RedisTag("credit_score") == "high"
+does_not_have_high_credit = RedisTag("credit_score") != "low"
+
+# fuzzy matching
+job_starts_with_eng = RedisText("job") % "eng*"
+job_is_engineer = RedisText("job") == "engineer"
+job_is_not_engineer = RedisText("job") != "engineer"</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>```text
+    16:58:26 [RedisVL] INFO   Indices:
+    16:58:26 [RedisVL] INFO   1. users
+```
+
+The `Redis` VectorStore implementation will attempt to generate index schema (fields for filtering) for any metadata passed through the `from_texts`, `from_texts_return_keys`, and `from_documents` methods. This way, whatever metadata is passed will be indexed into the Redis search index allowing
+for filtering on those fields.
+
+Below we show what fields were created from the metadata we defined above</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>```text
+    16:58:26 [RedisVL] INFO   Indices:
+    16:58:26 [RedisVL] INFO   1. users
+```
+
+The `Redis` VectorStore implementation will attempt to generate index schema (fields for filtering) for any metadata passed through the `from_texts`, `from_texts_return_keys`, and `from_documents` methods. This way, whatever metadata is passed will be indexed into the Redis search index allowing
+for filtering on those fields.
+
+Below we show what fields were created from the metadata we defined above</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>```text
+    16:58:26 [RedisVL] INFO   Indices:
+    16:58:26 [RedisVL] INFO   1. users
+```
+
+The `Redis` VectorStore implementation will attempt to generate index schema (fields for filtering) for any metadata passed through the `from_texts`, `from_texts_return_keys`, and `from_documents` methods. This way, whatever metadata is passed will be indexed into the Redis search index allowing
+for filtering on those fields.
+
+Below we show what fields were created from the metadata we defined above
+
+```bash
+rvl index info -i users
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>```text
+    16:58:26 [RedisVL] INFO   Indices:
+    16:58:26 [RedisVL] INFO   1. users
+```
+
+The `Redis` VectorStore implementation will attempt to generate index schema (fields for filtering) for any metadata passed through the `from_texts`, `from_texts_return_keys`, and `from_documents` methods. This way, whatever metadata is passed will be indexed into the Redis search index allowing
+for filtering on those fields.
+
+Below we show what fields were created from the metadata we defined above
+
+```bash
+rvl index info -i users
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>```text
+    16:58:26 [RedisVL] INFO   Indices:
+    16:58:26 [RedisVL] INFO   1. users
+```
+
+The `Redis` VectorStore implementation will attempt to generate index schema (fields for filtering) for any metadata passed through the `from_texts`, `from_texts_return_keys`, and `from_documents` methods. This way, whatever metadata is passed will be indexed into the Redis search index allowing
+for filtering on those fields.
+
+Below we show what fields were created from the metadata we defined above
+
+```bash
+rvl index info -i users
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>```text
+    16:58:26 [RedisVL] INFO   Indices:
+    16:58:26 [RedisVL] INFO   1. users
+```
+
+The `Redis` VectorStore implementation will attempt to generate index schema (fields for filtering) for any metadata passed through the `from_texts`, `from_texts_return_keys`, and `from_documents` methods. This way, whatever metadata is passed will be indexed into the Redis search index allowing
+for filtering on those fields.
+
+Below we show what fields were created from the metadata we defined above
+
+```bash
+rvl index info -i users
+```</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: You can search and filter metadata in Redis VectorStore using the Redis Filter Expression language, which provides three types of filters: `RedisText` for full-text search, `RedisNum` for numeric range filtering, and `RedisTag` for exact matching against string-based categorical metadata fields. For example, you can use `RedisText("job") % "eng*"` to filter by fuzzy matching or `RedisTag("credit_score") == "high"` to filter by exact matching.

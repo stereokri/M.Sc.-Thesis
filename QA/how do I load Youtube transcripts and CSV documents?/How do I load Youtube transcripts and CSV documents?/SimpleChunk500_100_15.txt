@@ -1,0 +1,349 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content>YouTube transcripts | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# YouTube transcripts
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by Google.
+
+This notebook covers how to load documents from `YouTube transcripts`.
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+```python
+# !pip install youtube-transcript-api
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content>YouTube transcripts | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# YouTube transcripts
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by Google.
+
+This notebook covers how to load documents from `YouTube transcripts`.
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+```python
+# !pip install youtube-transcript-api
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content># returns a list of Documents
+youtube_loader_channel.load()
+```
+
+- [Add video info](#add-video-info)
+
+- [Add language preferences](#add-language-preferences)
+
+- [YouTube loader from Google Cloud](#youtube-loader-from-google-cloud)- [Prerequisites](#prerequisites)
+
+- [🧑 Instructions for ingesting your Google Docs data](#-instructions-for-ingesting-your-google-docs-data)</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content># returns a list of Documents
+youtube_loader_channel.load()
+```
+
+- [Add video info](#add-video-info)
+
+- [Add language preferences](#add-language-preferences)
+
+- [YouTube loader from Google Cloud](#youtube-loader-from-google-cloud)- [Prerequisites](#prerequisites)
+
+- [🧑 Instructions for ingesting your Google Docs data](#-instructions-for-ingesting-your-google-docs-data)</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/providers/youtube</source>
+<doc_content>## Document Loader​
+
+See a [usage example](/docs/integrations/document_loaders/youtube_transcript).
+
+```python
+from langchain.document_loaders import YoutubeLoader
+from langchain.document_loaders import GoogleApiYoutubeLoader
+```
+
+- [Installation and Setup](#installation-and-setup)
+
+- [Document Loader](#document-loader)</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/providers/youtube</source>
+<doc_content>## Document Loader​
+
+See a [usage example](/docs/integrations/document_loaders/youtube_transcript).
+
+```python
+from langchain.document_loaders import YoutubeLoader
+from langchain.document_loaders import GoogleApiYoutubeLoader
+```
+
+- [Installation and Setup](#installation-and-setup)
+
+- [Document Loader](#document-loader)</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/document_loaders/langchain.document_loaders.youtube.YoutubeLoader.html</source>
+<doc_content>langchain.document_loaders.youtube.YoutubeLoader¶
+
+class langchain.document_loaders.youtube.YoutubeLoader(video_id: str, add_video_info: bool = False, language: Union[str, Sequence[str]] = 'en', translation: str = 'en', continue_on_failure: bool = False)[source]¶
+Load YouTube transcripts.
+Initialize with YouTube video ID.
+Methods
+
+__init__(video_id[, add_video_info, ...])
+Initialize with YouTube video ID.
+
+extract_video_id(youtube_url)
+Extract video id from common YT urls.</doc_content>
+</document>
+
+
+
+
+
+<document index='7'>
+<source>https://api.python.langchain.com/en/latest/document_loaders/langchain.document_loaders.youtube.YoutubeLoader.html</source>
+<doc_content>langchain.document_loaders.youtube.YoutubeLoader¶
+
+class langchain.document_loaders.youtube.YoutubeLoader(video_id: str, add_video_info: bool = False, language: Union[str, Sequence[str]] = 'en', translation: str = 'en', continue_on_failure: bool = False)[source]¶
+Load YouTube transcripts.
+Initialize with YouTube video ID.
+Methods
+
+__init__(video_id[, add_video_info, ...])
+Initialize with YouTube video ID.
+
+extract_video_id(youtube_url)
+Extract video id from common YT urls.</doc_content>
+</document>
+
+
+
+
+
+<document index='8'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content>```python
+# !pip install youtube-transcript-api
+```
+
+```python
+loader = YoutubeLoader.from_youtube_url(
+    "https://www.youtube.com/watch?v=QsYGlZkevEg", add_video_info=True
+)
+```
+
+```python
+loader.load()
+```
+
+### Add video info​
+
+```python
+# ! pip install pytube
+```
+
+```python
+loader = YoutubeLoader.from_youtube_url(
+    "https://www.youtube.com/watch?v=QsYGlZkevEg", add_video_info=True
+)
+loader.load()
+```
+
+### Add language preferences​</doc_content>
+</document>
+
+
+
+
+
+<document index='9'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content>```python
+# !pip install youtube-transcript-api
+```
+
+```python
+loader = YoutubeLoader.from_youtube_url(
+    "https://www.youtube.com/watch?v=QsYGlZkevEg", add_video_info=True
+)
+```
+
+```python
+loader.load()
+```
+
+### Add video info​
+
+```python
+# ! pip install pytube
+```
+
+```python
+loader = YoutubeLoader.from_youtube_url(
+    "https://www.youtube.com/watch?v=QsYGlZkevEg", add_video_info=True
+)
+loader.load()
+```
+
+### Add language preferences​</doc_content>
+</document>
+
+
+
+
+
+<document index='10'>
+<source>https://api.python.langchain.com/en/latest/document_loaders/langchain.document_loaders.youtube.GoogleApiYoutubeLoader.html</source>
+<doc_content>class langchain.document_loaders.youtube.GoogleApiYoutubeLoader(google_api_client: GoogleApiClient, channel_name: Optional[str] = None, video_ids: Optional[List[str]] = None, add_video_info: bool = True, captions_language: str = 'en', continue_on_failure: bool = False)[source]¶
+Load all Videos from a YouTube Channel.
+To use, you should have the googleapiclient,youtube_transcript_api
+python package installed.
+As the service needs a google_api_client, you first have to initialize</doc_content>
+</document>
+
+
+
+
+
+<document index='11'>
+<source>https://api.python.langchain.com/en/latest/document_loaders/langchain.document_loaders.youtube.GoogleApiYoutubeLoader.html</source>
+<doc_content>class langchain.document_loaders.youtube.GoogleApiYoutubeLoader(google_api_client: GoogleApiClient, channel_name: Optional[str] = None, video_ids: Optional[List[str]] = None, add_video_info: bool = True, captions_language: str = 'en', continue_on_failure: bool = False)[source]¶
+Load all Videos from a YouTube Channel.
+To use, you should have the googleapiclient,youtube_transcript_api
+python package installed.
+As the service needs a google_api_client, you first have to initialize</doc_content>
+</document>
+
+
+
+
+
+<document index='12'>
+<source>https://python.langchain.com/docs/integrations/providers/scann</source>
+<doc_content>### YouTube transcripts​
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by `Google`.
+
+We need to install `youtube-transcript-api` python package.
+
+```bash
+pip install youtube-transcript-api
+```
+
+See a [usage example](/docs/integrations/document_loaders/youtube_transcript).
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+- [LLMs](#llms)- [Vertex AI](#vertex-ai)
+
+- [Model Garden](#model-garden)</doc_content>
+</document>
+
+
+
+
+
+<document index='13'>
+<source>https://python.langchain.com/docs/integrations/providers/scann</source>
+<doc_content>### YouTube transcripts​
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by `Google`.
+
+We need to install `youtube-transcript-api` python package.
+
+```bash
+pip install youtube-transcript-api
+```
+
+See a [usage example](/docs/integrations/document_loaders/youtube_transcript).
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+- [LLMs](#llms)- [Vertex AI](#vertex-ai)
+
+- [Model Garden](#model-garden)</doc_content>
+</document>
+
+
+
+
+
+<document index='14'>
+<source>https://python.langchain.com/docs/integrations/platforms/google</source>
+<doc_content>### YouTube transcripts​
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by `Google`.
+
+We need to install `youtube-transcript-api` python package.
+
+```bash
+pip install youtube-transcript-api
+```
+
+See a [usage example](/docs/integrations/document_loaders/youtube_transcript).
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+- [LLMs](#llms)- [Vertex AI](#vertex-ai)
+
+- [Model Garden](#model-garden)</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: You can load YouTube transcripts using `YoutubeLoader` from `langchain.document_loaders`. First, install the `youtube-transcript-api` package by running `pip install youtube-transcript-api`. Then, use `YoutubeLoader.from_youtube_url()` to load the transcripts.

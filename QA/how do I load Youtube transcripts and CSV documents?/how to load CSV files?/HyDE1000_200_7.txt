@@ -1,0 +1,251 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/csv</source>
+<doc_content>## Customizing the csv parsing and loading​
+
+See the [csv module](https://docs.python.org/3/library/csv.html) documentation for more information of what csv args are supported.
+
+```python
+loader = CSVLoader(
+    file_path="./example_data/mlb_teams_2012.csv",
+    csv_args={
+        "delimiter": ",",
+        "quotechar": '"',
+        "fieldnames": ["MLB Team", "Payroll in millions", "Wins"],
+    },
+)
+
+data = loader.load()
+```
+
+```python
+print(data)
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/modules/data_connection/document_loaders/csv</source>
+<doc_content>## Customizing the CSV parsing and loading​
+
+See the [csv module](https://docs.python.org/3/library/csv.html) documentation for more information of what csv args are supported.
+
+```python
+loader = CSVLoader(file_path='./example_data/mlb_teams_2012.csv', csv_args={
+    'delimiter': ',',
+    'quotechar': '"',
+    'fieldnames': ['MLB Team', 'Payroll in millions', 'Wins']
+})
+
+data = loader.load()
+```
+
+```python
+print(data)
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/csv</source>
+<doc_content>CSV | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# CSV
+
+A [comma-separated values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) file is a delimited text file that uses a comma to separate values. Each line of the file is a data record. Each record consists of one or more fields, separated by commas.
+
+Load [csv](https://en.wikipedia.org/wiki/Comma-separated_values) data with a single row per document.
+
+```python
+from langchain.document_loaders.csv_loader import CSVLoader
+```
+
+```python
+loader = CSVLoader(file_path="./example_data/mlb_teams_2012.csv")
+
+data = loader.load()
+```
+
+```python
+print(data)
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/modules/data_connection/document_loaders/csv</source>
+<doc_content>CSV | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# CSV
+
+A [comma-separated values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) file is a delimited text file that uses a comma to separate values. Each line of the file is a data record. Each record consists of one or more fields, separated by commas.
+
+Load CSV data with a single row per document.
+
+```python
+from langchain.document_loaders.csv_loader import CSVLoader
+
+loader = CSVLoader(file_path='./example_data/mlb_teams_2012.csv')
+data = loader.load()
+```
+
+```python
+print(data)
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/csv</source>
+<doc_content>## UnstructuredCSVLoader​
+
+You can also load the table using the `UnstructuredCSVLoader`. One advantage of using `UnstructuredCSVLoader` is that if you use it in `"elements"` mode, an HTML representation of the table will be available in the metadata.
+
+```python
+from langchain.document_loaders.csv_loader import UnstructuredCSVLoader
+```
+
+```python
+loader = UnstructuredCSVLoader(
+    file_path="example_data/mlb_teams_2012.csv", mode="elements"
+)
+docs = loader.load()
+```
+
+```python
+print(docs[0].metadata["text_as_html"])
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/retrievers/chatgpt-plugin</source>
+<doc_content>```python
+# STEP 1: Load
+
+# Load documents using LangChain's DocumentLoaders
+# This is from https://langchain.readthedocs.io/en/latest/modules/document_loaders/examples/csv.html
+
+from langchain.document_loaders.csv_loader import CSVLoader
+
+loader = CSVLoader(
+    file_path="../../document_loaders/examples/example_data/mlb_teams_2012.csv"
+)
+data = loader.load()
+
+# STEP 2: Convert
+
+# Convert Document to format expected by https://github.com/openai/chatgpt-retrieval-plugin
+import json
+from typing import List
+
+from langchain.docstore.document import Document
+
+def write_json(path: str, documents: List[Document]) -> None:
+    results = [{"text": doc.page_content} for doc in documents]
+    with open(path, "w") as f:
+        json.dump(results, f, indent=2)
+
+write_json("foo.json", data)
+
+# STEP 3: Use
+
+# Ingest this as you would any other json file in https://github.com/openai/chatgpt-retrieval-plugin/tree/main/scripts/process_json
+```
+
+## Using the ChatGPT Retriever Plugin​</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/pandas_dataframe</source>
+<doc_content>```python
+from langchain.document_loaders import DataFrameLoader
+```
+
+```python
+loader = DataFrameLoader(df, page_content_column="Team")
+```
+
+```python
+loader.load()
+```</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Hypothetical Answer: Here are the ways to load CSV files in various programming languages and tools:
+
+**Python**
+
+* Using `pandas` library: `import pandas as pd; df = pd.read_csv('file.csv')`
+* Using `csv` module: `import csv; with open('file.csv', 'r') as f: reader = csv.reader(f); data = list(reader)`
+
+**R**
+
+* Using `read.csv()` function: `data <- read.csv("file.csv")`
+
+**Java**
+
+* Using `OpenCSV` library: `CSVReader reader = new CSVReader(new FileReader("file.csv")); List<String[]> data = reader.readAll();`
+* Using `Apache Commons CSV` library: `CSVParser parser = new CSVParser(new FileReader("file.csv")); List<String[]> data = parser.readAll();`
+
+**JavaScript (Node.js)**
+
+* Using `csv-parser` library: `const csv = require('csv-parser'); const data = csv.parse(fs.readFileSync('file.csv', 'utf8'));`
+* Using `papaparse` library: `const Papa = require('papaparse'); const data = Papa.parse(fs.readFileSync('file.csv', 'utf8'));`
+
+**Excel**
+
+* Open Excel, click on "Data" tab, then "From Text", select the CSV file, and follow the wizard
+
+**Google Sheets**
+
+* Go to Google Sheets, click on "File" > "Import", select "Upload" or "Import from URL", choose the CSV file, and select the sheet to import into
+
+**SQL (e.g., MySQL, PostgreSQL)**
+
+* Using `LOAD DATA` statement: `LOAD DATA INFILE 'file.csv' INTO TABLE mytable;`
+* Using `COPY` statement: `COPY mytable FROM 'file.csv';`
+
+**Tableau**
+
+* Connect to CSV file as a data source, then drag and drop the file into the workspace
+
+**Power BI**
+
+* Click on "Get Data" > "From File" > "CSV", select the file, and follow the wizard
+
+
+
+Answer: To load a CSV file, you can use the `CSVLoader` from LangChain's document loaders. Here's an example:
+```
+from langchain.document_loaders.csv_loader import CSVLoader
+loader = CSVLoader(file_path="./example_data/mlb_teams_2012.csv")
+data = loader.load()
+print(data)
+```

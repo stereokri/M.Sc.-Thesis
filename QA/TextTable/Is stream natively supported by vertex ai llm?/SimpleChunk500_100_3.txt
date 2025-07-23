@@ -1,0 +1,43 @@
+<documents>
+<document index='0'>
+<source>/home/kristian/BenchMarkingPythonScripts/AdditionalDocs/NativeSupport.txt</source>
+<doc_content>- _Streaming_ support defaults to returning an `Iterator` (or `AsyncIterator` in the case of async streaming) of a single value, the final result returned by the 
+underlying LLM provider. This obviously doesn't give you token-by-token streaming, which requires native support from the LLM provider, but ensures your code that 
+expects an iterator of tokens can work for any of our LLM integrations.</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>/home/kristian/BenchMarkingPythonScripts/AdditionalDocs/NativeSupport.txt</source>
+<doc_content>Each LLM integration can optionally provide native implementations for async, streaming or batch, which, for providers that support it, can be more efficient. The table 
+shows, for each integration, which features have been implemented with native support.</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>/home/kristian/BenchMarkingPythonScripts/AdditionalDocs/NativeSupport.txt</source>
+<doc_content>LLMs | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# LLMs
+
+## Features (natively supported)​
+
+All LLMs implement the Runnable interface, which comes with default implementations of all methods, ie. `ainvoke`, `batch`, `abatch`, `stream`, `astream`. This gives all 
+LLMs basic support for async, streaming and batch, which by default is implemented as below:</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: The documents do not explicitly mention whether Vertex AI LLM natively supports streaming. However, they do state that each LLM integration can optionally provide native implementations for async, streaming or batch, and a table is shown to indicate which features have been implemented with native support for each integration. The specific information about Vertex AI LLM's native support is not provided in the given documents.

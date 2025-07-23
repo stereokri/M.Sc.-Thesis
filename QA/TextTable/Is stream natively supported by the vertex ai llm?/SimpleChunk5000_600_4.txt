@@ -1,0 +1,525 @@
+<documents>
+<document index='0'>
+<source>https://api.python.langchain.com/en/latest/llms/langchain.llms.vertexai.VertexAI.html</source>
+<doc_content>langchain.llms.vertexai.VertexAI — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.llms.vertexai.VertexAI
+
+langchain.llms.vertexai.VertexAI¶
+
+class langchain.llms.vertexai.VertexAI[source]¶
+Bases: _VertexAICommon, BaseLLM
+Google Vertex AI large language models.
+Create a new model by parsing and validating input data from keyword arguments.
+Raises ValidationError if the input data cannot be parsed to form a valid model.
+
+param cache: Optional[bool] = None¶
+
+param callback_manager: Optional[BaseCallbackManager] = None¶
+
+param callbacks: Callbacks = None¶
+
+param credentials: Any = None¶
+The default custom credentials (google.auth.credentials.Credentials) to use
+
+param location: str = 'us-central1'¶
+The default location to use when making API calls.
+
+param max_output_tokens: int = 128¶
+Token limit determines the maximum amount of text output from one prompt.
+
+param max_retries: int = 6¶
+The maximum number of retries to make when generating.
+
+param metadata: Optional[Dict[str, Any]] = None¶
+Metadata to add to the run trace.
+
+param model_name: str = 'text-bison'¶
+The name of the Vertex AI large language model.
+
+param n: int = 1¶
+How many completions to generate for each prompt.
+
+param project: Optional[str] = None¶
+The default GCP project to use when making Vertex API calls.
+
+param request_parallelism: int = 5¶
+The amount of parallelism allowed for requests issued to VertexAI models.
+
+param stop: Optional[List[str]] = None¶
+Optional list of stop words to use when generating.
+
+param streaming: bool = False¶
+Whether to stream the results or not.
+
+param tags: Optional[List[str]] = None¶
+Tags to add to the run trace.
+
+param temperature: float = 0.0¶
+Sampling temperature, it controls the degree of randomness in token selection.
+
+param top_k: int = 40¶
+How the model selects tokens for output, the next token is selected from
+
+param top_p: float = 0.95¶
+Tokens are selected from most probable to least until the sum of their
+
+param tuned_model_name: Optional[str] = None¶
+The name of a tuned model. If provided, model_name is ignored.
+
+param verbose: bool [Optional]¶
+Whether to print out response text.
+
+__call__(prompt: str, stop: Optional[List[str]] = None, callbacks: Optional[Union[List[BaseCallbackHandler], BaseCallbackManager]] = None, *, tags: Optional[List[str]] = None, metadata: Optional[Dict[str, Any]] = None, **kwargs: Any) → str¶
+Check Cache and run the LLM on the given prompt and input.
+
+async abatch(inputs: List[Union[PromptValue, str, List[BaseMessage]]], config: Optional[Union[RunnableConfig, List[RunnableConfig]]] = None, *, return_exceptions: bool = False, **kwargs: Any) → List[str]¶
+Default implementation runs ainvoke in parallel using asyncio.gather.
+The default implementation of batch works well for IO bound runnables.
+Subclasses should override this method if they can batch more efficiently;
+e.g., if the underlying runnable uses an API which supports a batch mode.
+
+async agenerate(prompts: List[str], stop: Optional[List[str]] = None, callbacks: Union[List[BaseCallbackHandler], BaseCallbackManager, None, List[Optional[Union[List[BaseCallbackHandler], BaseCallbackManager]]]] = None, *, tags: Optional[Union[List[str], List[List[str]]]] = None, metadata: Optional[Union[Dict[str, Any], List[Dict[str, Any]]]] = None, run_name: Optional[Union[str, List[str]]] = None, **kwargs: Any) → LLMResult¶
+Run the LLM on the given prompt and input.
+
+async agenerate_prompt(prompts: List[PromptValue], stop: Optional[List[str]] = None, callbacks: Union[List[BaseCallbackHandler], BaseCallbackManager, None, List[Optional[Union[List[BaseCallbackHandler], BaseCallbackManager]]]] = None, **kwargs: Any) → LLMResult¶
+Asynchronously pass a sequence of prompts and return model generations.
+This method should make use of batched calls for models that expose a batched
+API.
+
+Use this method when you want to:
+take advantage of batched calls,
+need more output from the model than just the top generated value,
+
+are building chains that are agnostic to the underlying language modeltype (e.g., pure text completion models vs chat models).
+
+Parameters
+
+prompts – List of PromptValues. A PromptValue is an object that can be
+converted to match the format of any language model (string for pure
+text generation models and BaseMessages for chat models).
+stop – Stop words to use when generating. Model output is cut off at the
+first occurrence of any of these substrings.
+callbacks – Callbacks to pass through. Used for executing additional
+functionality, such as logging or streaming, throughout generation.
+**kwargs – Arbitrary additional keyword arguments. These are usually passed
+to the model provider API call.
+
+Returns
+
+An LLMResult, which contains a list of candidate Generations for each inputprompt and additional model provider-specific output.</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/llms/</source>
+<doc_content>LLMs | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# LLMs
+
+## Features (natively supported)​
+
+All LLMs implement the Runnable interface, which comes with default implementations of all methods, ie. `ainvoke`, `batch`, `abatch`, `stream`, `astream`. This gives all LLMs basic support for async, streaming and batch, which by default is implemented as below:
+
+- _Async_ support defaults to calling the respective sync method in asyncio's default thread pool executor. This lets other async functions in your application make progress while the LLM is being executed, by moving this call to a background thread.
+
+- _Streaming_ support defaults to returning an `Iterator` (or `AsyncIterator` in the case of async streaming) of a single value, the final result returned by the underlying LLM provider. This obviously doesn't give you token-by-token streaming, which requires native support from the LLM provider, but ensures your code that expects an iterator of tokens can work for any of our LLM integrations.
+
+- _Batch_ support defaults to calling the underlying LLM in parallel for each input by making use of a thread pool executor (in the sync batch case) or `asyncio.gather` (in the async batch case). The concurrency can be controlled with the `max_concurrency` key in `RunnableConfig`.
+
+Each LLM integration can optionally provide native implementations for async, streaming or batch, which, for providers that support it, can be more efficient. The table shows, for each integration, which features have been implemented with native support.
+
+| Model | Invoke | Async invoke | Stream | Async stream | Batch | Async batch |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| AI21 | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| AlephAlpha | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| AmazonAPIGateway | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Anthropic | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Anyscale | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Arcee | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Aviary | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| AzureMLOnlineEndpoint | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| AzureOpenAI | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Banana | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Baseten | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Beam | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Bedrock | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| CTransformers | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| CTranslate2 | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| CerebriumAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| ChatGLM | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Clarifai | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Cohere | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Databricks | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| DeepInfra | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| DeepSparse | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| EdenAI | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Fireworks | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| ForefrontAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| GPT4All | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| GigaChat | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| GooglePalm | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| GooseAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| GradientLLM | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ |
+| HuggingFaceEndpoint | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| HuggingFaceHub | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| HuggingFacePipeline | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| HuggingFaceTextGenInference | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| HumanInputLLM | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| JavelinAIGateway | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| KoboldApiLLM | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| LlamaCpp | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| ManifestWrapper | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Minimax | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| MlflowAIGateway | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Modal | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| MosaicML | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| NIBittensorLLM | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| NLPCloud | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Nebula | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| OctoAIEndpoint | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Ollama | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| OpaquePrompts | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| OpenAI | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| OpenLLM | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| OpenLM | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| PaiEasEndpoint | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Petals | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| PipelineAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Predibase | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| PredictionGuard | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| PromptLayerOpenAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| QianfanLLMEndpoint | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| RWKV | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Replicate | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| SagemakerEndpoint | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| SelfHostedHuggingFaceLLM | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| SelfHostedPipeline | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| StochasticAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| TextGen | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| TitanTakeoff | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| TitanTakeoffPro | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Tongyi | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| VLLM | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| VLLMOpenAI | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| VertexAI | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
+| VertexAIModelGarden | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ |
+| Writer | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Xinference | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| YandexGPT | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+
+- [Features (natively supported)](#features-natively-supported)</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/llms/google_vertex_ai_palm</source>
+<doc_content>Google Cloud Vertex AI | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Google Cloud Vertex AI
+
+**Note:** This is separate from the `Google PaLM` integration, it exposes [Vertex AI PaLM API](https://cloud.google.com/vertex-ai/docs/generative-ai/learn/overview) on `Google Cloud`. 
+
+## Setting up​
+
+By default, Google Cloud [does not use](https://cloud.google.com/vertex-ai/docs/generative-ai/data-governance#foundation_model_development) customer data to train its foundation models as part of Google Cloud's AI/ML Privacy Commitment. More details about how Google processes data can also be found in [Google's Customer Data Processing Addendum (CDPA)](https://cloud.google.com/terms/data-processing-addendum).
+
+To use `Vertex AI PaLM` you must have the `google-cloud-aiplatform` Python package installed and either:
+
+- Have credentials configured for your environment (gcloud, workload identity, etc...)
+
+- Store the path to a service account JSON file as the GOOGLE_APPLICATION_CREDENTIALS environment variable
+
+This codebase uses the `google.auth` library which first looks for the application credentials variable mentioned above, and then looks for system-level auth.
+
+For more information, see: 
+
+- [https://cloud.google.com/docs/authentication/application-default-credentials#GAC](https://cloud.google.com/docs/authentication/application-default-credentials#GAC)
+
+- [https://googleapis.dev/python/google-auth/latest/reference/google.auth.html#module-google.auth](https://googleapis.dev/python/google-auth/latest/reference/google.auth.html#module-google.auth)
+
+```python
+#!pip install langchain google-cloud-aiplatform
+```
+
+```python
+from langchain.llms import VertexAI
+```
+
+```python
+llm = VertexAI()
+print(llm("What are some of the pros and cons of Python as a programming language?"))
+```
+
+```text
+     Python is a widely used, interpreted, object-oriented, and high-level programming language with dynamic semantics, used for general-purpose programming. It is known for its readability, simplicity, and versatility. Here are some of the pros and cons of Python:
+    
+    **Pros:**
+    
+    - **Easy to learn:** Python is known for its simple and intuitive syntax, making it easy for beginners to learn. It has a relatively shallow learning curve compared to other programming languages.
+    
+    - **Versatile:** Python is a general-purpose programming language, meaning it can be used for a wide variety of tasks, including web development, data science, machine
+```
+
+## Using in a chain​
+
+```python
+from langchain.prompts import PromptTemplate
+```
+
+```python
+template = """Question: {question}
+
+Answer: Let's think step by step."""
+prompt = PromptTemplate.from_template(template)
+```
+
+```python
+chain = prompt | llm
+```
+
+```python
+question = "Who was the president in the year Justin Beiber was born?"
+print(chain.invoke({"question": question}))
+```
+
+```text
+     Justin Bieber was born on March 1, 1994. Bill Clinton was the president of the United States from January 20, 1993, to January 20, 2001.
+    The final answer is Bill Clinton
+```
+
+## Code generation example​
+
+You can now leverage the `Codey API` for code generation within `Vertex AI`. 
+
+The model names are:
+
+- `code-bison`: for code suggestion
+
+- `code-gecko`: for code completion
+
+```python
+llm = VertexAI(model_name="code-bison", max_output_tokens=1000, temperature=0.3)
+```
+
+```python
+question = "Write a python function that checks if a string is a valid email address"
+```
+
+```python
+print(llm(question))
+```
+
+```text
+    ```python
+    import re
+    
+    def is_valid_email(email):
+        pattern = re.compile(r"[^@]+@[^@]+\.[^@]+")
+        return pattern.match(email)
+    ```
+```
+
+## Full generation info​
+
+We can use the `generate` method to get back extra metadata like [safety attributes](https://cloud.google.com/vertex-ai/docs/generative-ai/learn/responsible-ai#safety_attribute_confidence_scoring) and not just text completions
+
+```python
+result = llm.generate([question])
+result.generations
+```
+
+```text
+    [[GenerationChunk(text='```python\nimport re\n\ndef is_valid_email(email):\n    pattern = re.compile(r"[^@]+@[^@]+\\.[^@]+")\n    return pattern.match(email)\n```', generation_info={'is_blocked': False, 'safety_attributes': {'Health': 0.1}})]]
+```
+
+## Asynchronous calls​
+
+With `agenerate` we can make asynchronous calls
+
+```python
+# If running in a Jupyter notebook you'll need to install nest_asyncio
+
+# !pip install nest_asyncio
+```
+
+```python
+import asyncio
+
+# import nest_asyncio
+# nest_asyncio.apply()
+```
+
+```python
+asyncio.run(llm.agenerate([question]))
+```
+
+```text
+    LLMResult(generations=[[GenerationChunk(text='```python\nimport re\n\ndef is_valid_email(email):\n    pattern = re.compile(r"[^@]+@[^@]+\\.[^@]+")\n    return pattern.match(email)\n```', generation_info={'is_blocked': False, 'safety_attributes': {'Health': 0.1}})]], llm_output=None, run=[RunInfo(run_id=UUID('caf74e91-aefb-48ac-8031-0c505fcbbcc6'))])
+```
+
+## Streaming calls​</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://api.python.langchain.com/en/latest/embeddings/langchain.embeddings.vertexai.VertexAIEmbeddings.html</source>
+<doc_content>langchain.embeddings.vertexai.VertexAIEmbeddings — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.embeddings.vertexai.VertexAIEmbeddings
+
+langchain.embeddings.vertexai.VertexAIEmbeddings¶
+
+class langchain.embeddings.vertexai.VertexAIEmbeddings[source]¶
+Bases: _VertexAICommon, Embeddings
+Google Cloud VertexAI embedding models.
+Create a new model by parsing and validating input data from keyword arguments.
+Raises ValidationError if the input data cannot be parsed to form a valid model.
+
+param credentials: Any = None¶
+The default custom credentials (google.auth.credentials.Credentials) to use
+
+param location: str = 'us-central1'¶
+The default location to use when making API calls.
+
+param max_output_tokens: int = 128¶
+Token limit determines the maximum amount of text output from one prompt.
+
+param max_retries: int = 6¶
+The maximum number of retries to make when generating.
+
+param model_name: str = 'textembedding-gecko'¶
+Underlying model name.
+
+param n: int = 1¶
+How many completions to generate for each prompt.
+
+param project: Optional[str] = None¶
+The default GCP project to use when making Vertex API calls.
+
+param request_parallelism: int = 5¶
+The amount of parallelism allowed for requests issued to VertexAI models.
+
+param stop: Optional[List[str]] = None¶
+Optional list of stop words to use when generating.
+
+param streaming: bool = False¶
+Whether to stream the results or not.
+
+param temperature: float = 0.0¶
+Sampling temperature, it controls the degree of randomness in token selection.
+
+param top_k: int = 40¶
+How the model selects tokens for output, the next token is selected from
+
+param top_p: float = 0.95¶
+Tokens are selected from most probable to least until the sum of their
+
+async aembed_documents(texts: List[str]) → List[List[float]]¶
+Asynchronous Embed search docs.
+
+async aembed_query(text: str) → List[float]¶
+Asynchronous Embed query text.
+
+classmethod construct(_fields_set: Optional[SetStr] = None, **values: Any) → Model¶
+Creates a new model setting __dict__ and __fields_set__ from trusted or pre-validated data.
+Default values are respected, but no other validation is performed.
+Behaves as if Config.extra = ‘allow’ was set since it adds all passed values
+
+copy(*, include: Optional[Union[AbstractSetIntStr, MappingIntStrAny]] = None, exclude: Optional[Union[AbstractSetIntStr, MappingIntStrAny]] = None, update: Optional[DictStrAny] = None, deep: bool = False) → Model¶
+Duplicate a model, optionally choose which fields to include, exclude and change.
+
+Parameters
+
+include – fields to include in new model
+exclude – fields to exclude from new model, as with values this takes precedence over include
+update – values to change/add in the new model. Note: the data is not validated before creating
+the new model: you should trust this data
+deep – set to True to make a deep copy of the model
+
+Returns
+new model instance
+
+dict(*, include: Optional[Union[AbstractSetIntStr, MappingIntStrAny]] = None, exclude: Optional[Union[AbstractSetIntStr, MappingIntStrAny]] = None, by_alias: bool = False, skip_defaults: Optional[bool] = None, exclude_unset: bool = False, exclude_defaults: bool = False, exclude_none: bool = False) → DictStrAny¶
+Generate a dictionary representation of the model, optionally specifying which fields to include or exclude.
+
+embed_documents(texts: List[str], batch_size: int = 5) → List[List[float]][source]¶
+Embed a list of strings. Vertex AI currently
+sets a max batch size of 5 strings.
+
+Parameters
+
+texts – List[str] The list of strings to embed.
+batch_size – [int] The batch size of embeddings to send to the model
+
+Returns
+List of embeddings, one for each text.
+
+embed_query(text: str) → List[float][source]¶
+Embed a text.
+
+Parameters
+text – The text to embed.
+
+Returns
+Embedding for the text.
+
+classmethod from_orm(obj: Any) → Model¶
+
+json(*, include: Optional[Union[AbstractSetIntStr, MappingIntStrAny]] = None, exclude: Optional[Union[AbstractSetIntStr, MappingIntStrAny]] = None, by_alias: bool = False, skip_defaults: Optional[bool] = None, exclude_unset: bool = False, exclude_defaults: bool = False, exclude_none: bool = False, encoder: Optional[Callable[[Any], Any]] = None, models_as_dict: bool = True, **dumps_kwargs: Any) → unicode¶
+Generate a JSON representation of the model, include and exclude arguments as per dict().
+encoder is an optional function to supply as default to json.dumps(), other arguments as per json.dumps().
+
+classmethod parse_file(path: Union[str, Path], *, content_type: unicode = None, encoding: unicode = 'utf8', proto: Protocol = None, allow_pickle: bool = False) → Model¶
+
+classmethod parse_obj(obj: Any) → Model¶
+
+classmethod parse_raw(b: Union[str, bytes], *, content_type: unicode = None, encoding: unicode = 'utf8', proto: Protocol = None, allow_pickle: bool = False) → Model¶
+
+classmethod schema(by_alias: bool = True, ref_template: unicode = '#/definitions/{model}') → DictStrAny¶</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: Yes, streaming is natively supported by Vertex AI LLM. The `streaming` parameter in the LangChain model can be set to `True` or `False`, indicating whether to stream the results or not. This allows for asynchronous processing of requests issued to Vertex AI models.

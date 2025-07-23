@@ -1,0 +1,72 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/modules/data_connection/vectorstores/</source>
+<doc_content>Vector stores | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Vector stores
+
+infoHead to [Integrations](/docs/integrations/vectorstores/) for documentation on built-in integrations with 3rd-party vector stores.</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/modules/data_connection/</source>
+<doc_content>**Vector stores**
+
+With the rise of embeddings, there has emerged a need for databases to support efficient storage and searching of these embeddings.
+LangChain provides integrations with over 50 different vectorstores, from open-source local ones to cloud-hosted proprietary ones,
+allowing you to choose the one best suited for your needs.
+LangChain exposes a standard interface, allowing you to easily swap between vector stores.
+
+**Retrievers**</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/vectorstores</source>
+<doc_content>Vector stores | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Vector stores</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.elasticsearch.ElasticsearchStore.html</source>
+<doc_content>langchain.vectorstores.elasticsearch.ElasticsearchStore — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.vectorstores.elasticsearch.ElasticsearchStore
+
+langchain.vectorstores.elasticsearch.ElasticsearchStore¶</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: There is no mention of "docstore" in the provided documents. However, LangChain provides integrations with over 50 different vector stores, which are databases that support efficient storage and searching of embeddings. Vector stores allow users to choose the one best suited for their needs, and LangChain exposes a standard interface, allowing easy swapping between them.

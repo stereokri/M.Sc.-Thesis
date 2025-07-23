@@ -1,0 +1,119 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/modules/model_io/prompts/prompt_templates/custom_prompt_template</source>
+<doc_content>## Creating a custom prompt template​
+
+There are essentially two distinct prompt templates available - string prompt templates and chat prompt templates. String prompt templates provides a simple prompt in string format, while chat prompt templates produces a more structured prompt to be used with a chat API.
+
+In this guide, we will create a custom prompt using a string prompt template. 
+
+To create a custom string prompt template, there are two requirements:</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/modules/model_io/prompts/prompt_templates/custom_prompt_template</source>
+<doc_content>## Creating a custom prompt template​
+
+There are essentially two distinct prompt templates available - string prompt templates and chat prompt templates. String prompt templates provides a simple prompt in string format, while chat prompt templates produces a more structured prompt to be used with a chat API.
+
+In this guide, we will create a custom prompt using a string prompt template. 
+
+To create a custom string prompt template, there are two requirements:</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/get_started/quickstart</source>
+<doc_content>`PromptTemplate`s can also be used to produce a list of messages.
+In this case, the prompt not only contains information about the content, but also each message (its role, its position in the list, etc.).
+Here, what happens most often is a `ChatPromptTemplate` is a list of `ChatMessageTemplates`.
+Each `ChatMessageTemplate` contains instructions for how to format that `ChatMessage` - its role, and then also its content.
+Let's take a look at this below:</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/get_started/quickstart</source>
+<doc_content>`PromptTemplate`s can also be used to produce a list of messages.
+In this case, the prompt not only contains information about the content, but also each message (its role, its position in the list, etc.).
+Here, what happens most often is a `ChatPromptTemplate` is a list of `ChatMessageTemplates`.
+Each `ChatMessageTemplate` contains instructions for how to format that `ChatMessage` - its role, and then also its content.
+Let's take a look at this below:</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/get_started/quickstart</source>
+<doc_content>`PromptTemplate`s can also be used to produce a list of messages.
+In this case, the prompt not only contains information about the content, but also each message (its role, its position in the list, etc.).
+Here, what happens most often is a `ChatPromptTemplate` is a list of `ChatMessageTemplates`.
+Each `ChatMessageTemplate` contains instructions for how to format that `ChatMessage` - its role, and then also its content.
+Let's take a look at this below:
+
+```python
+from langchain.prompts.chat import ChatPromptTemplate
+
+template = "You are a helpful assistant that translates {input_language} to {output_language}."
+human_template = "{text}"
+
+chat_prompt = ChatPromptTemplate.from_messages([
+    ("system", template),
+    ("human", human_template),
+])
+
+chat_prompt.format_messages(input_language="English", output_language="French", text="I love programming.")
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/use_cases/chatbots</source>
+<doc_content>- `prompt template`: Prompt templates make it easy to assemble prompts that combine default messages, user input, chat history, and (optionally) additional retrieved context.
+
+- `memory`: [See here](/docs/modules/memory/) for in-depth documentation on memory types
+
+- `retriever` (optional): [See here](/docs/modules/data_connection/retrievers) for in-depth documentation on retrieval systems. These are useful if you want to build a chatbot with domain-specific knowledge.
+
+## Quickstart​</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/use_cases/chatbots</source>
+<doc_content>- `prompt template`: Prompt templates make it easy to assemble prompts that combine default messages, user input, chat history, and (optionally) additional retrieved context.
+
+- `memory`: [See here](/docs/modules/memory/) for in-depth documentation on memory types
+
+- `retriever` (optional): [See here](/docs/modules/data_connection/retrievers) for in-depth documentation on retrieval systems. These are useful if you want to build a chatbot with domain-specific knowledge.
+
+## Quickstart​</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: A string prompt template provides a simple prompt in string format, while a chat prompt template produces a more structured prompt to be used with a chat API. A chat prompt template is typically a list of ChatMessageTemplates, each containing instructions for how to format a ChatMessage.

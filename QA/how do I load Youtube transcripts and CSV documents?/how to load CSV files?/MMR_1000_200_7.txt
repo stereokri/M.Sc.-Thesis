@@ -1,0 +1,206 @@
+<documents>
+<document index='0'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>document_loaders.csv_loader.CSVLoader(file_path)
+Load a CSV file into a list of Documents.
+
+document_loaders.csv_loader.UnstructuredCSVLoader(...)
+Load CSV files using Unstructured.
+
+document_loaders.cube_semantic.CubeSemanticLoader(...)
+Load Cube semantic layer metadata.
+
+document_loaders.datadog_logs.DatadogLogsLoader(...)
+Load Datadog logs.
+
+document_loaders.dataframe.BaseDataFrameLoader(...)
+Initialize with dataframe object.
+
+document_loaders.dataframe.DataFrameLoader(...)
+Load Pandas DataFrame.
+
+document_loaders.diffbot.DiffbotLoader(...)
+Load Diffbot json file.
+
+document_loaders.directory.DirectoryLoader(...)
+Load from a directory.
+
+document_loaders.discord.DiscordChatLoader(...)
+Load Discord chat logs.
+
+document_loaders.docugami.DocugamiLoader
+Load from Docugami.</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/modules/data_connection/document_loaders/csv</source>
+<doc_content>## Customizing the CSV parsing and loading​
+
+See the [csv module](https://docs.python.org/3/library/csv.html) documentation for more information of what csv args are supported.
+
+```python
+loader = CSVLoader(file_path='./example_data/mlb_teams_2012.csv', csv_args={
+    'delimiter': ',',
+    'quotechar': '"',
+    'fieldnames': ['MLB Team', 'Payroll in millions', 'Wins']
+})
+
+data = loader.load()
+```
+
+```python
+print(data)
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/csv</source>
+<doc_content>## UnstructuredCSVLoader​
+
+You can also load the table using the `UnstructuredCSVLoader`. One advantage of using `UnstructuredCSVLoader` is that if you use it in `"elements"` mode, an HTML representation of the table will be available in the metadata.
+
+```python
+from langchain.document_loaders.csv_loader import UnstructuredCSVLoader
+```
+
+```python
+loader = UnstructuredCSVLoader(
+    file_path="example_data/mlb_teams_2012.csv", mode="elements"
+)
+docs = loader.load()
+```
+
+```python
+print(docs[0].metadata["text_as_html"])
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/retrievers/chatgpt-plugin</source>
+<doc_content>```python
+# STEP 1: Load
+
+# Load documents using LangChain's DocumentLoaders
+# This is from https://langchain.readthedocs.io/en/latest/modules/document_loaders/examples/csv.html
+
+from langchain.document_loaders.csv_loader import CSVLoader
+
+loader = CSVLoader(
+    file_path="../../document_loaders/examples/example_data/mlb_teams_2012.csv"
+)
+data = loader.load()
+
+# STEP 2: Convert
+
+# Convert Document to format expected by https://github.com/openai/chatgpt-retrieval-plugin
+import json
+from typing import List
+
+from langchain.docstore.document import Document
+
+def write_json(path: str, documents: List[Document]) -> None:
+    results = [{"text": doc.page_content} for doc in documents]
+    with open(path, "w") as f:
+        json.dump(results, f, indent=2)
+
+write_json("foo.json", data)
+
+# STEP 3: Use
+
+# Ingest this as you would any other json file in https://github.com/openai/chatgpt-retrieval-plugin/tree/main/scripts/process_json
+```
+
+## Using the ChatGPT Retriever Plugin​</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/csv</source>
+<doc_content>- [Customizing the csv parsing and loading](#customizing-the-csv-parsing-and-loading)
+
+- [Specify a column to identify the document source](#specify-a-column-to-identify-the-document-source)
+
+- [UnstructuredCSVLoader](#unstructuredcsvloader)</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://api.python.langchain.com/en/latest/document_loaders/langchain.document_loaders.csv_loader.UnstructuredCSVLoader.html</source>
+<doc_content>Parameters
+
+file_path – The path to the CSV file.
+mode – The mode to use when loading the CSV file.
+Optional. Defaults to “single”.
+**unstructured_kwargs – Keyword arguments to pass to unstructured.
+
+Methods
+
+__init__(file_path[, mode])
+
+param file_path
+The path to the CSV file.
+
+lazy_load()
+A lazy loader for Documents.
+
+load()
+Load file.
+
+load_and_split([text_splitter])
+Load Documents and split into chunks.
+
+__init__(file_path: str, mode: str = 'single', **unstructured_kwargs: Any)[source]¶
+
+Parameters
+
+file_path – The path to the CSV file.
+mode – The mode to use when loading the CSV file.
+Optional. Defaults to “single”.
+**unstructured_kwargs – Keyword arguments to pass to unstructured.
+
+lazy_load() → Iterator[Document]¶
+A lazy loader for Documents.
+
+load() → List[Document]¶
+Load file.
+
+load_and_split(text_splitter: Optional[TextSplitter] = None) → List[Document]¶
+Load Documents and split into chunks. Chunks are returned as Documents.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/integrations/document_loaders</source>
+<doc_content>activities.](/docs/integrations/document_loaders/trello)[📄️ TSVA tab-separated values (TSV) file is a simple, text-based file format for storing tabular data.[3] Records are separated by newlines, and values within a record are separated by tab characters.](/docs/integrations/document_loaders/tsv)[📄️ TwitterTwitter is an online social media and social networking service.](/docs/integrations/document_loaders/twitter)[📄️ Unstructured FileThis notebook covers how to use Unstructured package to load files of many types. Unstructured currently supports loading of text files, powerpoints, html, pdfs, images, and more.](/docs/integrations/document_loaders/unstructured_file)[📄️ URLThis covers how to load HTML documents from a list of URLs into a document format that we can use downstream.](/docs/integrations/document_loaders/url)[📄️ WeatherOpenWeatherMap is an open-source weather service provider](/docs/integrations/document_loaders/weather)[📄️ WebBaseLoaderThis covers how to use</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: You can load a CSV file using `CSVLoader` from `langchain.document_loaders.csv_loader`. For example, `loader = CSVLoader(file_path='./example_data/mlb_teams_2012.csv', csv_args={'delimiter': ',', 'quotechar': '"'})` and then `data = loader.load()`.

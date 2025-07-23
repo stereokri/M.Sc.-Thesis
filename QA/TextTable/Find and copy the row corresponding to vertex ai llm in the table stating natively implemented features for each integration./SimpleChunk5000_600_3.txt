@@ -1,0 +1,120 @@
+<documents>
+<document index='0'>
+<source>/home/kristian/BenchMarkingPythonScripts/AdditionalDocs/NativeSupport.txt</source>
+<doc_content>LLMs | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# LLMs
+
+## Features (natively supported)​
+
+All LLMs implement the Runnable interface, which comes with default implementations of all methods, ie. `ainvoke`, `batch`, `abatch`, `stream`, `astream`. This gives all 
+LLMs basic support for async, streaming and batch, which by default is implemented as below:
+
+- _Async_ support defaults to calling the respective sync method in asyncio's default thread pool executor. This lets other async functions in your application make 
+progress while the LLM is being executed, by moving this call to a background thread.
+
+- _Streaming_ support defaults to returning an `Iterator` (or `AsyncIterator` in the case of async streaming) of a single value, the final result returned by the 
+underlying LLM provider. This obviously doesn't give you token-by-token streaming, which requires native support from the LLM provider, but ensures your code that 
+expects an iterator of tokens can work for any of our LLM integrations.
+
+- _Batch_ support defaults to calling the underlying LLM in parallel for each input by making use of a thread pool executor (in the sync batch case) or `asyncio.gather` 
+(in the async batch case). The concurrency can be controlled with the `max_concurrency` key in `RunnableConfig`.
+
+Each LLM integration can optionally provide native implementations for async, streaming or batch, which, for providers that support it, can be more efficient. The table 
+shows, for each integration, which features have been implemented with native support.
+
+| Model | Invoke | Async invoke | Stream | Async stream | Batch | Async batch |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| AI21 | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| AlephAlpha | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| AmazonAPIGateway | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Anthropic | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Anyscale | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Arcee | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Aviary | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| AzureMLOnlineEndpoint | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| AzureOpenAI | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Banana | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Baseten | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Beam | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Bedrock | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| CTransformers | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| CTranslate2 | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| CerebriumAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| ChatGLM | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Clarifai | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Cohere | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Databricks | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| DeepInfra | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| DeepSparse | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| EdenAI | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Fireworks | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| ForefrontAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| GPT4All | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| GigaChat | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| GooglePalm | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| GooseAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| GradientLLM | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ |
+| HuggingFaceEndpoint | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| HuggingFaceHub | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| HuggingFacePipeline | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| HuggingFaceTextGenInference | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| HumanInputLLM | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| JavelinAIGateway | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| KoboldApiLLM | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| LlamaCpp | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| ManifestWrapper | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Minimax | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| MlflowAIGateway | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Modal | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| MosaicML | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| NIBittensorLLM | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| NLPCloud | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Nebula | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| OctoAIEndpoint | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Ollama | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| OpaquePrompts | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| OpenAI | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| OpenLLM | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| OpenLM | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| PaiEasEndpoint | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Petals | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| PipelineAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Predibase | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| PredictionGuard | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| PromptLayerOpenAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| QianfanLLMEndpoint | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| RWKV | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Replicate | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| SagemakerEndpoint | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| SelfHostedHuggingFaceLLM | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| SelfHostedPipeline | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| StochasticAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| TextGen | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| TitanTakeoff | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| TitanTakeoffPro | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Tongyi | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| VLLM | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| VLLMOpenAI | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| VertexAI | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
+| VertexAIModelGarden | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ |
+| Writer | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Xinference | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| YandexGPT | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+
+- [Features (natively supported)](#features-natively-supported)</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: Here is the copied row:
+
+| VertexAI | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
+
+This indicates that VertexAI has native support for invoke, async, and batch prediction, but not for streaming inference.

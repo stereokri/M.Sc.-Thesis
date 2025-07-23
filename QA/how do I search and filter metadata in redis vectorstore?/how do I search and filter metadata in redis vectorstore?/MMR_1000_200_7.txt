@@ -1,0 +1,227 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>```text
+    16:58:26 [RedisVL] INFO   Indices:
+    16:58:26 [RedisVL] INFO   1. users
+```
+
+The `Redis` VectorStore implementation will attempt to generate index schema (fields for filtering) for any metadata passed through the `from_texts`, `from_texts_return_keys`, and `from_documents` methods. This way, whatever metadata is passed will be indexed into the Redis search index allowing
+for filtering on those fields.
+
+Below we show what fields were created from the metadata we defined above
+
+```bash
+rvl index info -i users
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>It's important to note that we have not specified that the `user`, `job`, `credit_score` and `age` in the metadata should be fields within the index, this is because the `Redis` VectorStore object automatically generate the index schema from the passed metadata. For more information on the generation of index fields, see the API documentation.
+
+## Querying​
+
+There are multiple ways to query the `Redis` VectorStore implementation based on what use case you have:
+
+- `similarity_search`: Find the most similar vectors to a given vector.
+
+- `similarity_search_with_score`: Find the most similar vectors to a given vector and return the vector distance
+
+- `similarity_search_limit_score`: Find the most similar vectors to a given vector and limit the number of results to the `score_threshold`
+
+- `similarity_search_with_relevance_scores`: Find the most similar vectors to a given vector and return the vector similarities</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.redis.filters.RedisTag.html</source>
+<doc_content>langchain.vectorstores.redis.filters.RedisTag — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.vectorstores.redis.filters.RedisTag
+
+langchain.vectorstores.redis.filters.RedisTag¶
+
+class langchain.vectorstores.redis.filters.RedisTag(field: str)[source]¶
+A RedisFilterField representing a tag in a Redis index.
+Create a RedisTag FilterField
+
+Parameters
+field (str) – The name of the RedisTag field in the index to be queried
+against.
+
+Attributes
+
+OPERATORS
+
+OPERATOR_MAP
+
+escaper
+
+Methods
+
+__init__(field)
+Create a RedisTag FilterField
+
+equals(other)
+
+__init__(field: str)[source]¶
+Create a RedisTag FilterField
+
+Parameters
+field (str) – The name of the RedisTag field in the index to be queried
+against.
+
+equals(other: RedisFilterField) → bool¶
+
+Examples using RedisTag¶
+
+Redis
+
+            © 2023, Harrison Chase.
+          Last updated on Nov 17, 2023.
+          Show this page source</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>## More Resources​
+
+For more information on how to use Redis as a vector database, check out the following resources:
+
+- [RedisVL Documentation](https://redisvl.com) - Documentation for the Redis Vector Library Client
+
+- [Redis Vector Similarity Docs](https://redis.io/docs/stack/search/reference/vectors/) - Redis official docs for Vector Search.
+
+- [Redis-py Search Docs](https://redis.readthedocs.io/en/latest/redismodules.html#redisearch-commands) - Documentation for redis-py client library
+
+- [Vector Similarity Search: From Basics to Production](https://mlops.community/vector-similarity-search-from-basics-to-production/) - Introductory blog post to VSS and Redis as a VectorDB.
+
+## Install Redis Python Client​
+
+Redis-py is the officially supported client by Redis. Recently released is the RedisVL client which is purpose-built for the Vector Database use cases. Both can be installed with pip.
+
+```bash
+pip install redis redisvl openai tiktoken
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/use_cases/question_answering/document-context-aware-QA</source>
+<doc_content>This sets us up well do perform metadata filtering based on the document structure.
+
+Let's bring this all together by building a vectorstore first.
+
+```bash
+pip install chromadb
+```
+
+```python
+# Build vectorstore and keep the metadata
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.vectorstores import Chroma
+
+vectorstore = Chroma.from_documents(documents=all_splits, embedding=OpenAIEmbeddings())
+```
+
+Let's create a `SelfQueryRetriever` that can filter based upon metadata we defined.
+
+```python
+# Create retriever
+from langchain.chains.query_constructor.base import AttributeInfo
+from langchain.llms import OpenAI
+from langchain.retrievers.self_query.base import SelfQueryRetriever
+
+# Define our metadata
+metadata_field_info = [
+    AttributeInfo(
+        name="Section",
+        description="Part of the document that the text comes from",
+        type="string or list[string]",
+    ),
+]
+document_content_description = "Major sections of the document"</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://api.python.langchain.com/en/latest/chains/langchain.chains.retrieval_qa.base.VectorDBQA.html</source>
+<doc_content>param metadata: Optional[Dict[str, Any]] = None¶
+Optional metadata associated with the chain. Defaults to None.
+This metadata will be associated with each call to this chain,
+and passed as arguments to the handlers defined in callbacks.
+You can use these to eg identify a specific instance of a chain with its use case.
+
+param return_source_documents: bool = False¶
+Return the source documents or not.
+
+param search_kwargs: Dict[str, Any] [Optional]¶
+Extra search args.
+
+param search_type: str = 'similarity'¶
+Search type to use over vectorstore. similarity or mmr.
+
+param tags: Optional[List[str]] = None¶
+Optional list of tags associated with the chain. Defaults to None.
+These tags will be associated with each call to this chain,
+and passed as arguments to the handlers defined in callbacks.
+You can use these to eg identify a specific instance of a chain with its use case.
+
+param vectorstore: VectorStore [Required]¶
+Vector Database to connect to.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/faiss</source>
+<doc_content>## Similarity Search with filtering​
+
+FAISS vectorstore can also support filtering, since the FAISS does not natively support filtering we have to do it manually. This is done by first fetching more results than `k` and then filtering them. You can filter the documents based on metadata. You can also set the `fetch_k` parameter when calling any search method to set how many documents you want to fetch before filtering. Here is a small example:
+
+```python
+from langchain.schema import Document</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: You can use the `Redis` VectorStore implementation to search and filter metadata by generating an index schema from the passed metadata. The `RedisTag` FilterField can be used to create a filter for a specific field in the Redis index, allowing you to query against that field. Additionally, you can use methods like `similarity_search`, `similarity_search_with_score`, and `similarity_search_limit_score` to search for similar vectors and filter results based on metadata.

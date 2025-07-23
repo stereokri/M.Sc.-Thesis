@@ -1,0 +1,209 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/memory/streamlit_chat_message_history</source>
+<doc_content># Add the memory to an LLMChain as usual
+llm_chain = LLMChain(llm=OpenAI(), prompt=prompt, memory=memory)
+```
+
+Conversational Streamlit apps will often re-draw each previous chat message on every re-run. This is easy to do by iterating through `StreamlitChatMessageHistory.messages`:
+
+```python
+import streamlit as st
+
+for msg in msgs.messages:
+    st.chat_message(msg.type).write(msg.content)
+
+if prompt := st.chat_input():
+    st.chat_message("human").write(prompt)
+
+    # As usual, new messages are added to StreamlitChatMessageHistory when the Chain is called.
+    response = llm_chain.run(prompt)
+    st.chat_message("ai").write(response)
+```
+
+**View the final app.**</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/modules/callbacks/async_callbacks</source>
+<doc_content>async def on_llm_end(self, response: LLMResult, **kwargs: Any) -> None:
+        """Run when chain ends running."""
+        print("zzzz....")
+        await asyncio.sleep(0.3)
+        print("Hi! I just woke up. Your llm is ending")
+
+# To enable streaming, we pass in `streaming=True` to the ChatModel constructor
+# Additionally, we pass in a list with our custom handler
+chat = ChatOpenAI(
+    max_tokens=25,
+    streaming=True,
+    callbacks=[MyCustomSyncHandler(), MyCustomAsyncHandler()],
+)
+
+await chat.agenerate([[HumanMessage(content="Tell me a joke")]])
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/use_cases/chatbots</source>
+<doc_content># LLM
+llm = ChatOpenAI()
+
+# Prompt
+prompt = ChatPromptTemplate(
+    messages=[
+        SystemMessagePromptTemplate.from_template(
+            "You are a nice chatbot having a conversation with a human."
+        ),
+        # The `variable_name` here is what must align with memory
+        MessagesPlaceholder(variable_name="chat_history"),
+        HumanMessagePromptTemplate.from_template("{question}"),
+    ]
+)
+
+# Notice that we `return_messages=True` to fit into the MessagesPlaceholder
+# Notice that `"chat_history"` aligns with the MessagesPlaceholder name
+memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+conversation = LLMChain(llm=llm, prompt=prompt, verbose=True, memory=memory)
+
+# Notice that we just pass in the `question` variables - `chat_history` gets populated by memory
+conversation({"question": "hi"})
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/expression_language/how_to/fallbacks</source>
+<doc_content>We can use our "LLM with Fallbacks" as we would a normal LLM.
+
+```python
+from langchain.prompts import ChatPromptTemplate
+
+prompt = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            "You're a nice assistant who always includes a compliment in your response",
+        ),
+        ("human", "Why did the {animal} cross the road"),
+    ]
+)
+chain = prompt | llm
+with patch("openai.ChatCompletion.create", side_effect=RateLimitError()):
+    try:
+        print(chain.invoke({"animal": "kangaroo"}))
+    except:
+        print("Hit error")
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/guides/fallbacks</source>
+<doc_content>We can use our "LLM with Fallbacks" as we would a normal LLM.
+
+```python
+from langchain.prompts import ChatPromptTemplate
+
+prompt = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            "You're a nice assistant who always includes a compliment in your response",
+        ),
+        ("human", "Why did the {animal} cross the road"),
+    ]
+)
+chain = prompt | llm
+with patch("openai.ChatCompletion.create", side_effect=RateLimitError()):
+    try:
+        print(chain.invoke({"animal": "kangaroo"}))
+    except:
+        print("Hit error")
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/memory/mongodb_chat_message_history</source>
+<doc_content>message_history.add_user_message("hi!")
+
+message_history.add_ai_message("whats up?")
+```
+
+```python
+message_history.messages
+```
+
+```text
+    [HumanMessage(content='hi!', additional_kwargs={}, example=False),
+     AIMessage(content='whats up?', additional_kwargs={}, example=False)]
+```
+
+- [Setting up](#setting-up)
+
+- [Example](#example)</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/modules/memory/</source>
+<doc_content>llm = ChatOpenAI()
+prompt = ChatPromptTemplate(
+    messages=[
+        SystemMessagePromptTemplate.from_template(
+            "You are a nice chatbot having a conversation with a human."
+        ),
+        # The `variable_name` here is what must align with memory
+        MessagesPlaceholder(variable_name="chat_history"),
+        HumanMessagePromptTemplate.from_template("{question}")
+    ]
+)
+# Notice that we `return_messages=True` to fit into the MessagesPlaceholder
+# Notice that `"chat_history"` aligns with the MessagesPlaceholder name.
+memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+conversation = LLMChain(
+    llm=llm,
+    prompt=prompt,
+    verbose=True,
+    memory=memory
+)
+```
+
+```python
+# Notice that we just pass in the `question` variables - `chat_history` gets populated by memory
+conversation({"question": "hi"})
+```
+
+## Next steps​</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: You can add a system message at the end of the conversation history by modifying the `memory` object. Specifically, you would update the `chat_history` in the `ConversationBufferMemory` instance with the new system message. For example: `memory.update({"chat_history": [..., SystemMessagePromptTemplate.from_template("Your additional context here.")])`. This will influence the output of the LLM by providing additional context for the conversation.

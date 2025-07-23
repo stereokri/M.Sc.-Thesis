@@ -1,0 +1,290 @@
+<documents>
+<document index='0'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>document_loaders.youtube.YoutubeLoader(video_id)
+Load YouTube transcripts.
+
+Functions¶
+
+document_loaders.base_o365.fetch_mime_types(...)
+Fetch the mime types for the specified file types.
+
+document_loaders.chatgpt.concatenate_rows(...)
+Combine message information in a readable format ready to be used.
+
+document_loaders.facebook_chat.concatenate_rows(row)
+Combine message information in a readable format ready to be used.
+
+document_loaders.helpers.detect_file_encodings(...)
+Try to detect the file encoding.
+
+document_loaders.notebook.concatenate_cells(...)
+Combine cells information in a readable format ready to be used.
+
+document_loaders.notebook.remove_newlines(x)
+Recursively remove newlines, no matter the data structure they are stored in.
+
+document_loaders.parsers.pdf.extract_from_images_with_rapidocr(images)
+Extract text from images with RapidOCR.
+
+document_loaders.parsers.registry.get_parser(...)
+Get a parser by parser name.</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/platforms/google</source>
+<doc_content>Use `YoutubeAudioLoader` to fetch / download the audio files.
+
+Then, use `OpenAIWhisperParser` to transcribe them to text.
+
+We need to install several python packages.
+
+```bash
+pip install yt_dlp pydub librosa
+```
+
+See a [usage example and authorization instructions](/docs/integrations/document_loaders/youtube_audio).
+
+```python
+from langchain.document_loaders.blob_loaders.youtube_audio import YoutubeAudioLoader
+from langchain.document_loaders.parsers import OpenAIWhisperParser, OpenAIWhisperParserLocal
+```
+
+### YouTube transcripts​
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by `Google`.
+
+We need to install `youtube-transcript-api` python package.
+
+```bash
+pip install youtube-transcript-api
+```
+
+See a [usage example](/docs/integrations/document_loaders/youtube_transcript).
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+- [LLMs](#llms)- [Vertex AI](#vertex-ai)
+
+- [Model Garden](#model-garden)</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content>YouTube transcripts | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# YouTube transcripts
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by Google.
+
+This notebook covers how to load documents from `YouTube transcripts`.
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+```python
+# !pip install youtube-transcript-api
+```
+
+```python
+loader = YoutubeLoader.from_youtube_url(
+    "https://www.youtube.com/watch?v=QsYGlZkevEg", add_video_info=True
+)
+```
+
+```python
+loader.load()
+```
+
+### Add video info​
+
+```python
+# ! pip install pytube
+```
+
+```python
+loader = YoutubeLoader.from_youtube_url(
+    "https://www.youtube.com/watch?v=QsYGlZkevEg", add_video_info=True
+)
+loader.load()
+```
+
+### Add language preferences​
+
+Language param : It's a list of language codes in a descending priority, `en` by default.</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://api.python.langchain.com/en/latest/document_loaders/langchain.document_loaders.youtube.YoutubeLoader.html</source>
+<doc_content>lazy_load()
+A lazy loader for Documents.
+
+load()
+Load documents.
+
+load_and_split([text_splitter])
+Load Documents and split into chunks.
+
+__init__(video_id: str, add_video_info: bool = False, language: Union[str, Sequence[str]] = 'en', translation: str = 'en', continue_on_failure: bool = False)[source]¶
+Initialize with YouTube video ID.
+
+static extract_video_id(youtube_url: str) → str[source]¶
+Extract video id from common YT urls.
+
+classmethod from_youtube_url(youtube_url: str, **kwargs: Any) → YoutubeLoader[source]¶
+Given youtube URL, load video.
+
+lazy_load() → Iterator[Document]¶
+A lazy loader for Documents.
+
+load() → List[Document][source]¶
+Load documents.
+
+load_and_split(text_splitter: Optional[TextSplitter] = None) → List[Document]¶
+Load Documents and split into chunks. Chunks are returned as Documents.
+
+Parameters
+text_splitter – TextSplitter instance to use for splitting documents.
+Defaults to RecursiveCharacterTextSplitter.
+
+Returns
+List of Documents.</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/nuclia</source>
+<doc_content>loader = NucliaLoader("./interview.mp4", nua)
+```
+
+You can now call the `load` the document in a loop until you get the document.
+
+```python
+import time
+
+pending = True
+while pending:
+    time.sleep(15)
+    docs = loader.load()
+    if len(docs) > 0:
+        print(docs[0].page_content)
+        print(docs[0].metadata)
+        pending = False
+    else:
+        print("waiting...")
+```
+
+## Retrieved information​
+
+Nuclia returns the following information:
+
+- file metadata
+
+- extracted text
+
+- nested text (like text in an embedded image)
+
+- paragraphs and sentences splitting (defined by the position of their first and last characters, plus start time and end time for a video or audio file)
+
+- links
+
+- a thumbnail
+
+- embedded files
+
+Note:
+
+  Generated files (thumbnail, extracted embedded files, etc.) are provided as a token. You can download them with the [/processing/download endpoint](https://docs.nuclia.dev/docs/api#operation/Download_binary_file_processing_download_get).</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/retrievers/chatgpt-plugin</source>
+<doc_content>```python
+# STEP 1: Load
+
+# Load documents using LangChain's DocumentLoaders
+# This is from https://langchain.readthedocs.io/en/latest/modules/document_loaders/examples/csv.html
+
+from langchain.document_loaders.csv_loader import CSVLoader
+
+loader = CSVLoader(
+    file_path="../../document_loaders/examples/example_data/mlb_teams_2012.csv"
+)
+data = loader.load()
+
+# STEP 2: Convert
+
+# Convert Document to format expected by https://github.com/openai/chatgpt-retrieval-plugin
+import json
+from typing import List
+
+from langchain.docstore.document import Document
+
+def write_json(path: str, documents: List[Document]) -> None:
+    results = [{"text": doc.page_content} for doc in documents]
+    with open(path, "w") as f:
+        json.dump(results, f, indent=2)
+
+write_json("foo.json", data)
+
+# STEP 3: Use
+
+# Ingest this as you would any other json file in https://github.com/openai/chatgpt-retrieval-plugin/tree/main/scripts/process_json
+```
+
+## Using the ChatGPT Retriever Plugin​</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content>4. `pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib youtube-transcript-api`
+
+### 🧑 Instructions for ingesting your Google Docs data​
+
+By default, the `GoogleDriveLoader` expects the `credentials.json` file to be `~/.credentials/credentials.json`, but this is configurable using the `credentials_file` keyword argument. Same thing with `token.json`. Note that `token.json` will be created automatically the first time you use the loader.
+
+`GoogleApiYoutubeLoader` can load from a list of Google Docs document ids or a folder id. You can obtain your folder and document id from the URL:
+Note depending on your set up, the `service_account_path` needs to be set up. See [here](https://developers.google.com/drive/api/v3/quickstart/python) for more details.
+
+```python
+# Init the GoogleApiClient
+from pathlib import Path
+
+from langchain.document_loaders import GoogleApiClient, GoogleApiYoutubeLoader</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: To load YouTube transcripts, you can use `YoutubeLoader` from `langchain.document_loaders`. For example, `loader = YoutubeLoader.from_youtube_url("https://www.youtube.com/watch?v=QsYGlZkevEg", add_video_info=True)` and then call `loader.load()` to load the documents. To load CSV documents, you can use `CSVLoader` from `langchain.document_loaders.csv_loader`. For example, `loader = CSVLoader(file_path="../../document_loaders/examples/example_data/mlb_teams_2012.csv")` and then call `data = loader.load()`.

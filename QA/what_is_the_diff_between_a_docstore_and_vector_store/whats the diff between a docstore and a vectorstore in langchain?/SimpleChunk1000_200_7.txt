@@ -1,0 +1,211 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/toolkits/vectorstore</source>
+<doc_content>Vectorstore | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Vectorstore
+
+This notebook showcases an agent designed to retrieve information from one or more vectorstores, either with or without sources.
+
+## Create Vectorstores​
+
+```python
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.llms import OpenAI
+from langchain.text_splitter import CharacterTextSplitter
+from langchain.vectorstores import Chroma
+
+llm = OpenAI(temperature=0)
+```
+
+```python
+from langchain.document_loaders import TextLoader
+
+loader = TextLoader("../../modules/state_of_the_union.txt")
+documents = loader.load()
+text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+texts = text_splitter.split_documents(documents)
+
+embeddings = OpenAIEmbeddings()
+state_of_union_store = Chroma.from_documents(
+    texts, embeddings, collection_name="state-of-union"
+)
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/modules/data_connection/vectorstores/</source>
+<doc_content>Vector stores | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Vector stores
+
+infoHead to [Integrations](/docs/integrations/vectorstores/) for documentation on built-in integrations with 3rd-party vector stores.</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.elasticsearch.ElasticsearchStore.html</source>
+<doc_content>langchain.vectorstores.elasticsearch.ElasticsearchStore — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.vectorstores.elasticsearch.ElasticsearchStore
+
+langchain.vectorstores.elasticsearch.ElasticsearchStore¶</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.elasticsearch.ElasticsearchStore.html</source>
+<doc_content>langchain.vectorstores.elasticsearch.ElasticsearchStore — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.vectorstores.elasticsearch.ElasticsearchStore
+
+langchain.vectorstores.elasticsearch.ElasticsearchStore¶</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/toolkits/vectorstore</source>
+<doc_content>Vectorstore | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Vectorstore
+
+This notebook showcases an agent designed to retrieve information from one or more vectorstores, either with or without sources.
+
+## Create Vectorstores​
+
+```python
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.llms import OpenAI
+from langchain.text_splitter import CharacterTextSplitter
+from langchain.vectorstores import Chroma
+
+llm = OpenAI(temperature=0)
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/modules/memory/types/vectorstore_retriever_memory</source>
+<doc_content>Backed by a Vector Store | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Backed by a Vector Store
+
+`VectorStoreRetrieverMemory` stores memories in a vector store and queries the top-K most "salient" docs every time it is called.
+
+This differs from most of the other Memory classes in that it doesn't explicitly track the order of interactions.
+
+In this case, the "docs" are previous conversation snippets. This can be useful to refer to relevant pieces of information that the AI was told earlier in the conversation.
+
+```python
+from datetime import datetime
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.llms import OpenAI
+from langchain.memory import VectorStoreRetrieverMemory
+from langchain.chains import ConversationChain
+from langchain.prompts import PromptTemplate
+```
+
+### Initialize your vector store​
+
+Depending on the store you choose, this step may look different. Consult the relevant vector store documentation for more details.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.xata.XataVectorStore.html</source>
+<doc_content>langchain.vectorstores.xata.XataVectorStore — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.vectorstores.xata.XataVectorStore
+
+langchain.vectorstores.xata.XataVectorStore¶
+
+class langchain.vectorstores.xata.XataVectorStore(api_key: str, db_url: str, embedding: Embeddings, table_name: str)[source]¶
+Xata vector store.
+It assumes you have a Xata database
+created with the right schema. See the guide at:
+https://integrations.langchain.com/vectorstores?integration_name=XataVectorStore
+Initialize with Xata client.
+Attributes
+
+embeddings
+Access the query embedding object if available.
+
+Methods
+
+__init__(api_key, db_url, embedding, table_name)
+Initialize with Xata client.
+
+aadd_documents(documents, **kwargs)
+Run more documents through the embeddings and add to the vectorstore.
+
+aadd_texts(texts[, metadatas])
+Run more texts through the embeddings and add to the vectorstore.</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: In LangChain, a Document Store is not explicitly mentioned, but it can be inferred that it refers to a storage of documents or texts. On the other hand, a VectorStore is a specific type of store that retrieves information from one or more vector stores, either with or without sources. It seems that a VectorStore is a more specialized and advanced concept in LangChain, focusing on embeddings and vector representations of documents.

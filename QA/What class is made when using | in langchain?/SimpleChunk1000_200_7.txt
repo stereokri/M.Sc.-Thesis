@@ -1,0 +1,169 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/get_started/quickstart</source>
+<doc_content>Note that we are using the `|` syntax to join these components together.
+This `|` syntax is powered by the LangChain Expression Language (LCEL) and relies on the universal `Runnable` interface that all of these objects implement.
+To learn more about LCEL, read the documentation [here](/docs/expression_language).
+
+## Tracing with LangSmith​</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/</source>
+<doc_content>🦜️🔗 Langchain</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/</source>
+<doc_content>🦜️🔗 Langchain</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/modules/memory/types/summary_buffer</source>
+<doc_content>' Oh, okay. What is LangChain?'
+```
+
+- [Using memory with LLM](#using-memory-with-llm)
+
+- [Using in a chain](#using-in-a-chain)</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/modules/memory/types/summary_buffer</source>
+<doc_content>' Oh, okay. What is LangChain?'
+```
+
+- [Using memory with LLM](#using-memory-with-llm)
+
+- [Using in a chain](#using-in-a-chain)</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>langchain.chains
+Classes
+Functions
+
+langchain.chat_loaders
+Classes
+Functions
+
+langchain.chat_models
+Classes
+Functions
+
+langchain.docstore
+Classes
+
+langchain.document_loaders
+Classes
+Functions
+
+langchain.document_transformers
+Classes
+Functions
+
+langchain.embeddings
+Classes
+Functions
+
+langchain.evaluation
+Classes
+Functions
+
+langchain.graphs
+Classes
+Functions
+
+langchain.hub
+Functions
+
+langchain.indexes
+Classes
+Functions
+
+langchain.llms
+Classes
+Functions
+
+langchain.load
+Classes
+Functions</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>langchain.storage
+Classes
+
+langchain.text_splitter
+Classes
+Functions
+
+langchain.tools
+Classes
+Functions
+
+langchain.tools.render
+Functions
+
+langchain.utilities
+Classes
+Functions
+
+langchain.utils
+Classes
+Functions
+
+langchain.vectorstores
+Classes
+Functions
+
+langchain API Reference¶
+
+langchain.adapters¶
+
+Classes¶
+
+adapters.openai.ChatCompletion()
+Chat completion.
+
+Functions¶
+
+adapters.openai.aenumerate(iterable[, start])
+Async version of enumerate function.</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: When using the `|` syntax in LangChain, it relies on the universal `Runnable` interface that all of these objects implement. This `|` syntax is powered by the LangChain Expression Language (LCEL).

@@ -1,0 +1,138 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/modules/memory/adding_memory</source>
+<doc_content>## Adding Memory to a chat model-based LLMChain​
+
+The above works for completion-style `LLM`s, but if you are using a chat model, you will likely get better performance using structured chat messages. Below is an example.
+
+```python
+from langchain.chat_models import ChatOpenAI
+from langchain.prompts import (
+    ChatPromptTemplate,
+    HumanMessagePromptTemplate,
+    MessagesPlaceholder,
+)
+from langchain.schema import SystemMessage
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/expression_language/how_to/message_history</source>
+<doc_content>To add message history to our original chain we wrap it in the `RunnableWithMessageHistory` class.
+
+Crucially, we also need to  define a method that takes a session_id string and based on it returns a `BaseChatMessageHistory`. Given the same input, this method should return an equivalent output.
+
+In this case we'll also want to specify `input_messages_key` (the key to be treated as the latest input message) and `history_messages_key` (the key to add historical messages to).</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/modules/memory/adding_memory</source>
+<doc_content>The configuration below makes it so the memory will be injected to the middle of the chat prompt, in the `chat_history` key, and the user's inputs will be added in a human/user message to the end of the chat prompt.</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/use_cases/chatbots</source>
+<doc_content># LLM
+llm = ChatOpenAI()
+
+# Prompt
+prompt = ChatPromptTemplate(
+    messages=[
+        SystemMessagePromptTemplate.from_template(
+            "You are a nice chatbot having a conversation with a human."
+        ),
+        # The `variable_name` here is what must align with memory
+        MessagesPlaceholder(variable_name="chat_history"),
+        HumanMessagePromptTemplate.from_template("{question}"),
+    ]
+)</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/memory/rockset_chat_message_history</source>
+<doc_content>history = RocksetChatMessageHistory(
+    session_id="MySession",
+    client=RocksetClient(
+        api_key="YOUR API KEY",
+        host=Regions.usw2a1,  # us-west-2 Oregon
+    ),
+    collection="langchain_demo",
+    sync=True,
+)
+history.add_user_message("hi!")
+history.add_ai_message("whats up?")
+print(history.messages)
+```
+
+The output should be something like:</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/memory/streamlit_chat_message_history</source>
+<doc_content>if prompt := st.chat_input():
+    st.chat_message("human").write(prompt)
+
+    # As usual, new messages are added to StreamlitChatMessageHistory when the Chain is called.
+    response = llm_chain.run(prompt)
+    st.chat_message("ai").write(response)
+```
+
+**View the final app.**</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/modules/memory/</source>
+<doc_content>llm = OpenAI(temperature=0)
+# Notice that "chat_history" is present in the prompt template
+template = """You are a nice chatbot having a conversation with a human.
+
+Previous conversation:
+{chat_history}</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: You can add a system message at the end of the conversation history by including it in the `messages` list within the `ChatPromptTemplate`. For example:
+
+```
+prompt = ChatPromptTemplate(
+    messages=[
+        SystemMessagePromptTemplate.from_template("You are a nice chatbot having a conversation with a human."),
+        MessagesPlaceholder(variable_name="chat_history"),
+        HumanMessagePromptTemplate.from_template("{question}"),
+        SystemMessagePromptTemplate.from_template("Your system message here."),  # Add this line
+    ]
+)
+```
+
+This will include the system message at the end of the conversation history, influencing the output of the LLM.

@@ -1,0 +1,185 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/providers/motherduck</source>
+<doc_content>## LLMCache​
+
+You can also easily use Motherduck to cache LLM requests.
+Once again this is done through the SQLAlchemy wrapper.
+
+```text
+import sqlalchemy
+from langchain.globals import set_llm_cache
+eng = sqlalchemy.create_engine(conn_str)
+set_llm_cache(SQLAlchemyCache(engine=eng))
+```
+
+From here, see the [LLM Caching](/docs/modules/model_io/llms/how_to/llm_caching) documentation on how to use.
+
+- [Installation and Setup](#installation-and-setup)
+
+- [SQLChain](#sqlchain)</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/llms/llm_caching</source>
+<doc_content>set_llm_cache(SQLiteCache(database_path=".langchain.db"))
+```
+
+```python
+# The first time, it is not yet in cache, so it should take longer
+llm("Tell me a joke")
+```
+
+```text
+    CPU times: user 33.2 ms, sys: 18.1 ms, total: 51.2 ms
+    Wall time: 667 ms
+
+    '\n\nWhy did the chicken cross the road?\n\nTo get to the other side.'
+```
+
+```python
+# The second time it is, so it goes faster
+llm("Tell me a joke")
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/modules/model_io/llms/llm_caching</source>
+<doc_content>## SQLite Cache​
+
+```bash
+rm .langchain.db
+```
+
+```python
+# We can do the same thing with a SQLite cache
+from langchain.cache import SQLiteCache
+set_llm_cache(SQLiteCache(database_path=".langchain.db"))
+```
+
+```python
+# The first time, it is not yet in cache, so it should take longer
+llm.predict("Tell me a joke")
+```
+
+```text
+    CPU times: user 17 ms, sys: 9.76 ms, total: 26.7 ms
+    Wall time: 825 ms
+
+    '\n\nWhy did the chicken cross the road?\n\nTo get to the other side.'
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/modules/model_io/chat/chat_model_caching</source>
+<doc_content>## SQLite Cache​
+
+```bash
+rm .langchain.db
+```
+
+```python
+# We can do the same thing with a SQLite cache
+from langchain.cache import SQLiteCache
+set_llm_cache(SQLiteCache(database_path=".langchain.db"))
+```
+
+```python
+# The first time, it is not yet in cache, so it should take longer
+llm.predict("Tell me a joke")
+```
+
+```text
+    CPU times: user 17 ms, sys: 9.76 ms, total: 26.7 ms
+    Wall time: 825 ms
+
+    '\n\nWhy did the chicken cross the road?\n\nTo get to the other side.'
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>cache.FullLLMCache(**kwargs)
+SQLite table for full LLM Cache (all generations).
+
+cache.FullMd5LLMCache(**kwargs)
+SQLite table for full LLM Cache (all generations).
+
+cache.GPTCache([init_func])
+Cache that uses GPTCache as a backend.
+
+cache.InMemoryCache()
+Cache that stores things in memory.
+
+cache.MomentoCache(cache_client, cache_name, *)
+Cache that uses Momento as a backend.
+
+cache.RedisCache(redis_, *[, ttl])
+Cache that uses Redis as a backend.</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>Cache provides an optional caching layer for LLMs.
+Cache is useful for two reasons:
+
+It can save you money by reducing the number of API calls you make to the LLM
+provider if you’re often requesting the same completion multiple times.
+It can speed up your application by reducing the number of API calls you make
+to the LLM provider.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>cache.SQLiteCache([database_path])
+Cache that uses SQLite as a backend.
+
+cache.UpstashRedisCache(redis_, *[, ttl])
+Cache that uses Upstash Redis as a backend.
+
+Functions¶
+
+langchain.callbacks¶
+Callback handlers allow listening to events in LangChain.
+Class hierarchy:
+BaseCallbackHandler --> <name>CallbackHandler  # Example: AimCallbackHandler
+
+Classes¶
+
+callbacks.aim_callback.AimCallbackHandler([...])
+Callback Handler that logs to Aim.</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: Yes, you can cache LLM calls in SQLite. You can use the `SQLiteCache` class from the `langchain.cache` module and set it as the LLM cache using `set_llm_cache`. For example, `set_llm_cache(SQLiteCache(database_path=".langchain.db"))`.

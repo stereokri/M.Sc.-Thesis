@@ -1,0 +1,131 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/toolkits/python</source>
+<doc_content>## Using ZERO_SHOT_REACT_DESCRIPTION​
+
+This shows how to initialize the agent using the ZERO_SHOT_REACT_DESCRIPTION agent type.
+
+```python
+agent_executor = create_python_agent(
+    llm=OpenAI(temperature=0, max_tokens=1000),
+    tool=PythonREPLTool(),
+    verbose=True,
+    agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+)
+```
+
+## Using OpenAI Functions​
+
+This shows how to initialize the agent using the OPENAI_FUNCTIONS agent type. Note that this is an alternative to the above.</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/toolkits/csv</source>
+<doc_content>This shows how to initialize the agent using the `ZERO_SHOT_REACT_DESCRIPTION` agent type.
+
+```python
+agent = create_csv_agent(
+    OpenAI(temperature=0),
+    "titanic.csv",
+    verbose=True,
+    agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+)
+```
+
+## Using OpenAI Functions​
+
+This shows how to initialize the agent using the OPENAI_FUNCTIONS agent type. Note that this is an alternative to the above.</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/toolkits/sql_database</source>
+<doc_content>## Using ZERO_SHOT_REACT_DESCRIPTION​
+
+This shows how to initialize the agent using the ZERO_SHOT_REACT_DESCRIPTION agent type.
+
+```python
+agent_executor = create_sql_agent(
+    llm=OpenAI(temperature=0),
+    toolkit=toolkit,
+    verbose=True,
+    agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+)
+```
+
+## Using OpenAI Functions​
+
+This shows how to initialize the agent using the OPENAI_FUNCTIONS agent type. Note that this is an alternative to the above.</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://api.python.langchain.com/en/latest/agents/langchain.agents.initialize.initialize_agent.html</source>
+<doc_content>Returns
+An agent executor
+
+Examples using initialize_agent¶</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/modules/agents/tools/multi_input_tool</source>
+<doc_content>)
+]
+mrkl = initialize_agent(
+    tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True
+)
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/toolkits/csv</source>
+<doc_content>```python
+from langchain.agents.agent_types import AgentType
+from langchain.chat_models import ChatOpenAI
+from langchain.llms import OpenAI
+from langchain_experimental.agents.agent_toolkits import create_csv_agent
+```
+
+## Using ZERO_SHOT_REACT_DESCRIPTION​
+
+This shows how to initialize the agent using the `ZERO_SHOT_REACT_DESCRIPTION` agent type.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/modules/model_io/chat/token_usage_tracking</source>
+<doc_content>tools = load_tools(["serpapi", "llm-math"], llm=llm)
+agent = initialize_agent(tools, llm, agent=AgentType.OPENAI_FUNCTIONS, verbose=True)
+```</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: The `initialize_agent` function returns an agent executor.

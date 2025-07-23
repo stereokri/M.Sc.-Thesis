@@ -1,0 +1,88 @@
+100: The strict argument in the JsonKeyOutputFunctionsParser refers to the use of `json.dumps()` as the default, along with other arguments as per `json.dumps()`. This is mentioned in the documentation for LangChain's output parsers.
+
+
+
+
+
+200: The `strict` argument in the JSON output function parser is a boolean flag that determines whether to use strict parsing. It defaults to `False`.
+
+
+
+
+
+400: The `strict` argument in the JSON output function parser is a parameter that determines whether to use strict parsing. It defaults to `False`.
+
+
+
+
+
+600: The `strict` argument in the JSON output function parser is a parameter that determines whether to use strict parsing. It defaults to `False`.
+
+
+
+
+
+800: The `strict` argument in the JSON output function parser is a parameter that determines whether to use strict parsing. It defaults to `False`.
+
+
+
+
+
+1000: The `strict` argument in the `JsonOutputFunctionsParser` means whether to allow non-JSON-compliant strings. It is set to `False` by default, and it's useful when the parsed output may include unicode characters or new lines.
+
+
+
+
+
+1500: The `strict` argument in the `JsonOutputFunctionsParser` means whether to allow non-JSON-compliant strings. It is set to `False` by default, and it's useful when the parsed output may include unicode characters or new lines.
+
+
+
+
+
+2000: The `strict` argument in the `JsonOutputFunctionsParser` means whether to allow non-JSON-compliant strings. It is set to `False` by default, and it's useful when the parsed output may include unicode characters or new lines.
+
+
+
+
+
+5000: There is no "strict argument" mentioned in the JSON output function parser. However, there are various parsers and functions related to JSON output parsing, such as `output_parsers.json.parse_and_check_json_markdown(...)`, `output_parsers.json.parse_json_markdown(...)`, and `output_parsers.json.parse_partial_json(s, *)`. These functions seem to be responsible for parsing JSON strings from Markdown strings or other sources.
+
+
+
+
+
+7000: The `strict` argument in the JSON output function parser is not explicitly mentioned in the provided documents. However, based on the context of the LangChain system, it can be inferred that the `strict` argument might refer to a parameter that controls the parsing behavior, possibly specifying whether the parser should be strict about the input format or allow for some flexibility.
+
+
+
+
+
+9000: The `strict` argument in the `parse_partial_json` function from LangChain's JSON output parsers is a boolean parameter that defaults to `False`. It determines whether to use strict parsing when processing a JSON string.
+
+
+
+
+
+10000: The `strict` argument in the JSON Output Function Parser means whether to allow non-JSON-compliant strings. It is set to `False` by default, and it's useful when the parsed output may include unicode characters or new lines.
+
+
+
+
+
+15000: In the `langchain.output_parsers.json.parse_partial_json` function, the `strict` argument is a boolean parameter that defaults to `False`. It determines whether to use strict parsing when processing the JSON string. If set to `True`, it will enforce stricter parsing rules, whereas if left at its default value of `False`, it will allow for more flexibility in the parsing process.
+
+
+
+
+
+20000: The `strict` argument in the `parse_partial_json` function of the JSON Output Function Parser is a boolean parameter that defaults to `False`. It determines whether to use strict parsing when processing the input JSON string. If set to `True`, it will enforce stricter parsing rules, whereas if left at its default value of `False`, it will allow for more flexibility in the parsing process.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,111 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/tools/gradio_tools</source>
+<doc_content>- [Using a tool](#using-a-tool)
+
+- [Using within an agent](#using-within-an-agent)</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/tools/gradio_tools</source>
+<doc_content>- [Using a tool](#using-a-tool)
+
+- [Using within an agent](#using-within-an-agent)</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/tools/gradio_tools</source>
+<doc_content>- [Using a tool](#using-a-tool)
+
+- [Using within an agent](#using-within-an-agent)</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/expression_language/interface</source>
+<doc_content>'enum': ['chat'],
+         'type': 'string'},
+        'role': {'title': 'Role', 'type': 'string'}},
+       'required': ['content', 'role']},
+      'SystemMessage': {'title': 'SystemMessage',
+       'description': 'A Message for priming AI behavior, usually passed in as the first of a sequence\nof input messages.',
+       'type': 'object',
+       'properties': {'content': {'title': 'Content', 'type': 'string'},
+        'additional_kwargs': {'title': 'Additional Kwargs', 'type': 'object'},
+        'type': {'title': 'Type',
+         'default': 'system',
+         'enum': ['system'],
+         'type': 'string'}},
+       'required': ['content']},
+      'FunctionMessage': {'title': 'FunctionMessage',
+       'description': 'A Message for passing the result of executing a function back to a model.',
+       'type': 'object',
+       'properties': {'content': {'title': 'Content', 'type': 'string'},
+        'additional_kwargs': {'title': 'Additional Kwargs', 'type': 'object'},</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/modules/agents/</source>
+<doc_content>How does the agent know what tools it can use?
+In this case we're relying on OpenAI function calling LLMs, which take functions as a separate argument and have been specifically trained to know when to invoke those functions.
+
+To pass in our tools to the agent, we just need to format them to the OpenAI function format and pass them to our model. (By `bind`-ing the functions, we're making sure that they're passed in each time the model is invoked.)
+
+```python
+from langchain.tools.render import format_tool_to_openai_function
+
+llm_with_tools = llm.bind(functions=[format_tool_to_openai_function(t) for t in tools])
+```
+
+Putting those pieces together, we can now create the agent.
+We will import two last utility functions: a component for formatting intermediate steps (agent action, tool output pairs) to input messages that can be sent to the model, and a component for converting the output message into an agent action/agent finish.</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/modules/agents/</source>
+<doc_content>How does the agent know what tools it can use?
+In this case we're relying on OpenAI function calling LLMs, which take functions as a separate argument and have been specifically trained to know when to invoke those functions.
+
+To pass in our tools to the agent, we just need to format them to the OpenAI function format and pass them to our model. (By `bind`-ing the functions, we're making sure that they're passed in each time the model is invoked.)</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/modules/agents/</source>
+<doc_content>How does the agent know what tools it can use?
+In this case we're relying on OpenAI function calling LLMs, which take functions as a separate argument and have been specifically trained to know when to invoke those functions.
+
+To pass in our tools to the agent, we just need to format them to the OpenAI function format and pass them to our model. (By `bind`-ing the functions, we're making sure that they're passed in each time the model is invoked.)</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: According to the documentation, enums are used in the 'type' property of objects. For example, in a SystemMessage or FunctionMessage, the 'type' property has an enum value, such as 'system' or 'chat'. This suggests that when using tools with a function agent, you would specify the type of tool as an enum value in the tool's properties.

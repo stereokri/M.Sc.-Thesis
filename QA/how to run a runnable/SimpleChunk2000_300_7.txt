@@ -1,0 +1,369 @@
+<documents>
+<document index='0'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>Classes¶
+
+schema.runnable.base.Runnable()
+A unit of work that can be invoked, batched, streamed, transformed and composed.
+
+schema.runnable.base.RunnableBinding
+A runnable that delegates calls to another runnable with a set of kwargs.
+
+schema.runnable.base.RunnableBindingBase
+A runnable that delegates calls to another runnable with a set of kwargs.
+
+schema.runnable.base.RunnableEach
+A runnable that delegates calls to another runnable with each element of the input sequence.
+
+schema.runnable.base.RunnableEachBase
+A runnable that delegates calls to another runnable with each element of the input sequence.
+
+schema.runnable.base.RunnableGenerator(transform)
+A runnable that runs a generator function.
+
+schema.runnable.base.RunnableLambda(func[, ...])
+RunnableLambda converts a python callable into a Runnable.
+
+schema.runnable.base.RunnableMap
+alias of RunnableParallel
+
+schema.runnable.base.RunnableParallel
+A runnable that runs a mapping of runnables in parallel, and returns a mapping of their outputs.
+
+schema.runnable.base.RunnableSequence
+A sequence of runnables, where the output of each is the input of the next.
+
+schema.runnable.base.RunnableSerializable
+A Runnable that can be serialized to JSON.
+
+schema.runnable.branch.RunnableBranch
+A Runnable that selects which branch to run based on a condition.
+
+schema.runnable.config.EmptyDict
+Empty dict type.
+
+schema.runnable.config.RunnableConfig
+Configuration for a Runnable.
+
+schema.runnable.configurable.DynamicRunnable
+A Serializable Runnable that can be dynamically configured.
+
+schema.runnable.configurable.RunnableConfigurableAlternatives
+A Runnable that can be dynamically configured.
+
+schema.runnable.configurable.RunnableConfigurableFields
+A Runnable that can be dynamically configured.
+
+schema.runnable.configurable.StrEnum(value)
+A string enum.
+
+schema.runnable.fallbacks.RunnableWithFallbacks
+A Runnable that can fallback to other Runnables if it fails.</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>schema.runnable.configurable.RunnableConfigurableFields
+A Runnable that can be dynamically configured.
+
+schema.runnable.configurable.StrEnum(value)
+A string enum.
+
+schema.runnable.fallbacks.RunnableWithFallbacks
+A Runnable that can fallback to other Runnables if it fails.
+
+schema.runnable.history.RunnableWithMessageHistory
+A runnable that manages chat message history for another runnable.
+
+schema.runnable.passthrough.RunnableAssign
+A runnable that assigns key-value pairs to Dict[str, Any] inputs.
+
+schema.runnable.passthrough.RunnablePassthrough
+A runnable to passthrough inputs unchanged or with additional keys.
+
+schema.runnable.retry.RunnableRetry
+Retry a Runnable if it fails.
+
+schema.runnable.router.RouterInput
+A Router input.
+
+schema.runnable.router.RouterRunnable
+A runnable that routes to a set of runnables based on Input['key'].
+
+schema.runnable.utils.AddableDict
+Dictionary that can be added to another dictionary.
+
+schema.runnable.utils.ConfigurableField(id)
+A field that can be configured by the user.
+
+schema.runnable.utils.ConfigurableFieldMultiOption(id, ...)
+A field that can be configured by the user with multiple default values.
+
+schema.runnable.utils.ConfigurableFieldSingleOption(id, ...)
+A field that can be configured by the user with a default value.
+
+schema.runnable.utils.ConfigurableFieldSpec(id, ...)
+A field that can be configured by the user.
+
+schema.runnable.utils.GetLambdaSource()
+Get the source code of a lambda function.
+
+schema.runnable.utils.IsFunctionArgDict()
+Check if the first argument of a function is a dict.
+
+schema.runnable.utils.IsLocalDict(name, keys)
+Check if a name is a local dict.
+
+schema.runnable.utils.SupportsAdd(*args, ...)
+Protocol for objects that support addition.
+
+Functions¶
+
+schema.runnable.base.coerce_to_runnable(thing)
+Coerce a runnable-like object into a Runnable.
+
+schema.runnable.config.acall_func_with_variable_args(...)
+Call function that may optionally accept a run_manager and/or config.</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>schema.runnable.base.RunnableBinding
+A runnable that delegates calls to another runnable with a set of kwargs.
+
+schema.runnable.base.RunnableBindingBase
+A runnable that delegates calls to another runnable with a set of kwargs.
+
+schema.runnable.base.RunnableEach
+A runnable that delegates calls to another runnable with each element of the input sequence.
+
+schema.runnable.base.RunnableEachBase
+A runnable that delegates calls to another runnable with each element of the input sequence.
+
+schema.runnable.base.RunnableGenerator(transform)
+A runnable that runs a generator function.
+
+schema.runnable.base.RunnableLambda(func[, ...])
+RunnableLambda converts a python callable into a Runnable.
+
+schema.runnable.base.RunnableMap
+alias of RunnableParallel
+
+schema.runnable.base.RunnableParallel
+A runnable that runs a mapping of runnables in parallel, and returns a mapping of their outputs.
+
+schema.runnable.base.RunnableSequence
+A sequence of runnables, where the output of each is the input of the next.
+
+schema.runnable.base.RunnableSerializable
+A Runnable that can be serialized to JSON.
+
+schema.runnable.branch.RunnableBranch
+A Runnable that selects which branch to run based on a condition.
+
+schema.runnable.config.EmptyDict
+Empty dict type.
+
+schema.runnable.config.RunnableConfig
+Configuration for a Runnable.
+
+schema.runnable.configurable.DynamicRunnable
+A Serializable Runnable that can be dynamically configured.
+
+schema.runnable.configurable.RunnableConfigurableAlternatives
+A Runnable that can be dynamically configured.
+
+schema.runnable.configurable.RunnableConfigurableFields
+A Runnable that can be dynamically configured.
+
+schema.runnable.configurable.StrEnum(value)
+A string enum.
+
+schema.runnable.fallbacks.RunnableWithFallbacks
+A Runnable that can fallback to other Runnables if it fails.
+
+schema.runnable.history.RunnableWithMessageHistory
+A runnable that manages chat message history for another runnable.</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://api.python.langchain.com/en/latest/schema.runnable/langchain.schema.runnable.base.RunnableGenerator.html</source>
+<doc_content>Parameters
+
+fallbacks – A sequence of runnables to try if the original runnable fails.
+exceptions_to_handle – A tuple of exception types to handle.
+
+Returns
+A new Runnable that will try the original runnable, and then each
+fallback in order, upon failures.
+
+with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable.
+on_start: Called before the runnable starts running, with the Run object.
+on_end: Called after the runnable finishes running, with the Run object.
+on_error: Called if the runnable throws an error, with the Run object.
+The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run.
+
+with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions.
+
+Parameters
+
+retry_if_exception_type – A tuple of exception types to retry on
+wait_exponential_jitter – Whether to add jitter to the wait time
+between retries
+stop_after_attempt – The maximum number of attempts to make before giving up
+
+Returns
+A new Runnable that retries the original runnable on exceptions.
+
+with_types(*, input_type: Optional[Type[Input]] = None, output_type: Optional[Type[Output]] = None) → Runnable[Input, Output]¶
+Bind input and output types to a Runnable, returning a new Runnable.
+
+            © 2023, Harrison Chase.
+          Last updated on Nov 17, 2023.
+          Show this page source</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/langserve</source>
+<doc_content>## Endpoints​
+
+The following code:
+
+```python
+...
+add_routes(
+  app,
+  runnable,
+  path="/my_runnable",
+)
+```
+
+adds of these endpoints to the server:
+
+- `POST /my_runnable/invoke` - invoke the runnable on a single input
+
+- `POST /my_runnable/batch` - invoke the runnable on a batch of inputs
+
+- `POST /my_runnable/stream` - invoke on a single input and stream the output
+
+- `POST /my_runnable/stream_log` - invoke on a single input and stream the output, including output of intermediate steps as it's generated
+
+- `GET /my_runnable/input_schema` - json schema for input to the runnable
+
+- `GET /my_runnable/output_schema` - json schema for output of the runnable
+
+- `GET /my_runnable/config_schema` - json schema for config of the runnable
+
+These endpoints match the [LangChain Expression Language interface](https://python.langchain.com/docs/expression_language/interface) -- please reference this documentation for more details.
+
+## Playground​
+
+You can find a playground page for your runnable at `/my_runnable/playground`. This exposes a simple UI to [configure](https://python.langchain.com/docs/expression_language/how_to/configure) and invoke your runnable with streaming output and intermediate steps.
+
+![](https://github.com/langchain-ai/langserve/assets/3205522/5ca56e29-f1bb-40f4-84b5-15916384a276)
+
+### Widgets​
+
+The playground supports [widgets](#playground-widgets) and can be used to test your runnable with different inputs.
+
+In addition, for configurable runnables, the playground will allow you to configure the runnable and share a link with the configuration:
+
+### Sharing​
+
+![](https://github.com/langchain-ai/langserve/assets/3205522/86ce9c59-f8e4-4d08-9fa3-62030e0f521d)
+
+## Legacy Chains​</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/expression_language/how_to/</source>
+<doc_content>How to | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# How to
+
+[📄️ Bind runtime argsSometimes we want to invoke a Runnable within a Runnable sequence with constant arguments that are not part of the output of the preceding Runnable in the sequence, and which are not part of the user input. We can use Runnable.bind() to easily pass these arguments in.](/docs/expression_language/how_to/binding)[📄️ Configure chain internals at runtimeOftentimes you may want to experiment with, or even expose to the end user, multiple different ways of doing things.](/docs/expression_language/how_to/configure)[📄️ Add fallbacksThere are many possible points of failure in an LLM application, whether that be issues with LLM API's, poor model outputs, issues with other integrations, etc. Fallbacks help you gracefully handle and isolate these issues.](/docs/expression_language/how_to/fallbacks)[📄️ Run custom functionsYou can use arbitrary functions in the pipeline](/docs/expression_language/how_to/functions)[📄️ Stream custom generator functionsYou can use generator functions (ie. functions that use the yield keyword, and behave like iterators) in a LCEL pipeline.](/docs/expression_language/how_to/generators)[📄️ Parallelize stepsRunnableParallel (aka. RunnableMap) makes it easy to execute multiple Runnables in parallel, and to return the output of these Runnables as a map.](/docs/expression_language/how_to/map)[📄️ Add message history (memory)The RunnableWithMessageHistory let's us add message history to certain types of chains.](/docs/expression_language/how_to/message_history)[📄️ Dynamically route logic based on inputThis notebook covers how to do routing in the LangChain Expression Language.](/docs/expression_language/how_to/routing)</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/llms/langchain.llms.gooseai.GooseAI.html</source>
+<doc_content>Parameters
+
+fallbacks – A sequence of runnables to try if the original runnable fails.
+exceptions_to_handle – A tuple of exception types to handle.
+
+Returns
+A new Runnable that will try the original runnable, and then each
+fallback in order, upon failures.
+
+with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable.
+on_start: Called before the runnable starts running, with the Run object.
+on_end: Called after the runnable finishes running, with the Run object.
+on_error: Called if the runnable throws an error, with the Run object.
+The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run.
+
+with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions.
+
+Parameters
+
+retry_if_exception_type – A tuple of exception types to retry on
+wait_exponential_jitter – Whether to add jitter to the wait time
+between retries
+stop_after_attempt – The maximum number of attempts to make before giving up
+
+Returns
+A new Runnable that retries the original runnable on exceptions.
+
+with_types(*, input_type: Optional[Type[Input]] = None, output_type: Optional[Type[Output]] = None) → Runnable[Input, Output]¶
+Bind input and output types to a Runnable, returning a new Runnable.
+
+property InputType: TypeAlias¶
+Get the input type for this runnable.
+
+property OutputType: Type[str]¶
+Get the input type for this runnable.
+
+property config_specs: List[langchain.schema.runnable.utils.ConfigurableFieldSpec]¶
+List configurable fields for this runnable.</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: To run a Runnable, you can use the `with_listeners` method to bind lifecycle listeners and then execute the Runnable. Additionally, you can use `with_retry` to retry the Runnable if it fails due to exceptions.

@@ -1,0 +1,221 @@
+<documents>
+<document index='0'>
+<source>/home/kristian/BenchMarkingPythonScripts/AdditionalDocs/Redis.txt</source>
+<doc_content>## Hybrid Filtering​
+
+With the Redis Filter Expression language one can filter metdata in Redis vectorstore.
+
+The following are the available filter types:
+
+- `RedisText`: Filter by full-text search against metadata fields. Supports exact, fuzzy, and wildcard matching.
+
+- `RedisNum`: Filter by numeric range against metadata fields.
+
+- `RedisTag`: Filter by exact match against string based categorical metadata fields. Multiple tags can be specified like "tag1,tag2,tag3".
+
+The following are examples of utilizing these filters.
+
+```python
+
+from langchain.vectorstores.redis import RedisText, RedisNum, RedisTag
+
+# exact matching
+has_high_credit = RedisTag("credit_score") == "high"
+does_not_have_high_credit = RedisTag("credit_score") != "low"
+
+# fuzzy matching
+job_starts_with_eng = RedisText("job") % "eng*"
+job_is_engineer = RedisText("job") == "engineer"
+job_is_not_engineer = RedisText("job") != "engineer"</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>```text
+    16:58:26 [RedisVL] INFO   Indices:
+    16:58:26 [RedisVL] INFO   1. users
+```
+
+The `Redis` VectorStore implementation will attempt to generate index schema (fields for filtering) for any metadata passed through the `from_texts`, `from_texts_return_keys`, and `from_documents` methods. This way, whatever metadata is passed will be indexed into the Redis search index allowing
+for filtering on those fields.
+
+Below we show what fields were created from the metadata we defined above</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.redis.base.Redis.html</source>
+<doc_content>vector_schema = {
+    "algorithm": "HNSW"
+}
+
+rds = Redis.from_texts(
+    texts, # a list of strings
+    metadata, # a list of metadata dicts
+    embeddings, # an Embeddings object
+    vector_schema=vector_schema,
+    redis_url="redis://localhost:6379",
+)
+
+Custom index schema can be supplied to change the way that the
+metadata is indexed. This is useful for you would like to use the
+hybrid querying (filtering) capability of Redis.
+By default, this implementation will automatically generate the index
+schema according to the following rules:
+
+All strings are indexed as text fields
+All numbers are indexed as numeric fields
+
+All lists of strings are indexed as tag fields (joined bylangchain.vectorstores.redis.constants.REDIS_TAG_SEPARATOR)
+
+All None values are not indexed but still stored in Redis these arenot retrievable through the interface here, but the raw Redis client
+can be used to retrieve them.
+
+All other types are not indexed</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>vectorstores.redis.filters.RedisTag(field)
+A RedisFilterField representing a tag in a Redis index.
+
+vectorstores.redis.filters.RedisText(field)
+A RedisFilterField representing a text field in a Redis index.
+
+vectorstores.redis.schema.FlatVectorField
+Schema for flat vector fields in Redis.
+
+vectorstores.redis.schema.HNSWVectorField
+Schema for HNSW vector fields in Redis.
+
+vectorstores.redis.schema.NumericFieldSchema
+Schema for numeric fields in Redis.</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.utils.filter_complex_metadata.html</source>
+<doc_content>langchain.vectorstores.utils.filter_complex_metadata — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.vectorstores.utils.filter_complex_metadata
+
+langchain.vectorstores.utils.filter_complex_metadata¶
+
+langchain.vectorstores.utils.filter_complex_metadata(documents: ~typing.List[~langchain.schema.document.Document], *, allowed_types: ~typing.Tuple[~typing.Type, ...] = (<class 'str'>, <class 'bool'>, <class 'int'>, <class 'float'>)) → List[Document][source]¶
+Filter out metadata types that are not supported for a vector store.
+
+            © 2023, Harrison Chase.
+          Last updated on Nov 17, 2023.
+          Show this page source</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>It's important to note that we have not specified that the `user`, `job`, `credit_score` and `age` in the metadata should be fields within the index, this is because the `Redis` VectorStore object automatically generate the index schema from the passed metadata. For more information on the generation of index fields, see the API documentation.
+
+## Querying​
+
+There are multiple ways to query the `Redis` VectorStore implementation based on what use case you have:
+
+- `similarity_search`: Find the most similar vectors to a given vector.
+
+- `similarity_search_with_score`: Find the most similar vectors to a given vector and return the vector distance
+
+- `similarity_search_limit_score`: Find the most similar vectors to a given vector and limit the number of results to the `score_threshold`
+
+- `similarity_search_with_relevance_scores`: Find the most similar vectors to a given vector and return the vector similarities</doc_content>
+</document>
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.redis.filters.RedisText.html</source>
+<doc_content>langchain.vectorstores.redis.filters.RedisText — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.vectorstores.redis.filters.RedisText
+
+langchain.vectorstores.redis.filters.RedisText¶
+
+class langchain.vectorstores.redis.filters.RedisText(field: str)[source]¶
+A RedisFilterField representing a text field in a Redis index.
+Attributes
+
+OPERATORS
+
+OPERATOR_MAP
+
+escaper
+
+Methods
+
+__init__(field)
+
+equals(other)
+
+__init__(field: str)¶
+
+equals(other: RedisFilterField) → bool¶
+
+Examples using RedisText¶
+
+Redis
+
+            © 2023, Harrison Chase.
+          Last updated on Nov 17, 2023.
+          Show this page source</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: You can filter metadata fields in Redis VectorStore using three types of filters: `RedisText`, `RedisNum`, and `RedisTag`. For example, you can use `RedisTag` to filter by exact match against string-based categorical metadata fields, or `RedisText` to filter by full-text search against metadata fields.

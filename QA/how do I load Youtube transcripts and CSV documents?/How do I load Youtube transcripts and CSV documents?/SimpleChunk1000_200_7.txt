@@ -1,0 +1,299 @@
+<documents>
+<document index='0'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>document_loaders.youtube.YoutubeLoader(video_id)
+Load YouTube transcripts.
+
+Functions¶
+
+document_loaders.base_o365.fetch_mime_types(...)
+Fetch the mime types for the specified file types.
+
+document_loaders.chatgpt.concatenate_rows(...)
+Combine message information in a readable format ready to be used.
+
+document_loaders.facebook_chat.concatenate_rows(row)
+Combine message information in a readable format ready to be used.
+
+document_loaders.helpers.detect_file_encodings(...)
+Try to detect the file encoding.
+
+document_loaders.notebook.concatenate_cells(...)
+Combine cells information in a readable format ready to be used.
+
+document_loaders.notebook.remove_newlines(x)
+Recursively remove newlines, no matter the data structure they are stored in.
+
+document_loaders.parsers.pdf.extract_from_images_with_rapidocr(images)
+Extract text from images with RapidOCR.
+
+document_loaders.parsers.registry.get_parser(...)
+Get a parser by parser name.</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/platforms/google</source>
+<doc_content>Use `YoutubeAudioLoader` to fetch / download the audio files.
+
+Then, use `OpenAIWhisperParser` to transcribe them to text.
+
+We need to install several python packages.
+
+```bash
+pip install yt_dlp pydub librosa
+```
+
+See a [usage example and authorization instructions](/docs/integrations/document_loaders/youtube_audio).
+
+```python
+from langchain.document_loaders.blob_loaders.youtube_audio import YoutubeAudioLoader
+from langchain.document_loaders.parsers import OpenAIWhisperParser, OpenAIWhisperParserLocal
+```
+
+### YouTube transcripts​
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by `Google`.
+
+We need to install `youtube-transcript-api` python package.
+
+```bash
+pip install youtube-transcript-api
+```
+
+See a [usage example](/docs/integrations/document_loaders/youtube_transcript).
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+- [LLMs](#llms)- [Vertex AI](#vertex-ai)
+
+- [Model Garden](#model-garden)</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/providers/scann</source>
+<doc_content>Use `YoutubeAudioLoader` to fetch / download the audio files.
+
+Then, use `OpenAIWhisperParser` to transcribe them to text.
+
+We need to install several python packages.
+
+```bash
+pip install yt_dlp pydub librosa
+```
+
+See a [usage example and authorization instructions](/docs/integrations/document_loaders/youtube_audio).
+
+```python
+from langchain.document_loaders.blob_loaders.youtube_audio import YoutubeAudioLoader
+from langchain.document_loaders.parsers import OpenAIWhisperParser, OpenAIWhisperParserLocal
+```
+
+### YouTube transcripts​
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by `Google`.
+
+We need to install `youtube-transcript-api` python package.
+
+```bash
+pip install youtube-transcript-api
+```
+
+See a [usage example](/docs/integrations/document_loaders/youtube_transcript).
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+- [LLMs](#llms)- [Vertex AI](#vertex-ai)
+
+- [Model Garden](#model-garden)</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://api.python.langchain.com/en/latest/document_loaders/langchain.document_loaders.youtube.GoogleApiYoutubeLoader.html</source>
+<doc_content>class langchain.document_loaders.youtube.GoogleApiYoutubeLoader(google_api_client: GoogleApiClient, channel_name: Optional[str] = None, video_ids: Optional[List[str]] = None, add_video_info: bool = True, captions_language: str = 'en', continue_on_failure: bool = False)[source]¶
+Load all Videos from a YouTube Channel.
+To use, you should have the googleapiclient,youtube_transcript_api
+python package installed.
+As the service needs a google_api_client, you first have to initialize
+the GoogleApiClient.
+Additionally you have to either provide a channel name or a list of videoids
+“https://developers.google.com/docs/api/quickstart/python”
+Example
+from langchain.document_loaders import GoogleApiClient
+from langchain.document_loaders import GoogleApiYoutubeLoader
+google_api_client = GoogleApiClient(
+    service_account_path=Path("path_to_your_sec_file.json")
+)
+loader = GoogleApiYoutubeLoader(
+    google_api_client=google_api_client,
+    channel_name = "CodeAesthetic"
+)
+load.load()
+
+Attributes</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://api.python.langchain.com/en/latest/document_loaders/langchain.document_loaders.youtube.YoutubeLoader.html</source>
+<doc_content>langchain.document_loaders.youtube.YoutubeLoader — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.document_loaders.youtube.YoutubeLoader
+
+langchain.document_loaders.youtube.YoutubeLoader¶
+
+class langchain.document_loaders.youtube.YoutubeLoader(video_id: str, add_video_info: bool = False, language: Union[str, Sequence[str]] = 'en', translation: str = 'en', continue_on_failure: bool = False)[source]¶
+Load YouTube transcripts.
+Initialize with YouTube video ID.
+Methods
+
+__init__(video_id[, add_video_info, ...])
+Initialize with YouTube video ID.
+
+extract_video_id(youtube_url)
+Extract video id from common YT urls.
+
+from_youtube_url(youtube_url, **kwargs)
+Given youtube URL, load video.
+
+lazy_load()
+A lazy loader for Documents.
+
+load()
+Load documents.
+
+load_and_split([text_splitter])
+Load Documents and split into chunks.</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content>YouTube transcripts | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# YouTube transcripts
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by Google.
+
+This notebook covers how to load documents from `YouTube transcripts`.
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+```python
+# !pip install youtube-transcript-api
+```
+
+```python
+loader = YoutubeLoader.from_youtube_url(
+    "https://www.youtube.com/watch?v=QsYGlZkevEg", add_video_info=True
+)
+```
+
+```python
+loader.load()
+```
+
+### Add video info​
+
+```python
+# ! pip install pytube
+```
+
+```python
+loader = YoutubeLoader.from_youtube_url(
+    "https://www.youtube.com/watch?v=QsYGlZkevEg", add_video_info=True
+)
+loader.load()
+```
+
+### Add language preferences​
+
+Language param : It's a list of language codes in a descending priority, `en` by default.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/document_loaders/langchain.document_loaders.youtube.YoutubeLoader.html</source>
+<doc_content>lazy_load()
+A lazy loader for Documents.
+
+load()
+Load documents.
+
+load_and_split([text_splitter])
+Load Documents and split into chunks.
+
+__init__(video_id: str, add_video_info: bool = False, language: Union[str, Sequence[str]] = 'en', translation: str = 'en', continue_on_failure: bool = False)[source]¶
+Initialize with YouTube video ID.
+
+static extract_video_id(youtube_url: str) → str[source]¶
+Extract video id from common YT urls.
+
+classmethod from_youtube_url(youtube_url: str, **kwargs: Any) → YoutubeLoader[source]¶
+Given youtube URL, load video.
+
+lazy_load() → Iterator[Document]¶
+A lazy loader for Documents.
+
+load() → List[Document][source]¶
+Load documents.
+
+load_and_split(text_splitter: Optional[TextSplitter] = None) → List[Document]¶
+Load Documents and split into chunks. Chunks are returned as Documents.
+
+Parameters
+text_splitter – TextSplitter instance to use for splitting documents.
+Defaults to RecursiveCharacterTextSplitter.
+
+Returns
+List of Documents.</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: To load YouTube transcripts, you can use `YoutubeLoader` from `langchain.document_loaders`. You need to install `youtube-transcript-api` package first. Then, initialize `YoutubeLoader` with a YouTube video ID or URL, and call the `load()` method to load the transcripts. Additionally, other document loaders are available for loading different types of files.

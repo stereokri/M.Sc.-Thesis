@@ -1,0 +1,135 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/modules/data_connection/vectorstores/</source>
+<doc_content>Vector stores | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Vector stores
+
+infoHead to [Integrations](/docs/integrations/vectorstores/) for documentation on built-in integrations with 3rd-party vector stores.</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/modules/memory/types/vectorstore_retriever_memory</source>
+<doc_content>Backed by a Vector Store | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Backed by a Vector Store
+
+`VectorStoreRetrieverMemory` stores memories in a vector store and queries the top-K most "salient" docs every time it is called.
+
+This differs from most of the other Memory classes in that it doesn't explicitly track the order of interactions.
+
+In this case, the "docs" are previous conversation snippets. This can be useful to refer to relevant pieces of information that the AI was told earlier in the conversation.
+
+```python
+from datetime import datetime
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.llms import OpenAI
+from langchain.memory import VectorStoreRetrieverMemory
+from langchain.chains import ConversationChain
+from langchain.prompts import PromptTemplate
+```
+
+### Initialize your vector store​
+
+Depending on the store you choose, this step may look different. Consult the relevant vector store documentation for more details.</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/modules/data_connection/retrievers/vectorstore</source>
+<doc_content>Vector store-backed retriever | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Vector store-backed retriever
+
+A vector store retriever is a retriever that uses a vector store to retrieve documents. It is a lightweight wrapper around the vector store class to make it conform to the retriever interface.
+It uses the search methods implemented by a vector store, like similarity search and MMR, to query the texts in the vector store.
+
+Once you construct a vector store, it's very easy to construct a retriever. Let's walk through an example.
+
+```python
+from langchain.document_loaders import TextLoader
+loader = TextLoader('../../../state_of_the_union.txt')
+```
+
+```python
+from langchain.text_splitter import CharacterTextSplitter
+from langchain.vectorstores import FAISS
+from langchain.embeddings import OpenAIEmbeddings</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/modules/data_connection/</source>
+<doc_content>**Vector stores**
+
+With the rise of embeddings, there has emerged a need for databases to support efficient storage and searching of these embeddings.
+LangChain provides integrations with over 50 different vectorstores, from open-source local ones to cloud-hosted proprietary ones,
+allowing you to choose the one best suited for your needs.
+LangChain exposes a standard interface, allowing you to easily swap between vector stores.
+
+**Retrievers**</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/modules/data_connection/vectorstores/</source>
+<doc_content>Vector stores | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Vector stores
+
+infoHead to [Integrations](/docs/integrations/vectorstores/) for documentation on built-in integrations with 3rd-party vector stores.
+
+One of the most common ways to store and search over unstructured data is to embed it and store the resulting embedding
+vectors, and then at query time to embed the unstructured query and retrieve the embedding vectors that are
+'most similar' to the embedded query. A vector store takes care of storing embedded data and performing vector search
+for you.
+
+![vector store diagram](/assets/images/vector_stores-9dc1ecb68c4cb446df110764c9cc07e0.jpg)
+
+## Get started​</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/vectorstores</source>
+<doc_content>Vector stores | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Vector stores</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/integrations/vectorstores</source>
+<doc_content>Vector stores | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Vector stores</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: In LangChain, a vector store is used to store embedded data and perform vector search, whereas a document store (or retriever) uses a vector store to retrieve documents. A vector store is a database that supports efficient storage and searching of embeddings, while a document store is a lightweight wrapper around the vector store class to conform to the retriever interface.

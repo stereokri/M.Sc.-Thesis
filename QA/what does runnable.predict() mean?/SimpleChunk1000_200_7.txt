@@ -1,0 +1,258 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/modules/chains/foundational/router</source>
+<doc_content>If no provided conditions match, it runs the default runnable.
+
+```python
+from langchain.chat_models import ChatOpenAI
+from langchain.schema.output_parser import StrOutputParser
+from langchain.schema.runnable import RunnableBranch
+```
+
+```python
+general_prompt = PromptTemplate.from_template(
+    "You are a helpful assistant. Answer the question as accurately as you can.\n\n{input}"
+)
+prompt_branch = RunnableBranch(
+    (lambda x: x["topic"] == "math", math_prompt),
+    (lambda x: x["topic"] == "physics", physics_prompt),
+    general_prompt,
+)
+```
+
+```python
+from typing import Literal
+
+from langchain.output_parsers.openai_functions import PydanticAttrOutputFunctionsParser
+from langchain.pydantic_v1 import BaseModel
+from langchain.utils.openai_functions import convert_pydantic_to_openai_function
+
+class TopicClassifier(BaseModel):
+    "Classify the topic of the user question"</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/modules/chains/how_to/openai_functions</source>
+<doc_content>runnable = create_openai_fn_runnable([record_person, record_dog], llm, prompt)
+runnable.invoke(
+    {
+        "input": "I can't find my dog Henry anywhere, he's a small brown beagle. Could you send a message about him?"
+    }
+)
+```
+
+```text
+    {'name': 'record_dog',
+     'arguments': {'name': 'Henry', 'color': 'brown', 'fav_food': {'food': None}}}
+```
+
+## [Legacy] LLMChain-based approach​
+
+```python
+chain = create_openai_fn_chain([RecordPerson, RecordDog], llm, prompt, verbose=True)
+chain.run("Harry was a chubby brown beagle who loved chicken")
+```
+
+```text
+    
+    
+    > Entering new LLMChain chain...
+    Prompt after formatting:
+    System: You are a world class algorithm for recording entities.
+    Human: Make calls to the relevant function to record the entities in the following input: Harry was a chubby brown beagle who loved chicken
+    Human: Tip: Make sure to answer in the correct format
+    
+    > Finished chain.</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/expression_language/how_to/routing</source>
+<doc_content>## Using a RunnableBranch​
+
+A `RunnableBranch` is initialized with a list of (condition, runnable) pairs and a default runnable. It selects which branch by passing each condition the input it's invoked with. It selects the first condition to evaluate to True, and runs the corresponding runnable to that condition with the input. 
+
+If no provided conditions match, it runs the default runnable.
+
+Here's an example of what it looks like in action:
+
+```python
+from langchain.chat_models import ChatAnthropic
+from langchain.prompts import PromptTemplate
+from langchain.schema.output_parser import StrOutputParser
+```
+
+First, let's create a chain that will identify incoming questions as being about `LangChain`, `Anthropic`, or `Other`:
+
+```python
+chain = (
+    PromptTemplate.from_template(
+        """Given the user question below, classify it as either being about `LangChain`, `Anthropic`, or `Other`.
+                                     
+Do not respond with more than one word.</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>schema.runnable.router.RouterRunnable
+A runnable that routes to a set of runnables based on Input['key'].
+
+schema.runnable.utils.AddableDict
+Dictionary that can be added to another dictionary.
+
+schema.runnable.utils.ConfigurableField(id)
+A field that can be configured by the user.
+
+schema.runnable.utils.ConfigurableFieldMultiOption(id, ...)
+A field that can be configured by the user with multiple default values.
+
+schema.runnable.utils.ConfigurableFieldSingleOption(id, ...)
+A field that can be configured by the user with a default value.
+
+schema.runnable.utils.ConfigurableFieldSpec(id, ...)
+A field that can be configured by the user.
+
+schema.runnable.utils.GetLambdaSource()
+Get the source code of a lambda function.
+
+schema.runnable.utils.IsFunctionArgDict()
+Check if the first argument of a function is a dict.
+
+schema.runnable.utils.IsLocalDict(name, keys)
+Check if a name is a local dict.
+
+schema.runnable.utils.SupportsAdd(*args, ...)
+Protocol for objects that support addition.</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>schema.runnable.router.RouterRunnable
+A runnable that routes to a set of runnables based on Input['key'].
+
+schema.runnable.utils.AddableDict
+Dictionary that can be added to another dictionary.
+
+schema.runnable.utils.ConfigurableField(id)
+A field that can be configured by the user.
+
+schema.runnable.utils.ConfigurableFieldMultiOption(id, ...)
+A field that can be configured by the user with multiple default values.
+
+schema.runnable.utils.ConfigurableFieldSingleOption(id, ...)
+A field that can be configured by the user with a default value.
+
+schema.runnable.utils.ConfigurableFieldSpec(id, ...)
+A field that can be configured by the user.
+
+schema.runnable.utils.GetLambdaSource()
+Get the source code of a lambda function.
+
+schema.runnable.utils.IsFunctionArgDict()
+Check if the first argument of a function is a dict.
+
+schema.runnable.utils.IsLocalDict(name, keys)
+Check if a name is a local dict.
+
+schema.runnable.utils.SupportsAdd(*args, ...)
+Protocol for objects that support addition.</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>schema.runnable.base.RunnableMap
+alias of RunnableParallel
+
+schema.runnable.base.RunnableParallel
+A runnable that runs a mapping of runnables in parallel, and returns a mapping of their outputs.
+
+schema.runnable.base.RunnableSequence
+A sequence of runnables, where the output of each is the input of the next.
+
+schema.runnable.base.RunnableSerializable
+A Runnable that can be serialized to JSON.
+
+schema.runnable.branch.RunnableBranch
+A Runnable that selects which branch to run based on a condition.
+
+schema.runnable.config.EmptyDict
+Empty dict type.
+
+schema.runnable.config.RunnableConfig
+Configuration for a Runnable.
+
+schema.runnable.configurable.DynamicRunnable
+A Serializable Runnable that can be dynamically configured.
+
+schema.runnable.configurable.RunnableConfigurableAlternatives
+A Runnable that can be dynamically configured.
+
+schema.runnable.configurable.RunnableConfigurableFields
+A Runnable that can be dynamically configured.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>schema.runnable.base.RunnableMap
+alias of RunnableParallel
+
+schema.runnable.base.RunnableParallel
+A runnable that runs a mapping of runnables in parallel, and returns a mapping of their outputs.
+
+schema.runnable.base.RunnableSequence
+A sequence of runnables, where the output of each is the input of the next.
+
+schema.runnable.base.RunnableSerializable
+A Runnable that can be serialized to JSON.
+
+schema.runnable.branch.RunnableBranch
+A Runnable that selects which branch to run based on a condition.
+
+schema.runnable.config.EmptyDict
+Empty dict type.
+
+schema.runnable.config.RunnableConfig
+Configuration for a Runnable.
+
+schema.runnable.configurable.DynamicRunnable
+A Serializable Runnable that can be dynamically configured.
+
+schema.runnable.configurable.RunnableConfigurableAlternatives
+A Runnable that can be dynamically configured.
+
+schema.runnable.configurable.RunnableConfigurableFields
+A Runnable that can be dynamically configured.</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: `Runnable` is a class in LangChain that represents a unit of computation. The `predict()` method is not explicitly mentioned in the provided documents, but it can be inferred that it's a way to invoke or run the `Runnable` instance with some input, potentially returning an output or prediction based on the input and the underlying logic.

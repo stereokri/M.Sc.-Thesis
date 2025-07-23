@@ -1,0 +1,174 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/vectorstores</source>
+<doc_content>ClickHouseClickHouse is the fastest and most resource efficient open-source database for real-time apps and analytics with full SQL support and a wide range of functions to assist users in writing analytical queries. Lately added data structures and distance search functions (like L2Distance) as well as approximate nearest neighbor search indexes enable ClickHouse to be used as a high performance and scalable vector database to store and search vectors with</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/providers/clickhouse</source>
+<doc_content>ClickHouse | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# ClickHouse
+
+[ClickHouse](https://clickhouse.com/) is the fast and resource efficient open-source database for real-time
+apps and analytics with full SQL support and a wide range of functions to assist users in writing analytical queries.
+It has data structures and distance search functions (like `L2Distance`) as well as
+[approximate nearest neighbor search indexes](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/annindexes)
+That enables ClickHouse to be used as a high performance and scalable vector database to store and search vectors with SQL.
+
+## Installation and Setup​
+
+We need to install `clickhouse-connect` python package.
+
+```bash
+pip install clickhouse-connect
+```
+
+## Vector Store​
+
+See a [usage example](/docs/integrations/vectorstores/clickhouse).
+
+```python
+from langchain.vectorstores import Clickhouse, ClickhouseSettings
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/clickhouse</source>
+<doc_content>ClickHouse | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# ClickHouse
+
+[ClickHouse](https://clickhouse.com/) is the fastest and most resource efficient open-source database for real-time apps and analytics with full SQL support and a wide range of functions to assist users in writing analytical queries. Lately added data structures and distance search functions (like `L2Distance`) as well as [approximate nearest neighbor search indexes](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/annindexes) enable ClickHouse to be used as a high performance and scalable vector database to store and search vectors with SQL.
+
+This notebook shows how to use functionality related to the `ClickHouse` vector search.
+
+## Setting up environments​
+
+Setting up local clickhouse server with docker (optional)</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.clickhouse.Clickhouse.html</source>
+<doc_content>langchain.vectorstores.clickhouse.Clickhouse — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.vectorstores.clickhouse.Clickhouse
+
+langchain.vectorstores.clickhouse.Clickhouse¶
+
+class langchain.vectorstores.clickhouse.Clickhouse(embedding: Embeddings, config: Optional[ClickhouseSettings] = None, **kwargs: Any)[source]¶
+ClickHouse VectorSearch vector store.
+You need a clickhouse-connect python package, and a valid account
+to connect to ClickHouse.
+ClickHouse can not only search with simple vector indexes,
+it also supports complex query with multiple conditions,
+constraints and even sub-queries.
+
+For more information, please visit[ClickHouse official site](https://clickhouse.com/clickhouse)
+
+ClickHouse Wrapper to LangChain
+embedding_function (Embeddings):
+config (ClickHouseSettings): Configuration to ClickHouse Client
+Other keyword arguments will pass into
+
+[clickhouse-connect](https://docs.clickhouse.com/)
+
+Attributes</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/providers/runhouse</source>
+<doc_content>Runhouse | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Runhouse
+
+This page covers how to use the [Runhouse](https://github.com/run-house/runhouse) ecosystem within LangChain.
+It is broken into three parts: installation and setup, LLMs, and Embeddings.
+
+## Installation and Setup​
+
+- Install the Python SDK with `pip install runhouse`
+
+- If you'd like to use on-demand cluster, check your cloud credentials with `sky check`
+
+## Self-hosted LLMs​
+
+For a basic self-hosted LLM, you can use the `SelfHostedHuggingFaceLLM` class. For more
+custom LLMs, you can use the `SelfHostedPipeline` parent class.
+
+```python
+from langchain.llms import SelfHostedPipeline, SelfHostedHuggingFaceLLM
+```
+
+For a more detailed walkthrough of the Self-hosted LLMs, see [this notebook](/docs/integrations/llms/runhouse)
+
+## Self-hosted Embeddings​
+
+There are several ways to use self-hosted embeddings with LangChain via Runhouse.</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/llms/runhouse</source>
+<doc_content>Runhouse | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Runhouse
+
+The [Runhouse](https://github.com/run-house/runhouse) allows remote compute and data across environments and users. See the [Runhouse docs](https://runhouse-docs.readthedocs-hosted.com/en/latest/).
+
+This example goes over how to use LangChain and [Runhouse](https://github.com/run-house/runhouse) to interact with models hosted on your own GPU, or on-demand GPUs on AWS, GCP, AWS, or Lambda.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/integrations/providers/clickhouse</source>
+<doc_content>[ClickHouse](https://clickhouse.com/) is the fast and resource efficient open-source database for real-time
+apps and analytics with full SQL support and a wide range of functions to assist users in writing analytical queries.
+It has data structures and distance search functions (like `L2Distance`) as well as
+[approximate nearest neighbor search indexes](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/annindexes)</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: RunHouse is an ecosystem that allows remote compute and data across environments and users, whereas ClickHouse is a fast and resource-efficient open-source database for real-time apps and analytics with full SQL support. They are two different systems with distinct purposes, and LangChain provides integrations with both of them.

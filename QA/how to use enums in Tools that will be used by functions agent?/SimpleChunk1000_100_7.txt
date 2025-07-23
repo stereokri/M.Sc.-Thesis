@@ -1,0 +1,191 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/tools/gradio_tools</source>
+<doc_content>- [Using a tool](#using-a-tool)
+
+- [Using within an agent](#using-within-an-agent)</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/modules/agents/</source>
+<doc_content>Different agents have different prompting styles for reasoning, different ways of encoding inputs, and different ways of parsing the output.
+For a full list of built-in agents see [agent types](/docs/modules/agents/agent_types/).
+You can also **easily build custom agents**, which we show how to do in the Get started section below.
+
+### Tools​
+
+Tools are functions that an agent can invoke.
+There are two important design considerations around tools:
+
+1. Giving the agent access to the right tools
+
+2. Describing the tools in a way that is most helpful to the agent
+
+Without thinking through both, you won't be able to build a working agent.
+If you don't give the agent access to a correct set of tools, it will never be able to accomplish the objectives you give it.
+If you don't describe the tools well, the agent won't know how to use them properly.</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>langchain.tools¶
+Tools are classes that an Agent uses to interact with the world.
+Each tool has a description. Agent uses the description to choose the right
+tool for the job.
+Class hierarchy:
+ToolMetaclass --> BaseTool --> <name>Tool  # Examples: AIPluginTool, BaseGraphQLTool
+                               <name>      # Examples: BraveSearch, HumanInputRun
+
+Main helpers:
+CallbackManagerForToolRun, AsyncCallbackManagerForToolRun
+
+Classes¶
+
+tools.ainetwork.app.AINAppOps
+Tool for app operations.
+
+tools.ainetwork.app.AppOperationType(value)
+Type of app operation as enumerator.
+
+tools.ainetwork.app.AppSchema
+Schema for app operations.
+
+tools.ainetwork.base.AINBaseTool
+Base class for the AINetwork tools.
+
+tools.ainetwork.base.OperationType(value[, ...])
+Type of operation as enumerator.
+
+tools.ainetwork.owner.AINOwnerOps
+Tool for owner operations.
+
+tools.ainetwork.owner.RuleSchema
+Schema for owner operations.
+
+tools.ainetwork.rule.AINRuleOps
+Tool for owner operations.</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/modules/agents/</source>
+<doc_content>llm_with_tools = llm.bind(functions=[format_tool_to_openai_function(t) for t in tools])
+```
+
+Putting those pieces together, we can now create the agent.
+We will import two last utility functions: a component for formatting intermediate steps (agent action, tool output pairs) to input messages that can be sent to the model, and a component for converting the output message into an agent action/agent finish.
+
+```python
+from langchain.agents.format_scratchpad import format_to_openai_function_messages
+from langchain.agents.output_parsers import OpenAIFunctionsAgentOutputParser
+
+agent = (
+    {
+        "input": lambda x: x["input"],
+        "agent_scratchpad": lambda x: format_to_openai_function_messages(
+            x["intermediate_steps"]
+        ),
+    }
+    | prompt
+    | llm_with_tools
+    | OpenAIFunctionsAgentOutputParser()
+)
+```
+
+Now that we have our agent, let's play around with it!
+Let's pass in a simple question and empty intermediate steps and see what it returns:</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/tools/lemonai</source>
+<doc_content>Your model will have access to these functions and will prefer them over self-selecting tools to solve a given task. All you have to do is to let the agent know that it should use a given function by including the function name in the prompt.
+
+#### Include Lemon AI in your Langchain project​
+
+```python
+import os
+
+from langchain.llms import OpenAI
+from lemonai import execute_workflow
+```
+
+#### Load API Keys and Access Tokens​
+
+To use tools that require authentication, you have to store the corresponding access credentials in your environment in the format "{tool name}_{authentication string}" where the authentication string is one of  ["API_KEY", "SECRET_KEY", "SUBSCRIPTION_KEY", "ACCESS_KEY"]  for API keys or  ["ACCESS_TOKEN", "SECRET_TOKEN"]  for authentication tokens. Examples are "OPENAI_API_KEY", "BING_SUBSCRIPTION_KEY", "AIRTABLE_ACCESS_TOKEN".</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/providers/wolfram_alpha</source>
+<doc_content>### Tool​
+
+You can also easily load this wrapper as a Tool (to use with an Agent).
+You can do this with:
+
+```python
+from langchain.agents import load_tools
+tools = load_tools(["wolfram-alpha"])
+```
+
+For more information on tools, see [this page](/docs/modules/agents/tools/).
+
+- [Installation and Setup](#installation-and-setup)
+
+- [Wrappers](#wrappers)- [Utility](#utility)
+
+- [Tool](#tool)</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/use_cases/qa_structured/sql</source>
+<doc_content>retriever_tool = create_retriever_tool(
+    retriever, name="sql_get_similar_examples", description=tool_description
+)
+custom_tool_list = [retriever_tool]
+```
+
+Now we can create the agent, adjusting the standard SQL Agent suffix to consider our use case. Although the most straightforward way to handle this would be to include it just in the tool description, this is often not enough and we need to specify it in the agent prompt using the `suffix` argument in the constructor.
+
+```python
+from langchain.agents import AgentType, create_sql_agent
+from langchain.agents.agent_toolkits import SQLDatabaseToolkit
+from langchain.chat_models import ChatOpenAI
+from langchain.utilities import SQLDatabase
+
+db = SQLDatabase.from_uri("sqlite:///Chinook.db")
+llm = ChatOpenAI(model_name="gpt-4", temperature=0)
+
+toolkit = SQLDatabaseToolkit(db=db, llm=llm)</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: In LangChain, you can use enums in tools that will be used by an agent. For example, `OperationType` is an enum that can be used in a tool, such as `AINOwnerOps`. This enum can have values like `AppOperationType` which can be used to specify the type of operation in the tool.

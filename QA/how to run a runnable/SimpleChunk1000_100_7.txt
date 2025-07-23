@@ -1,0 +1,153 @@
+<documents>
+<document dex='0'>
+<source>https://api.python.langchain.com/en/latest/prompts/langchain.prompts.prompt.PromptTemplate.html</source>
+<doc_content>with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable.
+on_start: Called before the runnable starts running, with the Run object.
+on_end: Called after the runnable finishes running, with the Run object.
+on_error: Called if the runnable throws an error, with the Run object.
+The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run.
+
+with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions.
+
+Parameters</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://api.python.langchain.com/en/latest/prompts/langchain.prompts.base.StringPromptTemplate.html</source>
+<doc_content>with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable.
+on_start: Called before the runnable starts running, with the Run object.
+on_end: Called after the runnable finishes running, with the Run object.
+on_error: Called if the runnable throws an error, with the Run object.
+The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run.
+
+with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions.
+
+Parameters</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://api.python.langchain.com/en/latest/schema/langchain.schema.output_parser.BaseOutputParser.html</source>
+<doc_content>with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable.
+on_start: Called before the runnable starts running, with the Run object.
+on_end: Called after the runnable finishes running, with the Run object.
+on_error: Called if the runnable throws an error, with the Run object.
+The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run.
+
+with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions.
+
+Parameters</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://api.python.langchain.com/en/latest/chains/langchain.chains.graph_qa.base.GraphQAChain.html</source>
+<doc_content>with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable.
+on_start: Called before the runnable starts running, with the Run object.
+on_end: Called after the runnable finishes running, with the Run object.
+on_error: Called if the runnable throws an error, with the Run object.
+The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run.
+
+with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions.
+
+Parameters</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://api.python.langchain.com/en/latest/retrievers/langchain.retrievers.llama_index.LlamaIndexRetriever.html</source>
+<doc_content>with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable.
+on_start: Called before the runnable starts running, with the Run object.
+on_end: Called after the runnable finishes running, with the Run object.
+on_error: Called if the runnable throws an error, with the Run object.
+The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run.
+
+with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions.
+
+Parameters</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://api.python.langchain.com/en/latest/schema.runnable/langchain.schema.runnable.passthrough.RunnablePassthrough.html</source>
+<doc_content>with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable.
+on_start: Called before the runnable starts running, with the Run object.
+on_end: Called after the runnable finishes running, with the Run object.
+on_error: Called if the runnable throws an error, with the Run object.
+The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run.
+
+with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions.
+
+Parameters</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.llm_rails.LLMRailsRetriever.html</source>
+<doc_content>with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable.
+on_start: Called before the runnable starts running, with the Run object.
+on_end: Called after the runnable finishes running, with the Run object.
+on_error: Called if the runnable throws an error, with the Run object.
+The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run.
+
+with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions.
+
+Parameters</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: To run a Runnable, you can use the `with_listeners` method to bind lifecycle listeners and then call the `run` method. The `with_listeners` method takes three optional parameters: `on_start`, `on_end`, and `on_error`, which are called at different stages of the runnable's execution.

@@ -1,0 +1,90 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/tools/zapier</source>
+<doc_content>{"from__name": "Silicon Valley Bridge Bank, N.A.", "from__email": "sreply@svb.com", "body_plain": "Dear Clients, After chaotic, tumultuous & stressful days, we have clarity on path for SVB, FDIC is fully insuring all deposits & have an ask for clients & partners as we rebuild. Tim Mayopoulos <https://eml.svb.com/NjEwLUtBSy0yNjYAAAGKgoxUeBCLAyF_NxON97X4rKEaNBLG", "reply_to__email": "sreply@svb.com", "subject": "Meet the new CEO Tim Mayopoulos", "date": "Tue, 14 Mar 2023 23:42:29 -0500</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/document_transformers/doctran_interrogate_document</source>
+<doc_content>},
+        {
+          "question": "Who should be contacted for questions or concerns regarding the topics discussed in the document?",
+          "answer": "For questions or concerns regarding the topics discussed in the document, Jason Fan, the Cofounder & CEO, should be contacted."
+        }
+      ]
+    }
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/guides/privacy/presidio_data_anonymization/reversible</source>
+<doc_content>{'PERSON': {'Maria Lynch': 'Slim Shady', 'William Bowman': 'John Doe'},
+     'PHONE_NUMBER': {'7344131647': '313-666-7440'},
+     'EMAIL_ADDRESS': {'jamesmichael@example.com': 'real.slim.shady@gmail.com'},
+     'CREDIT_CARD': {'4838637940262': '4916 0387 9536 0861',
+      '3537672423884966': '4001 9192 5753 7193'}}
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/timescalevector</source>
+<doc_content>'seq_num': 96, 'author_name': 'noctarius aka Christoph Engelbert', 'commit_hash': ' 88aaf23ae37fe7f47252b87325eb570aa417c607', 'author_email': 'me@noctarius.com'}),</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/document_transformers/doctran_interrogate_document</source>
+<doc_content>},
+        {
+          "question": "Where should potential security risks or incidents be reported?",
+          "answer": "Potential security risks or incidents should be reported to the dedicated team at security@example.com."
+        },
+        {
+          "question": "Who has been recognized for outstanding performance in customer service?",
+          "answer": "Jane Smith has been recognized for her outstanding performance in customer service."
+        },
+        {</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/pdf-amazonTextractPDFLoader</source>
+<doc_content>First Name: ALEJANDRO Last Name: ROSALEZ Date of Birth: 10/10/1982 Sex: M Marital Status: MARRIED Email Address: Address: 123 ANY STREET City: ANYTOWN State: CA Zip Code: 12345 Phone: 646-555-0111 Emergency Contact 1: First Name: CARLOS Last Name: SALAZAR Phone: 212-555-0150 Relationship to Patient: BROTHER Emergency Contact 2: First Name: JANE Last Name: DOE Phone: 650-555-0123 Relationship FRIEND to Patient: Did you feel fever or feverish lately? Yes No Are you having shortness of breath? Yes No Do you have a cough? Yes No Did you experience loss of taste or smell? Yes No Where you in contact with any confirmed COVID-19 positive patients? Yes No Did you travel in the past 14 days to any regions affected by COVID-19? Yes No ', metadata={'source': 'example_data/alejandro_rosalez_sample-small.jpeg', 'page': 1})]</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/integrations/llms/opaqueprompts</source>
+<doc_content>His ITIN is 987-65-4321, and he recently renewed his passport, the number for which is 123456789. He emphasized not to share his SSN, which is 669-45-6789. Furthermore, he mentioned that he accesses his work files remotely through the IP 192.168.1.1 and has a medical license number MED-123456.</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: There is no specific information about emailing for filing CVEs in the provided documents. However, there are some email addresses mentioned in the documents, such as sreply@svb.com, real.slim.shady@gmail.com, me@noctarius.com, and security@example.com. But none of them seem to be related to filing CVEs.

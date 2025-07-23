@@ -1,0 +1,127 @@
+<documents>
+<document index='0'>
+<source>https://api.python.langchain.com/en/latest/schema.runnable/langchain.schema.runnable.fallbacks.RunnableWithFallbacks.html</source>
+<doc_content>param runnable: langchain.schema.runnable.base.Runnable[langchain.schema.runnable.utils.Input, langchain.schema.runnable.utils.Output] [Required]¶
+The runnable to run first.</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://api.python.langchain.com/en/latest/chains/langchain.chains.query_constructor.base.load_query_constructor_runnable.html</source>
+<doc_content>Returns
+A Runnable that can be used to construct queries.
+
+            © 2023, Harrison Chase.
+          Last updated on Nov 17, 2023.
+          Show this page source</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/langserve</source>
+<doc_content>## Playground​
+
+You can find a playground page for your runnable at `/my_runnable/playground`. This exposes a simple UI to [configure](https://python.langchain.com/docs/expression_language/how_to/configure) and invoke your runnable with streaming output and intermediate steps.
+
+![](https://github.com/langchain-ai/langserve/assets/3205522/5ca56e29-f1bb-40f4-84b5-15916384a276)
+
+### Widgets​</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/templates/rag-conversation-zep</source>
+<doc_content>runnable = RemoteRunnable("http://localhost:8000/rag-conversation-zep")
+```
+
+- [About Zep - Fast, scalable building blocks for LLM Apps](#about-zep---fast-scalable-building-blocks-for-llm-apps)
+
+- [Environment Setup](#environment-setup)
+
+- [Ingesting Documents into a Zep Collection](#ingesting-documents-into-a-zep-collection)
+
+- [Usage](#usage)</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://api.python.langchain.com/en/latest/schema.runnable/langchain.schema.runnable.history.RunnableWithMessageHistory.html</source>
+<doc_content>Initialize RunnableWithMessageHistory.
+
+Parameters
+
+runnable – The base Runnable to be wrapped.
+Must take as input one of:
+- A sequence of BaseMessages
+- A dict with one key for all messages
+- A dict with one key for the current input string/message(s) and
+
+a separate key for historical messages. If the input key points
+to a string, it will be treated as a HumanMessage in history.</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>schema.runnable.base.RunnableSerializable
+A Runnable that can be serialized to JSON.
+
+schema.runnable.branch.RunnableBranch
+A Runnable that selects which branch to run based on a condition.
+
+schema.runnable.config.EmptyDict
+Empty dict type.
+
+schema.runnable.config.RunnableConfig
+Configuration for a Runnable.
+
+schema.runnable.configurable.DynamicRunnable
+A Serializable Runnable that can be dynamically configured.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>schema.runnable.base.RunnableSequence
+A sequence of runnables, where the output of each is the input of the next.
+
+schema.runnable.base.RunnableSerializable
+A Runnable that can be serialized to JSON.
+
+schema.runnable.branch.RunnableBranch
+A Runnable that selects which branch to run based on a condition.
+
+schema.runnable.config.EmptyDict
+Empty dict type.
+
+schema.runnable.config.RunnableConfig
+Configuration for a Runnable.</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: To run a Runnable, you can use the `RunnableWithFallbacks` class and pass in the required `runnable` parameter. This will allow you to construct queries using the `load_query_constructor_runnable` function. Additionally, you can also use the `/my_runnable/playground` page to configure and invoke your runnable with streaming output and intermediate steps.

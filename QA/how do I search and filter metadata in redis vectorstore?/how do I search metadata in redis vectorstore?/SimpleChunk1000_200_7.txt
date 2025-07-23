@@ -1,0 +1,145 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>```text
+    16:58:26 [RedisVL] INFO   Indices:
+    16:58:26 [RedisVL] INFO   1. users
+```
+
+The `Redis` VectorStore implementation will attempt to generate index schema (fields for filtering) for any metadata passed through the `from_texts`, `from_texts_return_keys`, and `from_documents` methods. This way, whatever metadata is passed will be indexed into the Redis search index allowing
+for filtering on those fields.
+
+Below we show what fields were created from the metadata we defined above</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>```text
+    16:58:26 [RedisVL] INFO   Indices:
+    16:58:26 [RedisVL] INFO   1. users
+```
+
+The `Redis` VectorStore implementation will attempt to generate index schema (fields for filtering) for any metadata passed through the `from_texts`, `from_texts_return_keys`, and `from_documents` methods. This way, whatever metadata is passed will be indexed into the Redis search index allowing
+for filtering on those fields.
+
+Below we show what fields were created from the metadata we defined above</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>It's important to note that we have not specified that the `user`, `job`, `credit_score` and `age` in the metadata should be fields within the index, this is because the `Redis` VectorStore object automatically generate the index schema from the passed metadata. For more information on the generation of index fields, see the API documentation.
+
+## Querying​
+
+There are multiple ways to query the `Redis` VectorStore implementation based on what use case you have:
+
+- `similarity_search`: Find the most similar vectors to a given vector.
+
+- `similarity_search_with_score`: Find the most similar vectors to a given vector and return the vector distance
+
+- `similarity_search_limit_score`: Find the most similar vectors to a given vector and limit the number of results to the `score_threshold`
+
+- `similarity_search_with_relevance_scores`: Find the most similar vectors to a given vector and return the vector similarities</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>It's important to note that we have not specified that the `user`, `job`, `credit_score` and `age` in the metadata should be fields within the index, this is because the `Redis` VectorStore object automatically generate the index schema from the passed metadata. For more information on the generation of index fields, see the API documentation.
+
+## Querying​
+
+There are multiple ways to query the `Redis` VectorStore implementation based on what use case you have:
+
+- `similarity_search`: Find the most similar vectors to a given vector.
+
+- `similarity_search_with_score`: Find the most similar vectors to a given vector and return the vector distance
+
+- `similarity_search_limit_score`: Find the most similar vectors to a given vector and limit the number of results to the `score_threshold`
+
+- `similarity_search_with_relevance_scores`: Find the most similar vectors to a given vector and return the vector similarities</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>It's important to note that we have not specified that the `user`, `job`, `credit_score` and `age` in the metadata should be fields within the index, this is because the `Redis` VectorStore object automatically generate the index schema from the passed metadata. For more information on the generation of index fields, see the API documentation.
+
+## Querying​
+
+There are multiple ways to query the `Redis` VectorStore implementation based on what use case you have:
+
+- `similarity_search`: Find the most similar vectors to a given vector.
+
+- `similarity_search_with_score`: Find the most similar vectors to a given vector and return the vector distance
+
+- `similarity_search_limit_score`: Find the most similar vectors to a given vector and limit the number of results to the `score_threshold`
+
+- `similarity_search_with_relevance_scores`: Find the most similar vectors to a given vector and return the vector similarities</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>It's important to note that we have not specified that the `user`, `job`, `credit_score` and `age` in the metadata should be fields within the index, this is because the `Redis` VectorStore object automatically generate the index schema from the passed metadata. For more information on the generation of index fields, see the API documentation.
+
+## Querying​
+
+There are multiple ways to query the `Redis` VectorStore implementation based on what use case you have:
+
+- `similarity_search`: Find the most similar vectors to a given vector.
+
+- `similarity_search_with_score`: Find the most similar vectors to a given vector and return the vector distance
+
+- `similarity_search_limit_score`: Find the most similar vectors to a given vector and limit the number of results to the `score_threshold`
+
+- `similarity_search_with_relevance_scores`: Find the most similar vectors to a given vector and return the vector similarities</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>It's important to note that we have not specified that the `user`, `job`, `credit_score` and `age` in the metadata should be fields within the index, this is because the `Redis` VectorStore object automatically generate the index schema from the passed metadata. For more information on the generation of index fields, see the API documentation.
+
+## Querying​
+
+There are multiple ways to query the `Redis` VectorStore implementation based on what use case you have:
+
+- `similarity_search`: Find the most similar vectors to a given vector.
+
+- `similarity_search_with_score`: Find the most similar vectors to a given vector and return the vector distance
+
+- `similarity_search_limit_score`: Find the most similar vectors to a given vector and limit the number of results to the `score_threshold`
+
+- `similarity_search_with_relevance_scores`: Find the most similar vectors to a given vector and return the vector similarities</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: You can query the Redis VectorStore implementation using various methods, including `similarity_search`, `similarity_search_with_score`, `similarity_search_limit_score`, and `similarity_search_with_relevance_scores`. These methods allow you to find the most similar vectors to a given vector based on your specific use case.

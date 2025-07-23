@@ -1,0 +1,167 @@
+<documents>
+<document index='0'>
+<source>https://api.python.langchain.com/en/latest/evaluation/langchain.evaluation.comparison.eval_chain.LabeledPairwiseStringEvalChain.html</source>
+<doc_content>Returns
+A new Runnable that will try the original runnable, and then each
+fallback in order, upon failures.
+
+with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable.
+on_start: Called before the runnable starts running, with the Run object.
+on_end: Called after the runnable finishes running, with the Run object.
+on_error: Called if the runnable throws an error, with the Run object.
+The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run.
+
+with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions.</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://api.python.langchain.com/en/latest/agents/langchain.agents.agent_toolkits.nla.tool.NLATool.html</source>
+<doc_content>Returns
+A new Runnable that will try the original runnable, and then each
+fallback in order, upon failures.
+
+with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable.
+on_start: Called before the runnable starts running, with the Run object.
+on_end: Called after the runnable finishes running, with the Run object.
+on_error: Called if the runnable throws an error, with the Run object.
+The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run.
+
+with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions.</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://api.python.langchain.com/en/latest/retrievers/langchain.retrievers.self_query.base.SelfQueryRetriever.html</source>
+<doc_content>Returns
+A new Runnable that will try the original runnable, and then each
+fallback in order, upon failures.
+
+with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable.
+on_start: Called before the runnable starts running, with the Run object.
+on_end: Called after the runnable finishes running, with the Run object.
+on_error: Called if the runnable throws an error, with the Run object.
+The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run.
+
+with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions.</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://api.python.langchain.com/en/latest/llms/langchain.llms.openai.OpenAI.html</source>
+<doc_content>Returns
+A new Runnable that will try the original runnable, and then each
+fallback in order, upon failures.
+
+with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable.
+on_start: Called before the runnable starts running, with the Run object.
+on_end: Called after the runnable finishes running, with the Run object.
+on_error: Called if the runnable throws an error, with the Run object.
+The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run.
+
+with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions.</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://api.python.langchain.com/en/latest/llms/langchain.llms.sagemaker_endpoint.SagemakerEndpoint.html</source>
+<doc_content>Returns
+A new Runnable that will try the original runnable, and then each
+fallback in order, upon failures.
+
+with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable.
+on_start: Called before the runnable starts running, with the Run object.
+on_end: Called after the runnable finishes running, with the Run object.
+on_error: Called if the runnable throws an error, with the Run object.
+The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run.
+
+with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions.</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://api.python.langchain.com/en/latest/tools/langchain.tools.spark_sql.tool.QuerySparkSQLTool.html</source>
+<doc_content>Returns
+A new Runnable that will try the original runnable, and then each
+fallback in order, upon failures.
+
+with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable.
+on_start: Called before the runnable starts running, with the Run object.
+on_end: Called after the runnable finishes running, with the Run object.
+on_error: Called if the runnable throws an error, with the Run object.
+The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run.
+
+with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/tools/langchain.tools.spark_sql.tool.ListSparkSQLTool.html</source>
+<doc_content>Returns
+A new Runnable that will try the original runnable, and then each
+fallback in order, upon failures.
+
+with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable.
+on_start: Called before the runnable starts running, with the Run object.
+on_end: Called after the runnable finishes running, with the Run object.
+on_error: Called if the runnable throws an error, with the Run object.
+The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run.
+
+with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions.</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: To run a Runnable, you can use the `with_listeners` method to bind lifecycle listeners and then execute it. The `with_retry` method can also be used to retry the original runnable on exceptions.

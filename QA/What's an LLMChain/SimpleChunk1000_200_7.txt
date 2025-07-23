@@ -1,0 +1,129 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/modules/chains/foundational/llm_chain</source>
+<doc_content>## [Legacy] LLMChain​
+
+This is a legacy class, using LCEL as shown above is preffered.An `LLMChain` is a simple chain that adds some functionality around language models. It is used widely throughout LangChain, including in other chains and agents.</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://api.python.langchain.com/en/latest/chains/langchain.chains.query_constructor.base.load_query_constructor_chain.html</source>
+<doc_content>Returns
+A LLMChain that can be used to construct queries.
+
+            © 2023, Harrison Chase.
+          Last updated on Nov 17, 2023.
+          Show this page source</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/text_embedding/voyageai</source>
+<doc_content>print(top1_retrieved_doc)
+```
+
+```text
+    An LLMChain is a chain that composes basic LLM functionality. It consists of a PromptTemplate and a language model (either an LLM or chat model). It formats the prompt template using the input key values provided (and also memory key values, if available), passes the formatted string to LLM and returns the LLM output.
+```
+
+- [A minimalist retrieval system](#a-minimalist-retrieval-system)</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/text_embedding/voyageai</source>
+<doc_content>```python
+documents = [
+    "Caching embeddings enables the storage or temporary caching of embeddings, eliminating the necessity to recompute them each time.",
+    "An LLMChain is a chain that composes basic LLM functionality. It consists of a PromptTemplate and a language model (either an LLM or chat model). It formats the prompt template using the input key values provided (and also memory key values, if available), passes the formatted string to LLM and returns the LLM output.",</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/modules/chains/foundational/llm_chain</source>
+<doc_content>```text
+    'VibrantSocks'
+```
+
+Head to the [LCEL](/docs/expression_language) section for more on the interface, built-in features, and cookbook examples.
+
+## [Legacy] LLMChain​
+
+This is a legacy class, using LCEL as shown above is preffered.An `LLMChain` is a simple chain that adds some functionality around language models. It is used widely throughout LangChain, including in other chains and agents.
+
+An `LLMChain` consists of a `PromptTemplate` and a language model (either an LLM or chat model). It formats the prompt template using the input key values provided (and also memory key values, if available), passes the formatted string to LLM and returns the LLM output.
+
+### Get started​
+
+```python
+from langchain.chains import LLMChain
+from langchain.llms import OpenAI
+from langchain.prompts import PromptTemplate
+
+prompt_template = "What is a good name for a company that makes {product}?"</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/modules/memory/adding_memory</source>
+<doc_content>Memory in LLMChain | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Memory in LLMChain
+
+This notebook goes over how to use the Memory class with an `LLMChain`. 
+
+We will add  the [ConversationBufferMemory](https://api.python.langchain.com/en/latest/memory/langchain.memory.buffer.ConversationBufferMemory.html#langchain.memory.buffer.ConversationBufferMemory) class, although this can be any memory class.
+
+```python
+from langchain.chains import LLMChain
+from langchain.llms import OpenAI
+from langchain.memory import ConversationBufferMemory
+from langchain.prompts import PromptTemplate
+```
+
+The most important step is setting up the prompt correctly. In the below prompt, we have two input keys: one for the actual input, another for the input from the Memory class. Importantly, we make sure the keys in the `PromptTemplate` and the `ConversationBufferMemory` match up (`chat_history`).
+
+```python
+template = """You are a chatbot having a conversation with a human.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/modules/memory/adding_memory</source>
+<doc_content>Memory in LLMChain | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Memory in LLMChain
+
+This notebook goes over how to use the Memory class with an `LLMChain`. 
+
+We will add  the [ConversationBufferMemory](https://api.python.langchain.com/en/latest/memory/langchain.memory.buffer.ConversationBufferMemory.html#langchain.memory.buffer.ConversationBufferMemory) class, although this can be any memory class.</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: An `LLMChain` is a simple chain that adds some functionality around language models. It consists of a `PromptTemplate` and a language model (either an LLM or chat model). It formats the prompt template using the input key values provided (and also memory key values, if available), passes the formatted string to LLM and returns the LLM output.

@@ -1,0 +1,166 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/guides/evaluation/trajectory/trajectory_eval</source>
+<doc_content>## Configuring the Evaluation LLM​
+
+If you don't select an LLM to use for evaluation, the [load_evaluator](https://api.python.langchain.com/en/latest/evaluation/langchain.evaluation.loading.load_evaluator.html#langchain.evaluation.loading.load_evaluator) function will use `gpt-4` to power the evaluation chain. You can select any chat model for the agent trajectory evaluator as below.
+
+```python
+# %pip install anthropic
+# ANTHROPIC_API_KEY=<YOUR ANTHROPIC API KEY>
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/templates/anthropic-iterative-search</source>
+<doc_content>## Environment Setup​
+
+Set the `ANTHROPIC_API_KEY` environment variable to access the Anthropic models.
+
+## Usage​
+
+To use this package, you should first have the LangChain CLI installed:
+
+```shell
+pip install -U langchain-cli
+```
+
+To create a new LangChain project and install this as the only package, you can do:
+
+```shell
+langchain app new my-app --package anthropic-iterative-search
+```
+
+If you want to add this to an existing project, you can just run:</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/templates/extraction-anthropic-functions</source>
+<doc_content>Set the `ANTHROPIC_API_KEY` environment variable to access the Anthropic models.
+
+## Usage​
+
+To use this package, you should first have the LangChain CLI installed:
+
+```shell
+pip install -U langchain-cli
+```
+
+To create a new LangChain project and install this as the only package, you can do:
+
+```shell
+langchain app new my-app --package extraction-anthropic-functions
+```
+
+If you want to add this to an existing project, you can just run:</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/templates/xml-agent</source>
+<doc_content>- `ANTHROPIC_API_KEY`: Required for using Anthropic
+
+## Usage​
+
+To use this package, you should first have the LangChain CLI installed:
+
+```shell
+pip install -U langchain-cli
+```
+
+To create a new LangChain project and install this as the only package, you can do:
+
+```shell
+langchain app new my-app --package xml-agent
+```
+
+If you want to add this to an existing project, you can just run:
+
+```shell
+langchain app add xml-agent
+```
+
+And add the following code to your `server.py` file:</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/guides/evaluation/string/criteria_eval_chain</source>
+<doc_content>## Configuring the LLM​
+
+If you don't specify an eval LLM, the `load_evaluator` method will initialize a `gpt-4` LLM to power the grading chain. Below, use an anthropic model instead.
+
+```python
+# %pip install ChatAnthropic
+# %env ANTHROPIC_API_KEY=<API_KEY>
+```
+
+```python
+from langchain.chat_models import ChatAnthropic
+
+llm = ChatAnthropic(temperature=0)
+evaluator = load_evaluator("criteria", llm=llm, criteria="conciseness")
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/expression_language/how_to/routing</source>
+<doc_content>AIMessage(content=' As Dario Amodei told me, to use Anthropic IPC you first need to import it:\n\n```python\nfrom anthroipc import ic\n```\n\nThen you can create a client and connect to the server:\n\n```python \nclient = ic.connect()\n```\n\nAfter that, you can call methods on the client and get responses:\n\n```python\nresponse = client.ask("What is the meaning of life?")\nprint(response)\n```\n\nYou can also register callbacks to handle events: \n\n```python\ndef on_poke(event):\n</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/templates/summarize-anthropic</source>
+<doc_content>Set the `ANTHROPIC_API_KEY` environment variable to access the Anthropic models.
+
+## Usage​
+
+To use this package, you should first have the LangChain CLI installed:
+
+```shell
+pip install -U langchain-cli
+```
+
+To create a new LangChain project and install this as the only package, you can do:
+
+```shell
+langchain app new my-app --package summarize-anthropic
+```
+
+If you want to add this to an existing project, you can just run:
+
+```shell
+langchain app add summarize-anthropic
+```</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: To use `gpt-4` on Anthropic, you need to set the `ANTHROPIC_API_KEY` environment variable and install the required packages. You can then select an Anthropic model for the agent trajectory evaluator or use it as the LLM for evaluation.

@@ -1,0 +1,611 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/llms/petals</source>
+<doc_content>Petals | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Petals
+
+`Petals` runs 100B+ language models at home, BitTorrent-style.
+
+This notebook goes over how to use Langchain with [Petals](https://github.com/bigscience-workshop/petals).
+
+## Install petals​
+
+The `petals` package is required to use the Petals API. Install `petals` using `pip3 install petals`.
+
+For Apple Silicon(M1/M2) users please follow this guide [https://github.com/bigscience-workshop/petals/issues/147#issuecomment-1365379642](https://github.com/bigscience-workshop/petals/issues/147#issuecomment-1365379642) to install petals 
+
+```bash
+pip3 install petals
+```
+
+## Imports​
+
+```python
+import os
+
+from langchain.chains import LLMChain
+from langchain.llms import Petals
+from langchain.prompts import PromptTemplate
+```
+
+## Set the Environment API Key​
+
+Make sure to get [your API key](https://huggingface.co/docs/api-inference/quicktour#get-your-api-token) from Huggingface.
+
+```python
+from getpass import getpass
+
+HUGGINGFACE_API_KEY = getpass()
+```
+
+```text
+     ········
+```
+
+```python
+os.environ["HUGGINGFACE_API_KEY"] = HUGGINGFACE_API_KEY
+```
+
+## Create the Petals instance​
+
+You can specify different parameters such as the model name, max new tokens, temperature, etc.
+
+```python
+# this can take several minutes to download big files!
+
+llm = Petals(model_name="bigscience/bloom-petals")
+```
+
+```text
+    Downloading:   1%|▏                        | 40.8M/7.19G [00:24<15:44, 7.57MB/s]
+```
+
+## Create a Prompt Template​
+
+We will create a prompt template for Question and Answer.
+
+```python
+template = """Question: {question}
+
+Answer: Let's think step by step."""
+
+prompt = PromptTemplate(template=template, input_variables=["question"])
+```
+
+## Initiate the LLMChain​
+
+```python
+llm_chain = LLMChain(prompt=prompt, llm=llm)
+```
+
+## Run the LLMChain​
+
+Provide a question and run the LLMChain.
+
+```python
+question = "What NFL team won the Super Bowl in the year Justin Beiber was born?"
+
+llm_chain.run(question)
+```
+
+- [Install petals](#install-petals)
+
+- [Imports](#imports)
+
+- [Set the Environment API Key](#set-the-environment-api-key)
+
+- [Create the Petals instance](#create-the-petals-instance)
+
+- [Create a Prompt Template](#create-a-prompt-template)
+
+- [Initiate the LLMChain](#initiate-the-llmchain)
+
+- [Run the LLMChain](#run-the-llmchain)</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://api.python.langchain.com/en/latest/llms/langchain.llms.petals.Petals.html</source>
+<doc_content>langchain.llms.petals.Petals — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.llms.petals.Petals
+
+langchain.llms.petals.Petals¶
+
+class langchain.llms.petals.Petals[source]¶
+Bases: LLM
+Petals Bloom models.
+To use, you should have the petals python package installed, and the
+environment variable HUGGINGFACE_API_KEY set with your API key.
+Any parameters that are valid to be passed to the call can be passed
+in, even if not explicitly saved on this class.
+Example
+from langchain.llms import petals
+petals = Petals()
+
+Create a new model by parsing and validating input data from keyword arguments.
+Raises ValidationError if the input data cannot be parsed to form a valid model.
+
+param cache: Optional[bool] = None¶
+
+param callback_manager: Optional[BaseCallbackManager] = None¶
+
+param callbacks: Callbacks = None¶
+
+param client: Any = None¶
+The client to use for the API calls.
+
+param do_sample: bool = True¶
+Whether or not to use sampling; use greedy decoding otherwise.
+
+param huggingface_api_key: Optional[str] = None¶
+
+param max_length: Optional[int] = None¶
+The maximum length of the sequence to be generated.
+
+param max_new_tokens: int = 256¶
+The maximum number of new tokens to generate in the completion.
+
+param metadata: Optional[Dict[str, Any]] = None¶
+Metadata to add to the run trace.
+
+param model_kwargs: Dict[str, Any] [Optional]¶
+Holds any model parameters valid for create call
+not explicitly specified.
+
+param model_name: str = 'bigscience/bloom-petals'¶
+The model to use.
+
+param tags: Optional[List[str]] = None¶
+Tags to add to the run trace.
+
+param temperature: float = 0.7¶
+What sampling temperature to use
+
+param tokenizer: Any = None¶
+The tokenizer to use for the API calls.
+
+param top_k: Optional[int] = None¶
+The number of highest probability vocabulary tokens
+to keep for top-k-filtering.
+
+param top_p: float = 0.9¶
+The cumulative probability for top-p sampling.
+
+param verbose: bool [Optional]¶
+Whether to print out response text.
+
+__call__(prompt: str, stop: Optional[List[str]] = None, callbacks: Optional[Union[List[BaseCallbackHandler], BaseCallbackManager]] = None, *, tags: Optional[List[str]] = None, metadata: Optional[Dict[str, Any]] = None, **kwargs: Any) → str¶
+Check Cache and run the LLM on the given prompt and input.
+
+async abatch(inputs: List[Union[PromptValue, str, List[BaseMessage]]], config: Optional[Union[RunnableConfig, List[RunnableConfig]]] = None, *, return_exceptions: bool = False, **kwargs: Any) → List[str]¶
+Default implementation runs ainvoke in parallel using asyncio.gather.
+The default implementation of batch works well for IO bound runnables.
+Subclasses should override this method if they can batch more efficiently;
+e.g., if the underlying runnable uses an API which supports a batch mode.
+
+async agenerate(prompts: List[str], stop: Optional[List[str]] = None, callbacks: Union[List[BaseCallbackHandler], BaseCallbackManager, None, List[Optional[Union[List[BaseCallbackHandler], BaseCallbackManager]]]] = None, *, tags: Optional[Union[List[str], List[List[str]]]] = None, metadata: Optional[Union[Dict[str, Any], List[Dict[str, Any]]]] = None, run_name: Optional[Union[str, List[str]]] = None, **kwargs: Any) → LLMResult¶
+Run the LLM on the given prompt and input.
+
+async agenerate_prompt(prompts: List[PromptValue], stop: Optional[List[str]] = None, callbacks: Union[List[BaseCallbackHandler], BaseCallbackManager, None, List[Optional[Union[List[BaseCallbackHandler], BaseCallbackManager]]]] = None, **kwargs: Any) → LLMResult¶
+Asynchronously pass a sequence of prompts and return model generations.
+This method should make use of batched calls for models that expose a batched
+API.
+
+Use this method when you want to:
+take advantage of batched calls,
+need more output from the model than just the top generated value,
+
+are building chains that are agnostic to the underlying language modeltype (e.g., pure text completion models vs chat models).
+
+Parameters
+
+prompts – List of PromptValues. A PromptValue is an object that can be
+converted to match the format of any language model (string for pure
+text generation models and BaseMessages for chat models).
+stop – Stop words to use when generating. Model output is cut off at the
+first occurrence of any of these substrings.
+callbacks – Callbacks to pass through. Used for executing additional
+functionality, such as logging or streaming, throughout generation.
+**kwargs – Arbitrary additional keyword arguments. These are usually passed
+to the model provider API call.
+
+Returns
+
+An LLMResult, which contains a list of candidate Generations for each inputprompt and additional model provider-specific output.
+
+async ainvoke(input: Union[PromptValue, str, List[BaseMessage]], config: Optional[RunnableConfig] = None, *, stop: Optional[List[str]] = None, **kwargs: Any) → str¶
+Default implementation of ainvoke, calls invoke from a thread.
+The default implementation allows usage of async code even if
+the runnable did not implement a native async version of invoke.
+Subclasses should override this method if they can run asynchronously.
+
+async apredict(text: str, *, stop: Optional[Sequence[str]] = None, **kwargs: Any) → str¶
+Asynchronously pass a string to the model and return a string prediction.
+
+Use this method when calling pure text generation models and only the topcandidate generation is needed.
+
+Parameters
+
+text – String input to pass to the model.
+stop – Stop words to use when generating. Model output is cut off at the
+first occurrence of any of these substrings.
+**kwargs – Arbitrary additional keyword arguments. These are usually passed
+to the model provider API call.
+
+Returns
+Top model prediction as a string.
+
+async apredict_messages(messages: List[BaseMessage], *, stop: Optional[Sequence[str]] = None, **kwargs: Any) → BaseMessage¶
+Asynchronously pass messages to the model and return a message prediction.
+
+Use this method when calling chat models and only the topcandidate generation is needed.
+
+Parameters
+
+messages – A sequence of chat messages corresponding to a single model input.
+stop – Stop words to use when generating. Model output is cut off at the
+first occurrence of any of these substrings.
+**kwargs – Arbitrary additional keyword arguments. These are usually passed
+to the model provider API call.
+
+Returns
+Top model prediction as a message.
+
+async astream(input: Union[PromptValue, str, List[BaseMessage]], config: Optional[RunnableConfig] = None, *, stop: Optional[List[str]] = None, **kwargs: Any) → AsyncIterator[str]¶
+Default implementation of astream, which calls ainvoke.
+Subclasses should override this method if they support streaming output.
+
+async astream_log(input: Any, config: Optional[RunnableConfig] = None, *, diff: bool = True, include_names: Optional[Sequence[str]] = None, include_types: Optional[Sequence[str]] = None, include_tags: Optional[Sequence[str]] = None, exclude_names: Optional[Sequence[str]] = None, exclude_types: Optional[Sequence[str]] = None, exclude_tags: Optional[Sequence[str]] = None, **kwargs: Optional[Any]) → Union[AsyncIterator[RunLogPatch], AsyncIterator[RunLog]]¶
+Stream all output from a runnable, as reported to the callback system.
+This includes all inner runs of LLMs, Retrievers, Tools, etc.
+Output is streamed as Log objects, which include a list of
+jsonpatch ops that describe how the state of the run has changed in each
+step, and the final state of the run.
+The jsonpatch ops can be applied in order to construct state.
+
+async atransform(input: AsyncIterator[Input], config: Optional[RunnableConfig] = None, **kwargs: Optional[Any]) → AsyncIterator[Output]¶
+Default implementation of atransform, which buffers input and calls astream.
+Subclasses should override this method if they can start producing output while
+input is still being generated.
+
+batch(inputs: List[Union[PromptValue, str, List[BaseMessage]]], config: Optional[Union[RunnableConfig, List[RunnableConfig]]] = None, *, return_exceptions: bool = False, **kwargs: Any) → List[str]¶
+Default implementation runs invoke in parallel using a thread pool executor.
+The default implementation of batch works well for IO bound runnables.
+Subclasses should override this method if they can batch more efficiently;
+e.g., if the underlying runnable uses an API which supports a batch mode.
+
+bind(**kwargs: Any) → Runnable[Input, Output]¶
+Bind arguments to a Runnable, returning a new Runnable.
+
+config_schema(*, include: Optional[Sequence[str]] = None) → Type[BaseModel]¶
+The type of config this runnable accepts specified as a pydantic model.
+To mark a field as configurable, see the configurable_fields
+and configurable_alternatives methods.
+
+Parameters
+include – A list of fields to include in the config schema.
+
+Returns
+A pydantic model that can be used to validate config.
+
+configurable_alternatives(which: ConfigurableField, default_key: str = 'default', **kwargs: Union[Runnable[Input, Output], Callable[[], Runnable[Input, Output]]]) → RunnableSerializable[Input, Output]¶
+
+configurable_fields(**kwargs: Union[ConfigurableField, ConfigurableFieldSingleOption, ConfigurableFieldMultiOption]) → RunnableSerializable[Input, Output]¶
+
+classmethod construct(_fields_set: Optional[SetStr] = None, **values: Any) → Model¶
+Creates a new model setting __dict__ and __fields_set__ from trusted or pre-validated data.
+Default values are respected, but no other validation is performed.
+Behaves as if Config.extra = ‘allow’ was set since it adds all passed values
+
+copy(*, include: Optional[Union[AbstractSetIntStr, MappingIntStrAny]] = None, exclude: Optional[Union[AbstractSetIntStr, MappingIntStrAny]] = None, update: Optional[DictStrAny] = None, deep: bool = False) → Model¶
+Duplicate a model, optionally choose which fields to include, exclude and change.
+
+Parameters
+
+include – fields to include in new model
+exclude – fields to exclude from new model, as with values this takes precedence over include
+update – values to change/add in the new model. Note: the data is not validated before creating
+the new model: you should trust this data
+deep – set to True to make a deep copy of the model
+
+Returns
+new model instance
+
+dict(**kwargs: Any) → Dict¶
+Return a dictionary of the LLM.
+
+classmethod from_orm(obj: Any) → Model¶
+
+generate(prompts: List[str], stop: Optional[List[str]] = None, callbacks: Union[List[BaseCallbackHandler], BaseCallbackManager, None, List[Optional[Union[List[BaseCallbackHandler], BaseCallbackManager]]]] = None, *, tags: Optional[Union[List[str], List[List[str]]]] = None, metadata: Optional[Union[Dict[str, Any], List[Dict[str, Any]]]] = None, run_name: Optional[Union[str, List[str]]] = None, **kwargs: Any) → LLMResult¶
+Run the LLM on the given prompt and input.
+
+generate_prompt(prompts: List[PromptValue], stop: Optional[List[str]] = None, callbacks: Union[List[BaseCallbackHandler], BaseCallbackManager, None, List[Optional[Union[List[BaseCallbackHandler], BaseCallbackManager]]]] = None, **kwargs: Any) → LLMResult¶
+Pass a sequence of prompts to the model and return model generations.
+This method should make use of batched calls for models that expose a batched
+API.
+
+Use this method when you want to:
+take advantage of batched calls,
+need more output from the model than just the top generated value,
+
+are building chains that are agnostic to the underlying language modeltype (e.g., pure text completion models vs chat models).
+
+Parameters
+
+prompts – List of PromptValues. A PromptValue is an object that can be
+converted to match the format of any language model (string for pure
+text generation models and BaseMessages for chat models).
+stop – Stop words to use when generating. Model output is cut off at the
+first occurrence of any of these substrings.
+callbacks – Callbacks to pass through. Used for executing additional
+functionality, such as logging or streaming, throughout generation.
+**kwargs – Arbitrary additional keyword arguments. These are usually passed
+to the model provider API call.
+
+Returns
+
+An LLMResult, which contains a list of candidate Generations for each inputprompt and additional model provider-specific output.
+
+get_input_schema(config: Optional[RunnableConfig] = None) → Type[BaseModel]¶
+Get a pydantic model that can be used to validate input to the runnable.
+Runnables that leverage the configurable_fields and configurable_alternatives
+methods will have a dynamic input schema that depends on which
+configuration the runnable is invoked with.
+This method allows to get an input schema for a specific configuration.
+
+Parameters
+config – A config to use when generating the schema.
+
+Returns
+A pydantic model that can be used to validate input.
+
+classmethod get_lc_namespace() → List[str]¶
+Get the namespace of the langchain object.
+For example, if the class is langchain.llms.openai.OpenAI, then the
+namespace is [“langchain”, “llms”, “openai”]
+
+get_num_tokens(text: str) → int¶
+Get the number of tokens present in the text.
+Useful for checking if an input will fit in a model’s context window.
+
+Parameters
+text – The string input to tokenize.
+
+Returns
+The integer number of tokens in the text.
+
+get_num_tokens_from_messages(messages: List[BaseMessage]) → int¶
+Get the number of tokens in the messages.
+Useful for checking if an input will fit in a model’s context window.
+
+Parameters
+messages – The message inputs to tokenize.
+
+Returns
+The sum of the number of tokens across the messages.
+
+get_output_schema(config: Optional[RunnableConfig] = None) → Type[BaseModel]¶
+Get a pydantic model that can be used to validate output to the runnable.
+Runnables that leverage the configurable_fields and configurable_alternatives
+methods will have a dynamic output schema that depends on which
+configuration the runnable is invoked with.
+This method allows to get an output schema for a specific configuration.
+
+Parameters
+config – A config to use when generating the schema.
+
+Returns
+A pydantic model that can be used to validate output.
+
+get_token_ids(text: str) → List[int]¶
+Return the ordered ids of the tokens in a text.
+
+Parameters
+text – The string input to tokenize.
+
+Returns
+
+A list of ids corresponding to the tokens in the text, in order they occurin the text.
+
+invoke(input: Union[PromptValue, str, List[BaseMessage]], config: Optional[RunnableConfig] = None, *, stop: Optional[List[str]] = None, **kwargs: Any) → str¶
+Transform a single input into an output. Override to implement.
+
+Parameters
+
+input – The input to the runnable.
+config – A config to use when invoking the runnable.
+The config supports standard keys like ‘tags’, ‘metadata’ for tracing
+purposes, ‘max_concurrency’ for controlling how much work to do
+in parallel, and other keys. Please refer to the RunnableConfig
+for more details.
+
+Returns
+The output of the runnable.
+
+classmethod is_lc_serializable() → bool¶
+Is this class serializable?
+
+json(*, include: Optional[Union[AbstractSetIntStr, MappingIntStrAny]] = None, exclude: Optional[Union[AbstractSetIntStr, MappingIntStrAny]] = None, by_alias: bool = False, skip_defaults: Optional[bool] = None, exclude_unset: bool = False, exclude_defaults: bool = False, exclude_none: bool = False, encoder: Optional[Callable[[Any], Any]] = None, models_as_dict: bool = True, **dumps_kwargs: Any) → unicode¶
+Generate a JSON representation of the model, include and exclude arguments as per dict().
+encoder is an optional function to supply as default to json.dumps(), other arguments as per json.dumps().
+
+classmethod lc_id() → List[str]¶
+A unique identifier for this class for serialization purposes.
+The unique identifier is a list of strings that describes the path
+to the object.
+
+map() → Runnable[List[Input], List[Output]]¶
+Return a new Runnable that maps a list of inputs to a list of outputs,
+by calling invoke() with each input.
+
+classmethod parse_file(path: Union[str, Path], *, content_type: unicode = None, encoding: unicode = 'utf8', proto: Protocol = None, allow_pickle: bool = False) → Model¶
+
+classmethod parse_obj(obj: Any) → Model¶
+
+classmethod parse_raw(b: Union[str, bytes], *, content_type: unicode = None, encoding: unicode = 'utf8', proto: Protocol = None, allow_pickle: bool = False) → Model¶
+
+predict(text: str, *, stop: Optional[Sequence[str]] = None, **kwargs: Any) → str¶
+Pass a single string input to the model and return a string prediction.
+
+Use this method when passing in raw text. If you want to pass in specifictypes of chat messages, use predict_messages.
+
+Parameters
+
+text – String input to pass to the model.
+stop – Stop words to use when generating. Model output is cut off at the
+first occurrence of any of these substrings.
+**kwargs – Arbitrary additional keyword arguments. These are usually passed
+to the model provider API call.
+
+Returns
+Top model prediction as a string.
+
+predict_messages(messages: List[BaseMessage], *, stop: Optional[Sequence[str]] = None, **kwargs: Any) → BaseMessage¶
+Pass a message sequence to the model and return a message prediction.
+
+Use this method when passing in chat messages. If you want to pass in raw text,use predict.
+
+Parameters
+
+messages – A sequence of chat messages corresponding to a single model input.
+stop – Stop words to use when generating. Model output is cut off at the
+first occurrence of any of these substrings.
+**kwargs – Arbitrary additional keyword arguments. These are usually passed
+to the model provider API call.
+
+Returns
+Top model prediction as a message.
+
+save(file_path: Union[Path, str]) → None¶
+Save the LLM.
+
+Parameters
+file_path – Path to file to save the LLM to.
+
+Example:
+.. code-block:: python
+
+llm.save(file_path=”path/llm.yaml”)
+
+classmethod schema(by_alias: bool = True, ref_template: unicode = '#/definitions/{model}') → DictStrAny¶
+
+classmethod schema_json(*, by_alias: bool = True, ref_template: unicode = '#/definitions/{model}', **dumps_kwargs: Any) → unicode¶
+
+stream(input: Union[PromptValue, str, List[BaseMessage]], config: Optional[RunnableConfig] = None, *, stop: Optional[List[str]] = None, **kwargs: Any) → Iterator[str]¶
+Default implementation of stream, which calls invoke.
+Subclasses should override this method if they support streaming output.
+
+to_json() → Union[SerializedConstructor, SerializedNotImplemented]¶
+
+to_json_not_implemented() → SerializedNotImplemented¶
+
+transform(input: Iterator[Input], config: Optional[RunnableConfig] = None, **kwargs: Optional[Any]) → Iterator[Output]¶
+Default implementation of transform, which buffers input and then calls stream.
+Subclasses should override this method if they can start producing output while
+input is still being generated.
+
+classmethod update_forward_refs(**localns: Any) → None¶
+Try to update ForwardRefs on fields based on this Model, globalns and localns.
+
+classmethod validate(value: Any) → Model¶
+
+with_config(config: Optional[RunnableConfig] = None, **kwargs: Any) → Runnable[Input, Output]¶
+Bind config to a Runnable, returning a new Runnable.
+
+with_fallbacks(fallbacks: Sequence[Runnable[Input, Output]], *, exceptions_to_handle: Tuple[Type[BaseException], ...] = (<class 'Exception'>,)) → RunnableWithFallbacksT[Input, Output]¶
+Add fallbacks to a runnable, returning a new Runnable.
+
+Parameters
+
+fallbacks – A sequence of runnables to try if the original runnable fails.
+exceptions_to_handle – A tuple of exception types to handle.
+
+Returns
+A new Runnable that will try the original runnable, and then each
+fallback in order, upon failures.
+
+with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable.
+on_start: Called before the runnable starts running, with the Run object.
+on_end: Called after the runnable finishes running, with the Run object.
+on_error: Called if the runnable throws an error, with the Run object.
+The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run.
+
+with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions.
+
+Parameters
+
+retry_if_exception_type – A tuple of exception types to retry on
+wait_exponential_jitter – Whether to add jitter to the wait time
+between retries
+stop_after_attempt – The maximum number of attempts to make before giving up
+
+Returns
+A new Runnable that retries the original runnable on exceptions.
+
+with_types(*, input_type: Optional[Type[Input]] = None, output_type: Optional[Type[Output]] = None) → Runnable[Input, Output]¶
+Bind input and output types to a Runnable, returning a new Runnable.
+
+property InputType: TypeAlias¶
+Get the input type for this runnable.
+
+property OutputType: Type[str]¶
+Get the input type for this runnable.
+
+property config_specs: List[langchain.schema.runnable.utils.ConfigurableFieldSpec]¶
+List configurable fields for this runnable.
+
+property input_schema: Type[pydantic.main.BaseModel]¶
+The type of input this runnable accepts specified as a pydantic model.
+
+property lc_attributes: Dict¶
+List of attribute names that should be included in the serialized kwargs.
+These attributes must be accepted by the constructor.
+
+property lc_secrets: Dict[str, str]¶
+A map of constructor argument names to secret ids.
+
+For example,{“openai_api_key”: “OPENAI_API_KEY”}
+
+property output_schema: Type[pydantic.main.BaseModel]¶
+The type of output this runnable produces specified as a pydantic model.
+
+Examples using Petals¶
+
+Petals
+
+            © 2023, Harrison Chase.
+          Last updated on Nov 17, 2023.
+          Show this page source</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: According to the documentation, subclasses of LangChain's Runnable should override the `stream` method if they support streaming output. This implies that LangChain's Runnable itself does not natively support streaming output.

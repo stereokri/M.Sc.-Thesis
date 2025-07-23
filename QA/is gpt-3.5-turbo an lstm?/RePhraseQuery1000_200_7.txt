@@ -1,0 +1,200 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/retrievers/re_phrase</source>
+<doc_content>```python
+llm = ChatOpenAI(temperature=0)
+retriever_from_llm = RePhraseQueryRetriever.from_llm(
+    retriever=vectorstore.as_retriever(), llm=llm
+)
+```
+
+```python
+docs = retriever_from_llm.get_relevant_documents(
+    "Hi I'm Lance. What are the approaches to Task Decomposition?"
+)
+```
+
+```text
+    INFO:langchain.retrievers.re_phraser:Re-phrased question: The user query can be converted into a query for a vectorstore as follows:
+    
+    "approaches to Task Decomposition"
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/retrievers/re_phrase</source>
+<doc_content>RePhraseQuery | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# RePhraseQuery
+
+`RePhraseQuery` is a simple retriever that applies an LLM between the user input and the query passed by the retriever.
+
+It can be used to pre-process the user input in any way.
+
+## Example​
+
+### Setting up​
+
+Create a vector store.
+
+```python
+import logging</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/hippo</source>
+<doc_content>llm = ChatOpenAI(openai_api_key="YOUR OPENAI KEY", model_name="gpt-3.5-turbo-16k")
+```
+
+### Acquiring Related Knowledge Based on the Question：​
+
+```python
+query = "Please introduce COVID-19"
+# query = "Please introduce Hippo Core Architecture"
+# query = "What operations does the Hippo Vector Database support for vector data?"
+# query = "Does Hippo use hardware acceleration technology? Briefly introduce hardware acceleration technology."</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/retrievers/re_phrase</source>
+<doc_content>RePhraseQuery | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# RePhraseQuery
+
+`RePhraseQuery` is a simple retriever that applies an LLM between the user input and the query passed by the retriever.
+
+It can be used to pre-process the user input in any way.
+
+## Example​
+
+### Setting up​
+
+Create a vector store.
+
+```python
+import logging
+
+from langchain.chat_models import ChatOpenAI
+from langchain.document_loaders import WebBaseLoader
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.retrievers import RePhraseQueryRetriever
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.vectorstores import Chroma
+```
+
+```python
+logging.basicConfig()
+logging.getLogger("langchain.retrievers.re_phraser").setLevel(logging.INFO)
+
+loader = WebBaseLoader("https://lilianweng.github.io/posts/2023-06-23-agent/")
+data = loader.load()</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/use_cases/qa_structured/sql</source>
+<doc_content>Question: Question here
+ESQuery: Elasticsearch Query formatted as json
+"""
+
+PROMPT = PromptTemplate.from_template(
+    PROMPT_TEMPLATE,
+)
+chain = ElasticsearchDatabaseChain.from_llm(llm=llm, database=db, query_prompt=PROMPT)
+```
+
+- [Use case](#use-case)
+
+- [Overview](#overview)
+
+- [Quickstart](#quickstart)- [Go deeper](#go-deeper)
+
+- [Case 1: Text-to-SQL query](#case-1-text-to-sql-query)- [Go deeper](#go-deeper-1)</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/modules/data_connection/retrievers/MultiQueryRetriever</source>
+<doc_content>question = "What are the approaches to Task Decomposition?"
+llm = ChatOpenAI(temperature=0)
+retriever_from_llm = MultiQueryRetriever.from_llm(
+    retriever=vectordb.as_retriever(), llm=llm
+)
+```
+
+```python
+# Set logging for the queries
+import logging
+
+logging.basicConfig()
+logging.getLogger("langchain.retrievers.multi_query").setLevel(logging.INFO)
+```
+
+```python
+unique_docs = retriever_from_llm.get_relevant_documents(query=question)
+len(unique_docs)
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/integrations/retrievers/re_phrase</source>
+<doc_content>```python
+docs = retriever_from_llm.get_relevant_documents(
+    "Hi I'm Lance. What are the approaches to Task Decomposition?"
+)
+```
+
+```text
+    INFO:langchain.retrievers.re_phraser:Re-phrased question: The user query can be converted into a query for a vectorstore as follows:
+    
+    "approaches to Task Decomposition"
+```
+
+```python
+docs = retriever_from_llm.get_relevant_documents(
+    "I live in San Francisco. What are the Types of Memory?"
+)
+```
+
+```text
+    INFO:langchain.retrievers.re_phraser:Re-phrased question: Query for vectorstore: "Types of Memory"
+```
+
+### Custom prompt​
+
+```python
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: No, GPT-3.5-Turbo is not an LSTM (Long Short-Term Memory) model. It's a variant of the transformer architecture, specifically designed for natural language processing tasks.

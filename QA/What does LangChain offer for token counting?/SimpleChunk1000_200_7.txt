@@ -1,0 +1,201 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/modules/callbacks/token_counting</source>
+<doc_content>Token counting | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Token counting
+
+LangChain offers a context manager that allows you to count tokens.
+
+```python
+import asyncio
+
+from langchain.callbacks import get_openai_callback
+from langchain.llms import OpenAI
+
+llm = OpenAI(temperature=0)
+with get_openai_callback() as cb:
+    llm("What is the square root of 4?")
+
+total_tokens = cb.total_tokens
+assert total_tokens > 0</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/modules/callbacks/token_counting</source>
+<doc_content>Token counting | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Token counting
+
+LangChain offers a context manager that allows you to count tokens.
+
+```python
+import asyncio
+
+from langchain.callbacks import get_openai_callback
+from langchain.llms import OpenAI
+
+llm = OpenAI(temperature=0)
+with get_openai_callback() as cb:
+    llm("What is the square root of 4?")
+
+total_tokens = cb.total_tokens
+assert total_tokens > 0
+
+with get_openai_callback() as cb:
+    llm("What is the square root of 4?")
+    llm("What is the square root of 4?")
+
+assert cb.total_tokens == total_tokens * 2
+
+# You can kick off concurrent runs from within the context manager
+with get_openai_callback() as cb:
+    await asyncio.gather(
+        *[llm.agenerate(["What is the square root of 4?"]) for _ in range(3)]
+    )
+
+assert cb.total_tokens == total_tokens * 3</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/modules/model_io/chat/token_usage_tracking</source>
+<doc_content>Tracking token usage | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Tracking token usage
+
+This notebook goes over how to track your token usage for specific calls. It is currently only implemented for the OpenAI API.
+
+Let's first look at an extremely simple example of tracking token usage for a single Chat model call.
+
+```python
+from langchain.callbacks import get_openai_callback
+from langchain.chat_models import ChatOpenAI
+```
+
+```python
+llm = ChatOpenAI(model_name="gpt-4")
+```
+
+```python
+with get_openai_callback() as cb:
+    result = llm.invoke("Tell me a joke")
+    print(cb)
+```
+
+```text
+    Tokens Used: 24
+        Prompt Tokens: 11
+        Completion Tokens: 13
+    Successful Requests: 1
+    Total Cost (USD): $0.0011099999999999999
+```
+
+Anything inside the context manager will get tracked. Here's an example of using it to track multiple calls in sequence.</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/modules/model_io/llms/token_usage_tracking</source>
+<doc_content>Tracking token usage | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Tracking token usage
+
+This notebook goes over how to track your token usage for specific calls. It is currently only implemented for the OpenAI API.
+
+Let's first look at an extremely simple example of tracking token usage for a single LLM call.
+
+```python
+from langchain.callbacks import get_openai_callback
+from langchain.llms import OpenAI
+```
+
+```python
+llm = OpenAI(model_name="gpt-3.5-turbo-instruct", n=2, best_of=2)
+```
+
+```python
+with get_openai_callback() as cb:
+    result = llm.invoke("Tell me a joke")
+    print(cb)
+```
+
+```text
+    Tokens Used: 37
+        Prompt Tokens: 4
+        Completion Tokens: 33
+    Successful Requests: 1
+    Total Cost (USD): $7.2e-05
+```
+
+Anything inside the context manager will get tracked. Here's an example of using it to track multiple calls in sequence.</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/modules/model_io/llms/token_usage_tracking</source>
+<doc_content>Tracking token usage | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Tracking token usage
+
+This notebook goes over how to track your token usage for specific calls. It is currently only implemented for the OpenAI API.
+
+Let's first look at an extremely simple example of tracking token usage for a single LLM call.
+
+```python
+from langchain.callbacks import get_openai_callback
+from langchain.llms import OpenAI
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/modules/model_io/chat/token_usage_tracking</source>
+<doc_content>Tracking token usage | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Tracking token usage
+
+This notebook goes over how to track your token usage for specific calls. It is currently only implemented for the OpenAI API.
+
+Let's first look at an extremely simple example of tracking token usage for a single Chat model call.
+
+```python
+from langchain.callbacks import get_openai_callback
+from langchain.chat_models import ChatOpenAI
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/</source>
+<doc_content>🦜️🔗 Langchain</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: LangChain offers a context manager that allows you to count tokens. This is demonstrated through examples of using `get_openai_callback()` and `OpenAI` or `ChatOpenAI` instances, where the total number of tokens can be accessed via `cb.total_tokens`. The context manager can also be used to track token usage for multiple calls in sequence.

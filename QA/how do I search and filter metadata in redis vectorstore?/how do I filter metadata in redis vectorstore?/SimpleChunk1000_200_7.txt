@@ -1,0 +1,240 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>```text
+    16:58:26 [RedisVL] INFO   Indices:
+    16:58:26 [RedisVL] INFO   1. users
+```
+
+The `Redis` VectorStore implementation will attempt to generate index schema (fields for filtering) for any metadata passed through the `from_texts`, `from_texts_return_keys`, and `from_documents` methods. This way, whatever metadata is passed will be indexed into the Redis search index allowing
+for filtering on those fields.
+
+Below we show what fields were created from the metadata we defined above
+
+```bash
+rvl index info -i users
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>```text
+    16:58:26 [RedisVL] INFO   Indices:
+    16:58:26 [RedisVL] INFO   1. users
+```
+
+The `Redis` VectorStore implementation will attempt to generate index schema (fields for filtering) for any metadata passed through the `from_texts`, `from_texts_return_keys`, and `from_documents` methods. This way, whatever metadata is passed will be indexed into the Redis search index allowing
+for filtering on those fields.
+
+Below we show what fields were created from the metadata we defined above
+
+```bash
+rvl index info -i users
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>```text
+    16:58:26 [RedisVL] INFO   Indices:
+    16:58:26 [RedisVL] INFO   1. users
+```
+
+The `Redis` VectorStore implementation will attempt to generate index schema (fields for filtering) for any metadata passed through the `from_texts`, `from_texts_return_keys`, and `from_documents` methods. This way, whatever metadata is passed will be indexed into the Redis search index allowing
+for filtering on those fields.
+
+Below we show what fields were created from the metadata we defined above
+
+```bash
+rvl index info -i users
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.redis.base.Redis.html</source>
+<doc_content>vector_schema = {
+    "algorithm": "HNSW"
+}
+
+rds = Redis.from_texts(
+    texts, # a list of strings
+    metadata, # a list of metadata dicts
+    embeddings, # an Embeddings object
+    vector_schema=vector_schema,
+    redis_url="redis://localhost:6379",
+)
+
+Custom index schema can be supplied to change the way that the
+metadata is indexed. This is useful for you would like to use the
+hybrid querying (filtering) capability of Redis.
+By default, this implementation will automatically generate the index
+schema according to the following rules:
+
+All strings are indexed as text fields
+All numbers are indexed as numeric fields
+
+All lists of strings are indexed as tag fields (joined bylangchain.vectorstores.redis.constants.REDIS_TAG_SEPARATOR)
+
+All None values are not indexed but still stored in Redis these arenot retrievable through the interface here, but the raw Redis client
+can be used to retrieve them.
+
+All other types are not indexed</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.redis.base.Redis.html</source>
+<doc_content>vector_schema = {
+    "algorithm": "HNSW"
+}
+
+rds = Redis.from_texts(
+    texts, # a list of strings
+    metadata, # a list of metadata dicts
+    embeddings, # an Embeddings object
+    vector_schema=vector_schema,
+    redis_url="redis://localhost:6379",
+)
+
+Custom index schema can be supplied to change the way that the
+metadata is indexed. This is useful for you would like to use the
+hybrid querying (filtering) capability of Redis.
+By default, this implementation will automatically generate the index
+schema according to the following rules:
+
+All strings are indexed as text fields
+All numbers are indexed as numeric fields
+
+All lists of strings are indexed as tag fields (joined bylangchain.vectorstores.redis.constants.REDIS_TAG_SEPARATOR)
+
+All None values are not indexed but still stored in Redis these arenot retrievable through the interface here, but the raw Redis client
+can be used to retrieve them.
+
+All other types are not indexed</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.redis.base.Redis.html</source>
+<doc_content>vector_schema = {
+    "algorithm": "HNSW"
+}
+
+rds = Redis.from_texts(
+    texts, # a list of strings
+    metadata, # a list of metadata dicts
+    embeddings, # an Embeddings object
+    vector_schema=vector_schema,
+    redis_url="redis://localhost:6379",
+)
+
+Custom index schema can be supplied to change the way that the
+metadata is indexed. This is useful for you would like to use the
+hybrid querying (filtering) capability of Redis.
+By default, this implementation will automatically generate the index
+schema according to the following rules:
+
+All strings are indexed as text fields
+All numbers are indexed as numeric fields
+
+All lists of strings are indexed as tag fields (joined bylangchain.vectorstores.redis.constants.REDIS_TAG_SEPARATOR)
+
+All None values are not indexed but still stored in Redis these arenot retrievable through the interface here, but the raw Redis client
+can be used to retrieve them.
+
+All other types are not indexed</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.redis.filters.RedisTag.html</source>
+<doc_content>langchain.vectorstores.redis.filters.RedisTag — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.vectorstores.redis.filters.RedisTag
+
+langchain.vectorstores.redis.filters.RedisTag¶
+
+class langchain.vectorstores.redis.filters.RedisTag(field: str)[source]¶
+A RedisFilterField representing a tag in a Redis index.
+Create a RedisTag FilterField
+
+Parameters
+field (str) – The name of the RedisTag field in the index to be queried
+against.
+
+Attributes
+
+OPERATORS
+
+OPERATOR_MAP
+
+escaper
+
+Methods
+
+__init__(field)
+Create a RedisTag FilterField
+
+equals(other)
+
+__init__(field: str)[source]¶
+Create a RedisTag FilterField
+
+Parameters
+field (str) – The name of the RedisTag field in the index to be queried
+against.
+
+equals(other: RedisFilterField) → bool¶
+
+Examples using RedisTag¶
+
+Redis
+
+            © 2023, Harrison Chase.
+          Last updated on Nov 17, 2023.
+          Show this page source</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: You can filter metadata in Redis VectorStore by supplying a custom index schema to change the way metadata is indexed. By default, the implementation will automatically generate the index schema according to certain rules (e.g., strings are indexed as text fields, numbers as numeric fields, etc.). You can also use RedisTag filters to query against specific fields in the index.

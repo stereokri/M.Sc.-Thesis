@@ -1,0 +1,107 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/tools/searx_search</source>
+<doc_content>In July 2020, OpenAI unveiled GPT-3, a language model that was easily the largest known at the time. Put simply, GPT-3 is trained to predict the next word in a sentence, much like how a text message autocomplete feature works.\n\nA large language model, or LLM, is a deep learning algorithm that can recognize, summarize, translate, predict and generate text and other content based on knowledge gained from massive datasets. Large language models are among the most successful applications of</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/tools/searx_search</source>
+<doc_content>'Large language models (LLMs) represent a major advancement in AI, with the promise of transforming domains through learned knowledge. LLM sizes have been increasing 10X every year for the last few years, and as these models grow in complexity and size, so do their capabilities.\n\nGPT-3 can translate language, write essays, generate computer code, and more — all with limited to no supervision. In July 2020, OpenAI unveiled GPT-3, a language model that was easily the largest known at the time. Put simply, GPT-3 is trained to predict the next word in a sentence, much like how a text message autocomplete feature works.\n\nA large language model, or LLM, is a deep learning algorithm that can recognize, summarize, translate, predict and generate text and other content based on knowledge gained from massive datasets. Large language models are among the most successful applications of transformer models.\n\nAll of today’s well-known language models—e.g., GPT-3 from OpenAI, PaLM or LaMDA</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/additional_resources/tutorials</source>
+<doc_content>- #2 [Prompt Templates for GPT 3.5 and other LLMs](https://youtu.be/RflBcK0oDH0)
+
+- #3 [LLM Chains using GPT 3.5 and other LLMs](https://youtu.be/S8j9Tk0lZHU)
+
+- [LangChain Data Loaders, Tokenizers, Chunking, and Datasets - Data Prep 101](https://youtu.be/eqOfr4AGLk8)
+
+- #4 [Chatbot Memory for Chat-GPT, Davinci + other LLMs](https://youtu.be/X05uK0TZozM)
+
+- #5 [Chat with OpenAI in LangChain](https://youtu.be/CnAgB3A5OlU)
+
+- #6 [Fixing LLM Hallucinations with Retrieval Augmentation in LangChain](https://youtu.be/kvdVduIJsc8)
+
+- #7 [LangChain Agents Deep Dive with GPT 3.5](https://youtu.be/jSP-gSEyVeI)
+
+- #8 [Create Custom Tools for Chatbots in LangChain](https://youtu.be/q-HNphrWsDE)
+
+- #9 [Build Conversational Agents with Vector DBs](https://youtu.be/H6bCqqw9xyI)
+
+- [Using NEW MPT-7B in Hugging Face and LangChain](https://youtu.be/DXpk9K7DgMo)
+
+- [MPT-30B Chatbot with LangChain](https://youtu.be/pnem-EhT6VI)</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/tools/searx_search</source>
+<doc_content>'Large language models (LLMs) represent a major advancement in AI, with the promise of transforming domains through learned knowledge. LLM sizes have been increasing 10X every year for the last few years, and as these models grow in complexity and size, so do their capabilities.\n\nGPT-3 can translate language, write essays, generate computer code, and more — all with limited to no supervision. In July 2020, OpenAI unveiled GPT-3, a language model that was easily the largest known at the</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/modules/agents/how_to/sharedmemory_for_tools</source>
+<doc_content>"ChatGPT is an artificial intelligence chatbot developed by OpenAI and launched in November 2022. It is built on top of OpenAI's GPT-3 family of large language models and is optimized for dialogue by using Reinforcement Learning with Human-in-the-Loop. It is also capable of sending and receiving images during chatting."
+```
+
+To test the memory of this agent, we can ask a followup question that relies on information in the previous exchange to be answered correctly.</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/additional_resources/tutorials</source>
+<doc_content>- #4 [Chatbot Memory for Chat-GPT, Davinci + other LLMs](https://youtu.be/X05uK0TZozM)
+
+- #5 [Chat with OpenAI in LangChain](https://youtu.be/CnAgB3A5OlU)
+
+- #6 [Fixing LLM Hallucinations with Retrieval Augmentation in LangChain](https://youtu.be/kvdVduIJsc8)
+
+- #7 [LangChain Agents Deep Dive with GPT 3.5](https://youtu.be/jSP-gSEyVeI)
+
+- #8 [Create Custom Tools for Chatbots in LangChain](https://youtu.be/q-HNphrWsDE)</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/modules/agents/how_to/sharedmemory_for_tools</source>
+<doc_content>"ChatGPT is an artificial intelligence chatbot developed by OpenAI and launched in November 2022. It is built on top of OpenAI's GPT-3 family of large language models and is optimized for dialogue by using Reinforcement Learning with Human-in-the-Loop. It is also capable of sending and receiving images during chatting."
+```
+
+To test the memory of this agent, we can ask a followup question that relies on information in the previous exchange to be answered correctly.
+
+```python
+agent_chain.run(input="Who developed it?")
+```</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: There is no mention of GPT-3.5-Turbo or LSTM in the provided documents. The documents only discuss GPT-3, LLMs (Large Language Models), and other related topics, but do not provide information about specific models like GPT-3.5-Turbo or architectures like LSTM.

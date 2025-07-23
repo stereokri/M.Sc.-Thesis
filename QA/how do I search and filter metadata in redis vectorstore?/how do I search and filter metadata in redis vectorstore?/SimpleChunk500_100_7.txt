@@ -1,0 +1,132 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>```text
+    16:58:26 [RedisVL] INFO   Indices:
+    16:58:26 [RedisVL] INFO   1. users
+```
+
+The `Redis` VectorStore implementation will attempt to generate index schema (fields for filtering) for any metadata passed through the `from_texts`, `from_texts_return_keys`, and `from_documents` methods. This way, whatever metadata is passed will be indexed into the Redis search index allowing
+for filtering on those fields.
+
+Below we show what fields were created from the metadata we defined above</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>It's important to note that we have not specified that the `user`, `job`, `credit_score` and `age` in the metadata should be fields within the index, this is because the `Redis` VectorStore object automatically generate the index schema from the passed metadata. For more information on the generation of index fields, see the API documentation.
+
+## Querying​
+
+There are multiple ways to query the `Redis` VectorStore implementation based on what use case you have:</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/providers/redis</source>
+<doc_content>### VectorStore​
+
+The vectorstore wrapper turns Redis into a low-latency [vector database](https://redis.com/solutions/use-cases/vector-database/) for semantic search or LLM content retrieval.
+
+To import this vectorstore:
+
+```python
+from langchain.vectorstores import Redis
+```
+
+For a more detailed walkthrough of the Redis vectorstore wrapper, see [this notebook](/docs/integrations/vectorstores/redis).
+
+### Retriever​</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>## More Resources​
+
+For more information on how to use Redis as a vector database, check out the following resources:
+
+- [RedisVL Documentation](https://redisvl.com) - Documentation for the Redis Vector Library Client
+
+- [Redis Vector Similarity Docs](https://redis.io/docs/stack/search/reference/vectors/) - Redis official docs for Vector Search.
+
+- [Redis-py Search Docs](https://redis.readthedocs.io/en/latest/redismodules.html#redisearch-commands) - Documentation for redis-py client library</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.elastic_vector_search.ElasticVectorSearch.html</source>
+<doc_content>ElasticsearchStore also supports metadata filtering, customising the
+query retriever and much more!
+You can read more on ElasticsearchStore:
+https://python.langchain.com/docs/integrations/vectorstores/elasticsearch
+To connect to an Elasticsearch instance that does not require
+login credentials, pass the Elasticsearch URL and index name along with the
+embedding object to the constructor.
+Example
+from langchain.vectorstores import ElasticVectorSearch</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>vectorstores.redis.filters.RedisTag(field)
+A RedisFilterField representing a tag in a Redis index.
+
+vectorstores.redis.filters.RedisText(field)
+A RedisFilterField representing a text field in a Redis index.
+
+vectorstores.redis.schema.FlatVectorField
+Schema for flat vector fields in Redis.
+
+vectorstores.redis.schema.HNSWVectorField
+Schema for HNSW vector fields in Redis.
+
+vectorstores.redis.schema.NumericFieldSchema
+Schema for numeric fields in Redis.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.redis.base.Redis.html</source>
+<doc_content>vector_schema = {
+    "algorithm": "HNSW"
+}
+
+rds = Redis.from_texts(
+    texts, # a list of strings
+    metadata, # a list of metadata dicts
+    embeddings, # an Embeddings object
+    vector_schema=vector_schema,
+    redis_url="redis://localhost:6379",
+)</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: In Redis VectorStore, you can search and filter metadata using the index schema generated automatically from the passed metadata. The `Redis` VectorStore implementation attempts to generate index schema (fields for filtering) for any metadata passed through the `from_texts`, `from_texts_return_keys`, and `from_documents` methods. This allows for filtering on those fields.

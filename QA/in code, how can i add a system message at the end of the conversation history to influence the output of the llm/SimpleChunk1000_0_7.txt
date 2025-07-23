@@ -1,0 +1,241 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/use_cases/chatbots</source>
+<doc_content># Notice that we `return_messages=True` to fit into the MessagesPlaceholder
+# Notice that `"chat_history"` aligns with the MessagesPlaceholder name
+memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+conversation = LLMChain(llm=llm, prompt=prompt, verbose=True, memory=memory)
+
+# Notice that we just pass in the `question` variables - `chat_history` gets populated by memory
+conversation({"question": "hi"})
+```
+
+```text
+    
+    
+    > Entering new LLMChain chain...
+    Prompt after formatting:
+    System: You are a nice chatbot having a conversation with a human.
+    Human: hi
+    
+    > Finished chain.
+
+    {'question': 'hi',
+     'chat_history': [HumanMessage(content='hi', additional_kwargs={}, example=False),
+      AIMessage(content='Hello! How can I assist you today?', additional_kwargs={}, example=False)],
+     'text': 'Hello! How can I assist you today?'}
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/memory/streamlit_chat_message_history</source>
+<doc_content>for msg in msgs.messages:
+    st.chat_message(msg.type).write(msg.content)
+
+if prompt := st.chat_input():
+    st.chat_message("human").write(prompt)
+
+    # As usual, new messages are added to StreamlitChatMessageHistory when the Chain is called.
+    response = llm_chain.run(prompt)
+    st.chat_message("ai").write(response)
+```
+
+**View the final app.**</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/modules/memory/</source>
+<doc_content>llm = ChatOpenAI()
+prompt = ChatPromptTemplate(
+    messages=[
+        SystemMessagePromptTemplate.from_template(
+            "You are a nice chatbot having a conversation with a human."
+        ),
+        # The `variable_name` here is what must align with memory
+        MessagesPlaceholder(variable_name="chat_history"),
+        HumanMessagePromptTemplate.from_template("{question}")
+    ]
+)
+# Notice that we `return_messages=True` to fit into the MessagesPlaceholder
+# Notice that `"chat_history"` aligns with the MessagesPlaceholder name.
+memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+conversation = LLMChain(
+    llm=llm,
+    prompt=prompt,
+    verbose=True,
+    memory=memory
+)
+```
+
+```python
+# Notice that we just pass in the `question` variables - `chat_history` gets populated by memory
+conversation({"question": "hi"})
+```
+
+## Next steps​</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/memory/streamlit_chat_message_history</source>
+<doc_content># Optionally, specify your own session_state key for storing messages
+msgs = StreamlitChatMessageHistory(key="special_app_key")
+
+memory = ConversationBufferMemory(memory_key="history", chat_memory=msgs)
+if len(msgs.messages) == 0:
+    msgs.add_ai_message("How can I help you?")
+```
+
+```python
+from langchain.chains import LLMChain
+from langchain.llms import OpenAI
+from langchain.prompts import PromptTemplate
+
+template = """You are an AI chatbot having a conversation with a human.
+
+{history}
+Human: {human_input}
+AI: """
+prompt = PromptTemplate(input_variables=["history", "human_input"], template=template)
+
+# Add the memory to an LLMChain as usual
+llm_chain = LLMChain(llm=OpenAI(), prompt=prompt, memory=memory)
+```
+
+Conversational Streamlit apps will often re-draw each previous chat message on every re-run. This is easy to do by iterating through `StreamlitChatMessageHistory.messages`:
+
+```python
+import streamlit as st</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/use_cases/chatbots</source>
+<doc_content>memory = ConversationSummaryBufferMemory(llm=llm, max_token_limit=10)
+memory.save_context({"input": "hi"}, {"output": "whats up"})
+memory.save_context({"input": "not much you"}, {"output": "not much"})
+```
+
+## Conversation​
+
+We can unpack what goes under the hood with `ConversationChain`. 
+
+We can specify our memory, `ConversationSummaryMemory` and we can specify the prompt. 
+
+```python
+from langchain.chains import LLMChain
+from langchain.prompts import (
+    ChatPromptTemplate,
+    HumanMessagePromptTemplate,
+    MessagesPlaceholder,
+    SystemMessagePromptTemplate,
+)
+
+# LLM
+llm = ChatOpenAI()
+
+# Prompt
+prompt = ChatPromptTemplate(
+    messages=[
+        SystemMessagePromptTemplate.from_template(
+            "You are a nice chatbot having a conversation with a human."
+        ),
+        # The `variable_name` here is what must align with memory
+        MessagesPlaceholder(variable_name="chat_history"),
+        HumanMessagePromptTemplate.from_template("{question}"),
+    ]
+)</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/modules/agents/</source>
+<doc_content>MEMORY_KEY = "chat_history"
+prompt = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            "You are very powerful assistant, but bad at calculating lengths of words.",
+        ),
+        MessagesPlaceholder(variable_name=MEMORY_KEY),
+        ("user", "{input}"),
+        MessagesPlaceholder(variable_name="agent_scratchpad"),
+    ]
+)
+```
+
+We can then set up a list to track the chat history
+
+```python
+from langchain.schema.messages import AIMessage, HumanMessage
+
+chat_history = []
+```
+
+We can then put it all together!
+
+```python
+agent = (
+    {
+        "input": lambda x: x["input"],
+        "agent_scratchpad": lambda x: format_to_openai_function_messages(
+            x["intermediate_steps"]
+        ),
+        "chat_history": lambda x: x["chat_history"],
+    }
+    | prompt
+    | llm_with_tools
+    | OpenAIFunctionsAgentOutputParser()
+)
+agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/integrations/providers/arthur_tracking</source>
+<doc_content>```python
+def run(llm):
+    history = []
+    while True:
+        user_input = input("\n>>> input >>>\n>>>: ")
+        if user_input == "q":
+            break
+        history.append(HumanMessage(content=user_input))
+        history.append(llm(history))
+```
+
+```python
+run(chatgpt)
+```</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: You can add a system message at the end of the conversation history by modifying the `prompt` and `memory` objects. Specifically, you would need to update the `messages` list in the `prompt` object to include the new system message, and then update the `memory` object to reflect this change.

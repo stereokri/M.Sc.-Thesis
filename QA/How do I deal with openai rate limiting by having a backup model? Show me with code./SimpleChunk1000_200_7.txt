@@ -1,0 +1,126 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/toolkits/openapi</source>
+<doc_content>Retrying langchain.llms.openai.completion_with_retry.<locals>._completion_with_retry in 4.0 seconds as it raised RateLimitError: That model is currently overloaded with other requests. You can retry your request, or contact us through our help center at help.openai.com if the error persists. (Please include the request ID 2167437a0072228238f3c0c5b3882764 in your message.).</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/toolkits/openapi</source>
+<doc_content>Retrying langchain.llms.openai.completion_with_retry.<locals>._completion_with_retry in 4.0 seconds as it raised RateLimitError: That model is currently overloaded with other requests. You can retry your request, or contact us through our help center at help.openai.com if the error persists. (Please include the request ID 2167437a0072228238f3c0c5b3882764 in your message.).</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://api.python.langchain.com/en/latest/agents/langchain.agents.initialize.initialize_agent.html</source>
+<doc_content>Cap the max number of iterations
+Custom functions with OpenAI Functions Agent
+Async API
+Use ToolKits with OpenAI Functions
+Human input chat model
+Fake LLM
+Tracking token usage
+Human input LLM</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/providers/portkey/logging_tracing_portkey</source>
+<doc_content>**Caching**
+
+Respond to previously served customers queries from cache instead of sending them again to OpenAI. Match exact strings OR semantically similar strings. Cache can save costs and reduce latencies by 20x.
+
+**Retries**
+
+Automatically reprocess any unsuccessful API requests **upto 5** times. Uses an **exponential backoff** strategy, which spaces out retry attempts to prevent network overload.</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/callbacks/infino</source>
+<doc_content># Create LLM.
+llm = OpenAI(temperature=0.1)
+
+# Number of questions to ask the OpenAI model. We limit to a short number here to save $$ while running this demo.
+num_questions = 10
+
+questions = questions[0:num_questions]
+for question in questions:
+    print(question)
+
+    # We send the question to OpenAI API, with Infino callback.
+    llm_result = llm.generate([question], callbacks=[handler])
+    print(llm_result)
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://api.python.langchain.com/en/latest/chat_models/langchain.chat_models.azure_openai.AzureChatOpenAI.html</source>
+<doc_content>Be aware the API version may change.
+You can also specify the version of the model using model_version constructor
+parameter, as Azure OpenAI doesn’t return model version with the response.
+Default is empty. When you specify the version, it will be appended to the
+model name in the response. Setting correct version will help you to calculate the
+cost properly. Model version is not validated, so make sure you set it correctly
+to get the correct cost.
+Any parameters that are valid to be passed to the openai.create call can be passed
+in, even if not explicitly saved on this class.
+Create a new model by parsing and validating input data from keyword arguments.
+Raises ValidationError if the input data cannot be parsed to form a valid model.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/guides/fallbacks</source>
+<doc_content>A **fallback** is an alternative plan that may be used in an emergency.
+
+Crucially, fallbacks can be applied not only on the LLM level but on the whole runnable level. This is important because often times different models require different prompts. So if your call to OpenAI fails, you don't just want to send the same prompt to Anthropic - you probably want to use a different prompt template and send a different version there.
+
+## Fallback for LLM API Errors​</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: To handle OpenAI rate limiting, you can implement fallbacks, which are alternative plans that may be used in an emergency. Fallbacks can be applied not only on the LLM level but on the whole runnable level, allowing you to use different prompts and models if your call to OpenAI fails.
+
+Here's some sample code:
+```
+llm = OpenAI(temperature=0.1)
+# Create a fallback model
+fallback_llm = Anthropic(temperature=0.1)
+
+questions = questions[0:num_questions]
+for question in questions:
+    try:
+        llm_result = llm.generate([question])
+    except RateLimitError:
+        # Fallback to the alternative model if OpenAI rate limits
+        llm_result = fallback_llm.generate([question])
+    print(llm_result)
+```
+Note that this code is just a sample and you may need to adjust it according to your specific use case.

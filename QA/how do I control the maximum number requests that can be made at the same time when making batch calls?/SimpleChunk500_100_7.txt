@@ -1,0 +1,126 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/expression_language/interface</source>
+<doc_content>## Batch​
+
+```python
+chain.batch([{"topic": "bears"}, {"topic": "cats"}])
+```
+
+```text
+    [AIMessage(content="Why don't bears wear shoes?\n\nBecause they have bear feet!"),
+     AIMessage(content="Why don't cats play poker in the wild?\n\nToo many cheetahs!")]
+```
+
+You can set the number of concurrent requests by using the `max_concurrency` parameter
+
+```python
+chain.batch([{"topic": "bears"}, {"topic": "cats"}], config={"max_concurrency": 5})
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/llms/</source>
+<doc_content>- _Batch_ support defaults to calling the underlying LLM in parallel for each input by making use of a thread pool executor (in the sync batch case) or `asyncio.gather` (in the async batch case). The concurrency can be controlled with the `max_concurrency` key in `RunnableConfig`.</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/guides/deployments/</source>
+<doc_content>In the context of Large Language Models, batching requests can enhance efficiency by better utilizing your GPU resources. GPUs are inherently parallel processors, designed to handle multiple tasks simultaneously. If you send individual requests to the model, the GPU might not be fully utilized as it's only working on a single task at a time. On the other hand, by batching requests together, you're allowing the GPU to work on multiple tasks at once, maximizing its utilization and improving</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/chat/</source>
+<doc_content>- _Batch_ support defaults to calling the underlying ChatModel in parallel for each input by making use of a thread pool executor (in the sync batch case) or `asyncio.gather` (in the async batch case). The concurrency can be controlled with the `max_concurrency` key in `RunnableConfig`.
+
+Each ChatModel integration can optionally provide native implementations to truly enable async or streaming.
+The table shows, for each integration, which features have been implemented with native support.</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://api.python.langchain.com/en/latest/llms/langchain.llms.fireworks.Fireworks.html</source>
+<doc_content>param batch_size: int = 20¶
+
+param cache: Optional[bool] = None¶
+
+param callback_manager: Optional[BaseCallbackManager] = None¶
+
+param callbacks: Callbacks = None¶
+
+param fireworks_api_key: Optional[pydantic.types.SecretStr] = None¶
+
+Constraints
+
+type = string
+writeOnly = True
+format = password
+
+param max_retries: int = 20¶
+
+param metadata: Optional[Dict[str, Any]] = None¶
+Metadata to add to the run trace.
+
+param model: str = 'accounts/fireworks/models/llama-v2-7b-chat'¶</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/modules/data_connection/retrievers/web_research</source>
+<doc_content>n_ctx=4096,  # Context window
+    max_tokens=1000,  # Max tokens to generate
+    f16_kv=True,  # MUST set to True, otherwise you will run into problem after a couple of calls
+    callback_manager=callback_manager,
+    verbose=True,
+)</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/expression_language/interface</source>
+<doc_content>Parallelism can be combined with other runnables.
+Let's try to use parallelism with batches.
+
+```python
+chain1.batch([{"topic": "bears"}, {"topic": "cats"}])
+```
+
+```text
+    CPU times: user 159 ms, sys: 3.66 ms, total: 163 ms
+    Wall time: 1.34 s
+
+    [AIMessage(content="Why don't bears wear shoes?\n\nBecause they already have bear feet!"),
+     AIMessage(content="Sure, here's a cat joke for you:\n\nWhy don't cats play poker in the wild?\n\nBecause there are too many cheetahs!")]
+```</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: You can control the maximum number of concurrent requests by using the `max_concurrency` parameter in the `config` dictionary when making batch calls. For example, `chain.batch([{"topic": "bears"}, {"topic": "cats"}], config={"max_concurrency": 5})`. This allows you to set the number of concurrent requests to a specific value, such as 5 in this case.

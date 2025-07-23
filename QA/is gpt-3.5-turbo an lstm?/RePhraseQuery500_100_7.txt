@@ -1,0 +1,154 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/hippo</source>
+<doc_content>llm = ChatOpenAI(openai_api_key="YOUR OPENAI KEY", model_name="gpt-3.5-turbo-16k")
+```
+
+### Acquiring Related Knowledge Based on the Question：​
+
+```python
+query = "Please introduce COVID-19"
+# query = "Please introduce Hippo Core Architecture"
+# query = "What operations does the Hippo Vector Database support for vector data?"
+# query = "Does Hippo use hardware acceleration technology? Briefly introduce hardware acceleration technology."</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/use_cases/qa_structured/sql</source>
+<doc_content>Question: Question here
+ESQuery: Elasticsearch Query formatted as json
+"""
+
+PROMPT = PromptTemplate.from_template(
+    PROMPT_TEMPLATE,
+)
+chain = ElasticsearchDatabaseChain.from_llm(llm=llm, database=db, query_prompt=PROMPT)
+```
+
+- [Use case](#use-case)
+
+- [Overview](#overview)
+
+- [Quickstart](#quickstart)- [Go deeper](#go-deeper)
+
+- [Case 1: Text-to-SQL query](#case-1-text-to-sql-query)- [Go deeper](#go-deeper-1)</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/modules/data_connection/retrievers/MultiQueryRetriever</source>
+<doc_content>question = "What are the approaches to Task Decomposition?"
+llm = ChatOpenAI(temperature=0)
+retriever_from_llm = MultiQueryRetriever.from_llm(
+    retriever=vectordb.as_retriever(), llm=llm
+)
+```
+
+```python
+# Set logging for the queries
+import logging
+
+logging.basicConfig()
+logging.getLogger("langchain.retrievers.multi_query").setLevel(logging.INFO)
+```
+
+```python
+unique_docs = retriever_from_llm.get_relevant_documents(query=question)
+len(unique_docs)
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/retrievers/re_phrase</source>
+<doc_content>RePhraseQuery | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# RePhraseQuery
+
+`RePhraseQuery` is a simple retriever that applies an LLM between the user input and the query passed by the retriever.
+
+It can be used to pre-process the user input in any way.
+
+## Example​
+
+### Setting up​
+
+Create a vector store.
+
+```python
+import logging</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/retrievers/re_phrase</source>
+<doc_content>```python
+llm = ChatOpenAI(temperature=0)
+retriever_from_llm = RePhraseQueryRetriever.from_llm(
+    retriever=vectorstore.as_retriever(), llm=llm
+)
+```
+
+```python
+docs = retriever_from_llm.get_relevant_documents(
+    "Hi I'm Lance. What are the approaches to Task Decomposition?"
+)
+```
+
+```text
+    INFO:langchain.retrievers.re_phraser:Re-phrased question: The user query can be converted into a query for a vectorstore as follows:
+    
+    "approaches to Task Decomposition"
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/modules/data_connection/retrievers/web_research</source>
+<doc_content>INFO:langchain.retrievers.web_research:Questions for Google Search (raw): {'question': 'What is Task Decomposition in LLM Powered Autonomous Agents?', 'text': LineList(lines=['1. How does Task Decomposition work in LLM Powered Autonomous Agents? \n', '2. What are the benefits of using Task Decomposition in LLM Powered Autonomous Agents? \n', '3. Can you provide examples of Task Decomposition in LLM Powered Autonomous Agents? \n', '4. How does Task Decomposition improve the performance of</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/integrations/retrievers/arxiv</source>
+<doc_content>model = ChatOpenAI(model_name="gpt-3.5-turbo")  # switch to 'gpt-4'
+qa = ConversationalRetrievalChain.from_llm(model, retriever=retriever)
+```
+
+```python
+questions = [
+    "What are Heat-bath random walks with Markov base?",
+    "What is the ImageBind model?",
+    "How does Compositional Reasoning with Large Language Models works?",
+]
+chat_history = []</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: No, gpt-3.5-turbo is not an LSTM (Long Short-Term Memory) model. It's a type of language model developed by OpenAI. The code snippet `llm = ChatOpenAI(openai_api_key="YOUR OPENAI KEY", model_name="gpt-3.5-turbo-16k")` shows that it's being used as the language model.

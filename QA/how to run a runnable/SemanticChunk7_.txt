@@ -1,0 +1,367 @@
+<documents>
+<document index='0'>
+<source>https://api.python.langchain.com/en/latest/schema.runnable/langchain.schema.runnable.base.RunnableGenerator.html</source>
+<doc_content>with_config(config: Optional[RunnableConfig] = None, **kwargs: Any) → Runnable[Input, Output]¶
+Bind config to a Runnable, returning a new Runnable. with_fallbacks(fallbacks: Sequence[Runnable[Input, Output]], *, exceptions_to_handle: Tuple[Type[BaseException], ...] = (<class 'Exception'>,)) → RunnableWithFallbacksT[Input, Output]¶
+Add fallbacks to a runnable, returning a new Runnable. Parameters
+
+fallbacks – A sequence of runnables to try if the original runnable fails. exceptions_to_handle – A tuple of exception types to handle. Returns
+A new Runnable that will try the original runnable, and then each
+fallback in order, upon failures. with_listeners(*, on_start: Optional[Listener] = None, on_end: Optional[Listener] = None, on_error: Optional[Listener] = None) → Runnable[Input, Output]¶
+Bind lifecycle listeners to a Runnable, returning a new Runnable. on_start: Called before the runnable starts running, with the Run object. on_end: Called after the runnable finishes running, with the Run object. on_error: Called if the runnable throws an error, with the Run object. The Run object contains information about the run, including its id,
+type, input, output, error, start_time, end_time, and any tags or metadata
+added to the run. with_retry(*, retry_if_exception_type: ~typing.Tuple[~typing.Type[BaseException], ...] = (<class 'Exception'>,), wait_exponential_jitter: bool = True, stop_after_attempt: int = 3) → Runnable[Input, Output]¶
+Create a new Runnable that retries the original runnable on exceptions. Parameters
+
+retry_if_exception_type – A tuple of exception types to retry on
+wait_exponential_jitter – Whether to add jitter to the wait time
+between retries
+stop_after_attempt – The maximum number of attempts to make before giving up
+
+Returns
+A new Runnable that retries the original runnable on exceptions. with_types(*, input_type: Optional[Type[Input]] = None, output_type: Optional[Type[Output]] = None) → Runnable[Input, Output]¶
+Bind input and output types to a Runnable, returning a new Runnable.</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/expression_language/how_to/</source>
+<doc_content>RunnableMap) makes it easy to execute multiple Runnables in parallel, and to return the output of these Runnables as a map.](/docs/expression_language/how_to/map)[📄️ Add message history (memory)The RunnableWithMessageHistory let's us add message history to certain types of chains.](/docs/expression_language/how_to/message_history)[📄️ Dynamically route logic based on inputThis notebook covers how to do routing in the LangChain Expression Language.](/docs/expression_language/how_to/routing)</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://api.python.langchain.com/en/latest/schema.runnable/langchain.schema.runnable.base.RunnableParallel.html</source>
+<doc_content>langchain.schema.runnable.base.RunnableParallel — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.schema.runnable.base.RunnableParallel
+
+langchain.schema.runnable.base.RunnableParallel¶
+
+class langchain.schema.runnable.base.RunnableParallel[source]¶
+Bases: RunnableSerializable[Input, Dict[str, Any]]
+A runnable that runs a mapping of runnables in parallel,
+and returns a mapping of their outputs. Create a new model by parsing and validating input data from keyword arguments.</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/langserve</source>
+<doc_content>## Playground​
+
+You can find a playground page for your runnable at `/my_runnable/playground`. This exposes a simple UI to [configure](https://python.langchain.com/docs/expression_language/how_to/configure) and invoke your runnable with streaming output and intermediate steps. ![](https://github.com/langchain-ai/langserve/assets/3205522/5ca56e29-f1bb-40f4-84b5-15916384a276)
+
+### Widgets​
+
+The playground supports [widgets](#playground-widgets) and can be used to test your runnable with different inputs. In addition, for configurable runnables, the playground will allow you to configure the runnable and share a link with the configuration:
+
+### Sharing​
+
+![](https://github.com/langchain-ai/langserve/assets/3205522/86ce9c59-f8e4-4d08-9fa3-62030e0f521d)
+
+## Legacy Chains​
+
+LangServe works with both Runnables (constructed via [LangChain Expression Language](https://python.langchain.com/docs/expression_language/)) and legacy chains (inheriting from `Chain`). However, some of the input schemas for legacy chains may be incomplete/incorrect, leading to errors. This can be fixed by updating the `input_schema` property of those chains in LangChain. If you encounter any errors, please open an issue on THIS repo, and we will work to address it. ## Deployment​
+
+### Deploy to GCP​
+
+You can deploy to GCP Cloud Run using the following command:
+
+```text
+gcloud run deploy [your-service-name] --source . --port 8001 --allow-unauthenticated --region us-central1 --set-env-vars=OPENAI_API_KEY=your_key
+```
+
+## Pydantic​
+
+LangServe provides support for Pydantic 2 with some limitations. 1. OpenAPI docs will not be generated for invoke/batch/stream/stream_log when using Pydantic V2. Fast API does not support  [mixing pydantic v1 and v2 namespaces] . 2. LangChain uses the v1 namespace in Pydantic v2. Please read the [following guidelines to ensure compatibility with LangChain](https://github.com/langchain-ai/langchain/discussions/9337)
+
+Except for these limitations, we expect the API endpoints, the playground and any other features to work as expected. ## Advanced​
+
+## Handling Authentication​
+
+If you need to add authentication to your server,
+please reference FastAPI's [security documentation](https://fastapi.tiangolo.com/tutorial/security/)
+and [middleware documentation](https://fastapi.tiangolo.com/tutorial/middleware/). ### Files​
+
+LLM applications often deal with files. There are different architectures
+that can be made to implement file processing; at a high level:
+
+1. The file may be uploaded to the server via a dedicated endpoint and processed using a separate endpoint
+
+2. The file may be uploaded by either value (bytes of file) or reference (e.g., s3 url to file content)
+
+3. The processing endpoint may be blocking or non-blocking
+
+4. If significant processing is required, the processing may be offloaded to a dedicated process pool
+
+You should determine what is the appropriate architecture for your application. Currently, to upload files by value to a runnable, use base64 encoding for the
+file (`multipart/form-data` is not supported yet). Here's an [example](https://github.com/langchain-ai/langserve/tree/main/examples/file_processing) that shows
+how to use base64 encoding to send a file to a remote runnable. Remember, you can always upload files by reference (e.g., s3 url) or upload them as
+multipart/form-data to a dedicated endpoint. ### Custom Input and Output Types​
+
+Input and Output types are defined on all runnables. You can access them via the `input_schema` and `output_schema` properties. `LangServe` uses these types for validation and documentation. If you want to override the default inferred types, you can use the `with_types` method. Here's a toy example to illustrate the idea:
+
+```python
+from typing import Any
+
+from fastapi import FastAPI
+from langchain.schema.runnable import RunnableLambda
+
+app = FastAPI()
+
+def func(x: Any) -> int:
+    """Mistyped function that should accept an int but accepts anything."""
+    return x + 1
+
+runnable = RunnableLambda(func).with_types(
+    input_schema=int,
+)
+
+add_routes(app, runnable)
+```
+
+### Custom User Types​
+
+Inherit from `CustomUserType` if you want the data to de-serialize into a
+pydantic model rather than the equivalent dict representation. At the moment, this type only works _server_ side and is used
+to specify desired _decoding_ behavior. If inheriting from this type
+the server will keep the decoded type as a pydantic model instead
+of converting it into a dict. ```python
+from fastapi import FastAPI
+from langchain.schema.runnable import RunnableLambda
+
+from langserve import add_routes
+from langserve.schema import CustomUserType
+
+app = FastAPI()
+
+class Foo(CustomUserType):
+    bar: int
+
+def func(foo: Foo) -> int:
+    """Sample function that expects a Foo type which is a pydantic model"""
+    assert isinstance(foo, Foo)
+    return foo.bar
+
+# Note that the input and output type are automatically inferred! # You do not need to specify them. # runnable = RunnableLambda(func).with_types( # <-- Not needed in this case
+#     input_schema=Foo,
+#     output_schema=int,
+# 
+add_routes(app, RunnableLambda(func), path="/foo")
+```
+
+### Playground Widgets​
+
+The playground allows you to define custom widgets for your runnable from the backend. - A widget is specified at the field level and shipped as part of the JSON schema of the input type
+
+- A widget must contain a key called `type` with the value being one of a well known list of widgets
+
+- Other widget keys will be associated with values that describe paths in a JSON object
+
+General schema:
+
+```typescript
+type JsonPath = number | string | (number | string)[];
+type NameSpacedPath = { title: string; path: JsonPath }; // Using title to mimick json schema, but can use namespace
+type OneOfPath = { oneOf: JsonPath[] };
+
+type Widget = {
+    type: string // Some well known type (e.g., base64file, chat etc.)
+    [key: string]: JsonPath | NameSpacedPath | OneOfPath;
+};
+```
+
+#### File Upload Widget​
+
+Allows creation of a file upload input in the UI playground for files
+that are uploaded as base64 encoded strings. Here's the full [example](https://github.com/langchain-ai/langserve/tree/main/examples/file_processing). Snippet:
+
+```python
+try:
+    from pydantic.v1 import Field
+except ImportError:
+    from pydantic import Field
+
+from langserve import CustomUserType
+
+# ATTENTION: Inherit from CustomUserType instead of BaseModel otherwise
+#            the server will decode it into a dict instead of a pydantic model. class FileProcessingRequest(CustomUserType):
+    """Request including a base64 encoded file."""
+
+    # The extra field is used to specify a widget for the playground UI. file: str = Field(..., extra={"widget": {"type": "base64file"}})
+    num_chars: int = 100
+
+```
+
+Example widget: 
+
+![](https://github.com/langchain-ai/langserve/assets/3205522/52199e46-9464-4c2e-8be8-222250e08c3f)
+
+- [Overview](#overview)
+
+- [Features](#features)- [Limitations](#limitations)
+
+- [Hosted LangServe](#hosted-langserve)
+
+- [Security](#security)
+
+- [Installation](#installation)
+
+- [LangChain CLI 🛠️](#langchain-cli-️)
+
+- [Examples](#examples)- [Server](#server)
+
+- [Docs](#docs)
+
+- [Client](#client)
+
+- [Endpoints](#endpoints)
+
+- [Playground](#playground)- [Widgets](#widgets)
+
+- [Sharing](#sharing)
+
+- [Legacy Chains](#legacy-chains)
+
+- [Deployment](#deployment)- [Deploy to GCP](#deploy-to-gcp)
+
+- [Pydantic](#pydantic)
+
+- [Advanced](#advanced)
+
+- [Handling Authentication](#handling-authentication)- [Files](#files)
+
+- [Custom Input and Output Types](#custom-input-and-output-types)
+
+- [Custom User Types](#custom-user-types)
+
+- [Playground Widgets](#playground-widgets)</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>langchain.runnables¶
+
+Classes¶
+
+runnables.hub.HubRunnable
+An instance of a runnable stored in the LangChain Hub. runnables.openai_functions.OpenAIFunction
+A function description for ChatOpenAI
+
+runnables.openai_functions.OpenAIFunctionsRouter
+A runnable that routes to the selected function. langchain.schema¶
+Schemas are the LangChain Base Classes and Interfaces.</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/expression_language/how_to/</source>
+<doc_content>How to | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# How to
+
+[📄️ Bind runtime argsSometimes we want to invoke a Runnable within a Runnable sequence with constant arguments that are not part of the output of the preceding Runnable in the sequence, and which are not part of the user input. We can use Runnable.bind() to easily pass these arguments in.](/docs/expression_language/how_to/binding)[📄️ Configure chain internals at runtimeOftentimes you may want to experiment with, or even expose to the end user, multiple different ways of doing things.](/docs/expression_language/how_to/configure)[📄️ Add fallbacksThere are many possible points of failure in an LLM application, whether that be issues with LLM API's, poor model outputs, issues with other integrations, etc. Fallbacks help you gracefully handle and isolate these issues.](/docs/expression_language/how_to/fallbacks)[📄️ Run custom functionsYou can use arbitrary functions in the pipeline](/docs/expression_language/how_to/functions)[📄️ Stream custom generator functionsYou can use generator functions (ie. functions that use the yield keyword, and behave like iterators) in a LCEL pipeline.](/docs/expression_language/how_to/generators)[📄️ Parallelize stepsRunnableParallel (aka.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/schema.runnable/langchain.schema.runnable.base.RunnableBinding.html</source>
+<doc_content>langchain.schema.runnable.base.RunnableBinding — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.schema.runnable.base.RunnableBinding
+
+langchain.schema.runnable.base.RunnableBinding¶
+
+class langchain.schema.runnable.base.RunnableBinding[source]¶
+Bases: RunnableBindingBase[Input, Output]
+A runnable that delegates calls to another runnable with a set of kwargs. Create a new model by parsing and validating input data from keyword arguments. Raises ValidationError if the input data cannot be parsed to form a valid model. param bound: langchain.schema.runnable.base.Runnable[langchain.schema.runnable.utils.Input, langchain.schema.runnable.utils.Output] [Required]¶
+
+param config: langchain.schema.runnable.config.RunnableConfig [Optional]¶
+
+param config_factories: List[Callable[[langchain.schema.runnable.config.RunnableConfig], langchain.schema.runnable.config.RunnableConfig]] [Optional]¶
+
+param custom_input_type: Optional[Any] = None¶
+
+param custom_output_type: Optional[Any] = None¶
+
+param kwargs: Mapping[str, Any] [Optional]¶
+
+async abatch(inputs: List[Input], config: Optional[Union[RunnableConfig, List[RunnableConfig]]] = None, *, return_exceptions: bool = False, **kwargs: Optional[Any]) → List[Output]¶
+Default implementation runs ainvoke in parallel using asyncio.gather. The default implementation of batch works well for IO bound runnables. Subclasses should override this method if they can batch more efficiently;
+e.g., if the underlying runnable uses an API which supports a batch mode. async ainvoke(input: Input, config: Optional[RunnableConfig] = None, **kwargs: Optional[Any]) → Output¶
+Default implementation of ainvoke, calls invoke from a thread. The default implementation allows usage of async code even if
+the runnable did not implement a native async version of invoke. Subclasses should override this method if they can run asynchronously. async astream(input: Input, config: Optional[RunnableConfig] = None, **kwargs: Optional[Any]) → AsyncIterator[Output]¶
+Default implementation of astream, which calls ainvoke. Subclasses should override this method if they support streaming output. async astream_log(input: Any, config: Optional[RunnableConfig] = None, *, diff: bool = True, include_names: Optional[Sequence[str]] = None, include_types: Optional[Sequence[str]] = None, include_tags: Optional[Sequence[str]] = None, exclude_names: Optional[Sequence[str]] = None, exclude_types: Optional[Sequence[str]] = None, exclude_tags: Optional[Sequence[str]] = None, **kwargs: Optional[Any]) → Union[AsyncIterator[RunLogPatch], AsyncIterator[RunLog]]¶
+Stream all output from a runnable, as reported to the callback system. This includes all inner runs of LLMs, Retrievers, Tools, etc. Output is streamed as Log objects, which include a list of
+jsonpatch ops that describe how the state of the run has changed in each
+step, and the final state of the run. The jsonpatch ops can be applied in order to construct state. async atransform(input: AsyncIterator[Input], config: Optional[RunnableConfig] = None, **kwargs: Any) → AsyncIterator[Output]¶
+Default implementation of atransform, which buffers input and calls astream. Subclasses should override this method if they can start producing output while
+input is still being generated. batch(inputs: List[Input], config: Optional[Union[RunnableConfig, List[RunnableConfig]]] = None, *, return_exceptions: bool = False, **kwargs: Optional[Any]) → List[Output]¶
+Default implementation runs invoke in parallel using a thread pool executor. The default implementation of batch works well for IO bound runnables. Subclasses should override this method if they can batch more efficiently;
+e.g., if the underlying runnable uses an API which supports a batch mode. bind(**kwargs: Any) → Runnable[Input, Output][source]¶
+Bind arguments to a Runnable, returning a new Runnable. config_schema(*, include: Optional[Sequence[str]] = None) → Type[BaseModel]¶
+The type of config this runnable accepts specified as a pydantic model. To mark a field as configurable, see the configurable_fields
+and configurable_alternatives methods. Parameters
+include – A list of fields to include in the config schema. Returns
+A pydantic model that can be used to validate config. configurable_alternatives(which: ConfigurableField, default_key: str = 'default', **kwargs: Union[Runnable[Input, Output], Callable[[], Runnable[Input, Output]]]) → RunnableSerializable[Input, Output]¶
+
+configurable_fields(**kwargs: Union[ConfigurableField, ConfigurableFieldSingleOption, ConfigurableFieldMultiOption]) → RunnableSerializable[Input, Output]¶
+
+classmethod construct(_fields_set: Optional[SetStr] = None, **values: Any) → Model¶
+Creates a new model setting __dict__ and __fields_set__ from trusted or pre-validated data. Default values are respected, but no other validation is performed.</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: You can run a Runnable by calling its `invoke` method, which takes an input and optional config as arguments. The `invoke` method returns an output. Alternatively, you can use the `abatch`, `ainvoke`, or `astream` methods for asynchronous execution.

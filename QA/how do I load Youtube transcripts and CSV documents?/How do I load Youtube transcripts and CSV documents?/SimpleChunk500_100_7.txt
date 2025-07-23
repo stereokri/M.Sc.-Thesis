@@ -1,0 +1,150 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content>YouTube transcripts | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# YouTube transcripts
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by Google.
+
+This notebook covers how to load documents from `YouTube transcripts`.
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+```python
+# !pip install youtube-transcript-api
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content>YouTube transcripts | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# YouTube transcripts
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by Google.
+
+This notebook covers how to load documents from `YouTube transcripts`.
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+```python
+# !pip install youtube-transcript-api
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content># returns a list of Documents
+youtube_loader_channel.load()
+```
+
+- [Add video info](#add-video-info)
+
+- [Add language preferences](#add-language-preferences)
+
+- [YouTube loader from Google Cloud](#youtube-loader-from-google-cloud)- [Prerequisites](#prerequisites)
+
+- [🧑 Instructions for ingesting your Google Docs data](#-instructions-for-ingesting-your-google-docs-data)</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content># returns a list of Documents
+youtube_loader_channel.load()
+```
+
+- [Add video info](#add-video-info)
+
+- [Add language preferences](#add-language-preferences)
+
+- [YouTube loader from Google Cloud](#youtube-loader-from-google-cloud)- [Prerequisites](#prerequisites)
+
+- [🧑 Instructions for ingesting your Google Docs data](#-instructions-for-ingesting-your-google-docs-data)</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/providers/youtube</source>
+<doc_content>## Document Loader​
+
+See a [usage example](/docs/integrations/document_loaders/youtube_transcript).
+
+```python
+from langchain.document_loaders import YoutubeLoader
+from langchain.document_loaders import GoogleApiYoutubeLoader
+```
+
+- [Installation and Setup](#installation-and-setup)
+
+- [Document Loader](#document-loader)</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/providers/youtube</source>
+<doc_content>## Document Loader​
+
+See a [usage example](/docs/integrations/document_loaders/youtube_transcript).
+
+```python
+from langchain.document_loaders import YoutubeLoader
+from langchain.document_loaders import GoogleApiYoutubeLoader
+```
+
+- [Installation and Setup](#installation-and-setup)
+
+- [Document Loader](#document-loader)</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/document_loaders/langchain.document_loaders.youtube.YoutubeLoader.html</source>
+<doc_content>langchain.document_loaders.youtube.YoutubeLoader¶
+
+class langchain.document_loaders.youtube.YoutubeLoader(video_id: str, add_video_info: bool = False, language: Union[str, Sequence[str]] = 'en', translation: str = 'en', continue_on_failure: bool = False)[source]¶
+Load YouTube transcripts.
+Initialize with YouTube video ID.
+Methods
+
+__init__(video_id[, add_video_info, ...])
+Initialize with YouTube video ID.
+
+extract_video_id(youtube_url)
+Extract video id from common YT urls.</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: To load YouTube transcripts, you can use the `YoutubeLoader` class from `langchain.document_loaders`. You need to initialize it with a YouTube video ID. Additionally, you may need to install the `youtube-transcript-api` package.

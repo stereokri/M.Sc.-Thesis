@@ -1,0 +1,148 @@
+<documents>
+<document index='0'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>llms.vertexai.VertexAI
+Google Vertex AI large language models.
+
+llms.vertexai.VertexAIModelGarden
+Large language models served from Vertex AI Model Garden.
+
+llms.vllm.VLLM
+VLLM language model.
+
+llms.vllm.VLLMOpenAI
+vLLM OpenAI-compatible API client
+
+llms.writer.Writer
+Writer large language models.
+
+llms.xinference.Xinference
+Wrapper for accessing Xinference's large-scale model inference service.
+
+llms.yandex.YandexGPT
+Yandex large language models.
+
+Functions¶</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/modules/model_io/llms/streaming_llm</source>
+<doc_content>Streaming | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Streaming
+
+All `LLM`s implement the `Runnable` interface, which comes with default implementations of all methods, ie. ainvoke, batch, abatch, stream, astream. This gives all `LLM`s basic support for streaming.
+
+Streaming support defaults to returning an Iterator (or AsyncIterator in the case of async streaming) of a single value, the final result returned by the underlying `LLM` provider. This obviously doesn't give you token-by-token streaming, which requires native support from the `LLM` provider, but ensures your code that expects an iterator of tokens can work for any of our `LLM` integrations.
+
+See which [integrations support token-by-token streaming here](/docs/integrations/llms/).
+
+```python
+from langchain.llms import OpenAI</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/modules/model_io/llms/streaming_llm</source>
+<doc_content>Streaming | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Streaming
+
+All `LLM`s implement the `Runnable` interface, which comes with default implementations of all methods, ie. ainvoke, batch, abatch, stream, astream. This gives all `LLM`s basic support for streaming.</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/retrievers/google_vertex_ai_search</source>
+<doc_content>Vertex AI Search is available in the Google Cloud Console and via an API for enterprise workflow integration.</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/retrievers/google_vertex_ai_search</source>
+<doc_content>The [Vertex AI Search client libraries](https://cloud.google.com/generative-ai-app-builder/docs/libraries) used by the Vertex AI Search retriever provide high-level language support for authenticating to Google Cloud programmatically.</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/llms/</source>
+<doc_content>- _Streaming_ support defaults to returning an `Iterator` (or `AsyncIterator` in the case of async streaming) of a single value, the final result returned by the underlying LLM provider. This obviously doesn't give you token-by-token streaming, which requires native support from the LLM provider, but ensures your code that expects an iterator of tokens can work for any of our LLM integrations.
+
+- _Batch_ support defaults to calling the underlying LLM in parallel for each input by making use of a thread pool executor (in the sync batch case) or `asyncio.gather` (in the async batch case). The concurrency can be controlled with the `max_concurrency` key in `RunnableConfig`.
+
+Each LLM integration can optionally provide native implementations for async, streaming or batch, which, for providers that support it, can be more efficient. The table shows, for each integration, which features have been implemented with native support.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>llms.vertexai.VertexAI
+Google Vertex AI large language models.
+
+llms.vertexai.VertexAIModelGarden
+Large language models served from Vertex AI Model Garden.
+
+llms.vllm.VLLM
+VLLM language model.
+
+llms.vllm.VLLMOpenAI
+vLLM OpenAI-compatible API client
+
+llms.writer.Writer
+Writer large language models.
+
+llms.xinference.Xinference
+Wrapper for accessing Xinference's large-scale model inference service.
+
+llms.yandex.YandexGPT
+Yandex large language models.
+
+Functions¶
+
+llms.anyscale.create_llm_result(choices, ...)
+Create the LLMResult from the choices and prompts.
+
+llms.anyscale.update_token_usage(keys, ...)
+Update token usage.
+
+llms.aviary.get_completions(model, prompt[, ...])
+Get completions from Aviary models.
+
+llms.aviary.get_models()
+List available models
+
+llms.base.create_base_retry_decorator(...[, ...])
+Create a retry decorator for a given LLM and provided list of error types.
+
+llms.base.get_prompts(params, prompts)
+Get prompts that are already cached.</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: According to the retrieved documents, there is no explicit mention of native streaming support for Vertex AI LLM. However, all `LLM`s implement the `Runnable` interface, which gives them basic support for streaming. Native support for token-by-token streaming requires specific implementation from the `LLM` provider, and it's not clear if Vertex AI LLM provides this.

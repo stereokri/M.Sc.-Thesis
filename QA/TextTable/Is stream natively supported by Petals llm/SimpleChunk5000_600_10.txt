@@ -1,0 +1,998 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/modules/model_io/llms/streaming_llm</source>
+<doc_content>Streaming | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Streaming
+
+All `LLM`s implement the `Runnable` interface, which comes with default implementations of all methods, ie. ainvoke, batch, abatch, stream, astream. This gives all `LLM`s basic support for streaming.
+
+Streaming support defaults to returning an Iterator (or AsyncIterator in the case of async streaming) of a single value, the final result returned by the underlying `LLM` provider. This obviously doesn't give you token-by-token streaming, which requires native support from the `LLM` provider, but ensures your code that expects an iterator of tokens can work for any of our `LLM` integrations.
+
+See which [integrations support token-by-token streaming here](/docs/integrations/llms/).
+
+```python
+from langchain.llms import OpenAI
+
+llm = OpenAI(model="gpt-3.5-turbo-instruct", temperature=0, max_tokens=512)
+for chunk in llm.stream("Write me a song about sparkling water."):
+    print(chunk, end="", flush=True)
+```
+
+```text
+    
+    
+    Verse 1:
+    Bubbles dancing in my glass
+    Clear and crisp, it's such a blast
+    Refreshing taste, it's like a dream
+    Sparkling water, you make me beam
+    
+    Chorus:
+    Oh sparkling water, you're my delight
+    With every sip, you make me feel so right
+    You're like a party in my mouth
+    I can't get enough, I'm hooked no doubt
+    
+    Verse 2:
+    No sugar, no calories, just pure bliss
+    You're the perfect drink, I must confess
+    From lemon to lime, so many flavors to choose
+    Sparkling water, you never fail to amuse
+    
+    Chorus:
+    Oh sparkling water, you're my delight
+    With every sip, you make me feel so right
+    You're like a party in my mouth
+    I can't get enough, I'm hooked no doubt
+    
+    Bridge:
+    Some may say you're just plain water
+    But to me, you're so much more
+    You bring a sparkle to my day
+    In every single way
+    
+    Chorus:
+    Oh sparkling water, you're my delight
+    With every sip, you make me feel so right
+    You're like a party in my mouth
+    I can't get enough, I'm hooked no doubt
+    
+    Outro:
+    So here's to you, my dear sparkling water
+    You'll always be my go-to drink forever
+    With your effervescence and refreshing taste
+    You'll always have a special place.
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://api.python.langchain.com/en/latest/llms/langchain.llms.petals.Petals.html</source>
+<doc_content>langchain.llms.petals.Petals — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.llms.petals.Petals
+
+langchain.llms.petals.Petals¶
+
+class langchain.llms.petals.Petals[source]¶
+Bases: LLM
+Petals Bloom models.
+To use, you should have the petals python package installed, and the
+environment variable HUGGINGFACE_API_KEY set with your API key.
+Any parameters that are valid to be passed to the call can be passed
+in, even if not explicitly saved on this class.
+Example
+from langchain.llms import petals
+petals = Petals()
+
+Create a new model by parsing and validating input data from keyword arguments.
+Raises ValidationError if the input data cannot be parsed to form a valid model.
+
+param cache: Optional[bool] = None¶
+
+param callback_manager: Optional[BaseCallbackManager] = None¶
+
+param callbacks: Callbacks = None¶
+
+param client: Any = None¶
+The client to use for the API calls.
+
+param do_sample: bool = True¶
+Whether or not to use sampling; use greedy decoding otherwise.
+
+param huggingface_api_key: Optional[str] = None¶
+
+param max_length: Optional[int] = None¶
+The maximum length of the sequence to be generated.
+
+param max_new_tokens: int = 256¶
+The maximum number of new tokens to generate in the completion.
+
+param metadata: Optional[Dict[str, Any]] = None¶
+Metadata to add to the run trace.
+
+param model_kwargs: Dict[str, Any] [Optional]¶
+Holds any model parameters valid for create call
+not explicitly specified.
+
+param model_name: str = 'bigscience/bloom-petals'¶
+The model to use.
+
+param tags: Optional[List[str]] = None¶
+Tags to add to the run trace.
+
+param temperature: float = 0.7¶
+What sampling temperature to use
+
+param tokenizer: Any = None¶
+The tokenizer to use for the API calls.
+
+param top_k: Optional[int] = None¶
+The number of highest probability vocabulary tokens
+to keep for top-k-filtering.
+
+param top_p: float = 0.9¶
+The cumulative probability for top-p sampling.
+
+param verbose: bool [Optional]¶
+Whether to print out response text.
+
+__call__(prompt: str, stop: Optional[List[str]] = None, callbacks: Optional[Union[List[BaseCallbackHandler], BaseCallbackManager]] = None, *, tags: Optional[List[str]] = None, metadata: Optional[Dict[str, Any]] = None, **kwargs: Any) → str¶
+Check Cache and run the LLM on the given prompt and input.
+
+async abatch(inputs: List[Union[PromptValue, str, List[BaseMessage]]], config: Optional[Union[RunnableConfig, List[RunnableConfig]]] = None, *, return_exceptions: bool = False, **kwargs: Any) → List[str]¶
+Default implementation runs ainvoke in parallel using asyncio.gather.
+The default implementation of batch works well for IO bound runnables.
+Subclasses should override this method if they can batch more efficiently;
+e.g., if the underlying runnable uses an API which supports a batch mode.
+
+async agenerate(prompts: List[str], stop: Optional[List[str]] = None, callbacks: Union[List[BaseCallbackHandler], BaseCallbackManager, None, List[Optional[Union[List[BaseCallbackHandler], BaseCallbackManager]]]] = None, *, tags: Optional[Union[List[str], List[List[str]]]] = None, metadata: Optional[Union[Dict[str, Any], List[Dict[str, Any]]]] = None, run_name: Optional[Union[str, List[str]]] = None, **kwargs: Any) → LLMResult¶
+Run the LLM on the given prompt and input.
+
+async agenerate_prompt(prompts: List[PromptValue], stop: Optional[List[str]] = None, callbacks: Union[List[BaseCallbackHandler], BaseCallbackManager, None, List[Optional[Union[List[BaseCallbackHandler], BaseCallbackManager]]]] = None, **kwargs: Any) → LLMResult¶
+Asynchronously pass a sequence of prompts and return model generations.
+This method should make use of batched calls for models that expose a batched
+API.
+
+Use this method when you want to:
+take advantage of batched calls,
+need more output from the model than just the top generated value,
+
+are building chains that are agnostic to the underlying language modeltype (e.g., pure text completion models vs chat models).
+
+Parameters
+
+prompts – List of PromptValues. A PromptValue is an object that can be
+converted to match the format of any language model (string for pure
+text generation models and BaseMessages for chat models).
+stop – Stop words to use when generating. Model output is cut off at the
+first occurrence of any of these substrings.
+callbacks – Callbacks to pass through. Used for executing additional
+functionality, such as logging or streaming, throughout generation.
+**kwargs – Arbitrary additional keyword arguments. These are usually passed
+to the model provider API call.
+
+Returns
+
+An LLMResult, which contains a list of candidate Generations for each inputprompt and additional model provider-specific output.</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/llms/</source>
+<doc_content>LLMs | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# LLMs
+
+## Features (natively supported)​
+
+All LLMs implement the Runnable interface, which comes with default implementations of all methods, ie. `ainvoke`, `batch`, `abatch`, `stream`, `astream`. This gives all LLMs basic support for async, streaming and batch, which by default is implemented as below:
+
+- _Async_ support defaults to calling the respective sync method in asyncio's default thread pool executor. This lets other async functions in your application make progress while the LLM is being executed, by moving this call to a background thread.
+
+- _Streaming_ support defaults to returning an `Iterator` (or `AsyncIterator` in the case of async streaming) of a single value, the final result returned by the underlying LLM provider. This obviously doesn't give you token-by-token streaming, which requires native support from the LLM provider, but ensures your code that expects an iterator of tokens can work for any of our LLM integrations.
+
+- _Batch_ support defaults to calling the underlying LLM in parallel for each input by making use of a thread pool executor (in the sync batch case) or `asyncio.gather` (in the async batch case). The concurrency can be controlled with the `max_concurrency` key in `RunnableConfig`.
+
+Each LLM integration can optionally provide native implementations for async, streaming or batch, which, for providers that support it, can be more efficient. The table shows, for each integration, which features have been implemented with native support.
+
+| Model | Invoke | Async invoke | Stream | Async stream | Batch | Async batch |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| AI21 | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| AlephAlpha | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| AmazonAPIGateway | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Anthropic | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Anyscale | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Arcee | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Aviary | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| AzureMLOnlineEndpoint | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| AzureOpenAI | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Banana | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Baseten | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Beam | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Bedrock | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| CTransformers | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| CTranslate2 | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| CerebriumAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| ChatGLM | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Clarifai | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Cohere | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Databricks | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| DeepInfra | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| DeepSparse | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| EdenAI | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Fireworks | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| ForefrontAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| GPT4All | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| GigaChat | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| GooglePalm | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| GooseAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| GradientLLM | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ |
+| HuggingFaceEndpoint | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| HuggingFaceHub | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| HuggingFacePipeline | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| HuggingFaceTextGenInference | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| HumanInputLLM | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| JavelinAIGateway | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| KoboldApiLLM | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| LlamaCpp | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| ManifestWrapper | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Minimax | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| MlflowAIGateway | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Modal | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| MosaicML | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| NIBittensorLLM | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| NLPCloud | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Nebula | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| OctoAIEndpoint | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Ollama | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| OpaquePrompts | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| OpenAI | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| OpenLLM | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| OpenLM | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| PaiEasEndpoint | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Petals | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| PipelineAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Predibase | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| PredictionGuard | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| PromptLayerOpenAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| QianfanLLMEndpoint | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| RWKV | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Replicate | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| SagemakerEndpoint | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| SelfHostedHuggingFaceLLM | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| SelfHostedPipeline | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| StochasticAI | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| TextGen | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| TitanTakeoff | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| TitanTakeoffPro | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Tongyi | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| VLLM | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| VLLMOpenAI | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| VertexAI | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
+| VertexAIModelGarden | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ |
+| Writer | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Xinference | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| YandexGPT | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+
+- [Features (natively supported)](#features-natively-supported)</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/llms/petals</source>
+<doc_content>Petals | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Petals
+
+`Petals` runs 100B+ language models at home, BitTorrent-style.
+
+This notebook goes over how to use Langchain with [Petals](https://github.com/bigscience-workshop/petals).
+
+## Install petals​
+
+The `petals` package is required to use the Petals API. Install `petals` using `pip3 install petals`.
+
+For Apple Silicon(M1/M2) users please follow this guide [https://github.com/bigscience-workshop/petals/issues/147#issuecomment-1365379642](https://github.com/bigscience-workshop/petals/issues/147#issuecomment-1365379642) to install petals 
+
+```bash
+pip3 install petals
+```
+
+## Imports​
+
+```python
+import os
+
+from langchain.chains import LLMChain
+from langchain.llms import Petals
+from langchain.prompts import PromptTemplate
+```
+
+## Set the Environment API Key​
+
+Make sure to get [your API key](https://huggingface.co/docs/api-inference/quicktour#get-your-api-token) from Huggingface.
+
+```python
+from getpass import getpass
+
+HUGGINGFACE_API_KEY = getpass()
+```
+
+```text
+     ········
+```
+
+```python
+os.environ["HUGGINGFACE_API_KEY"] = HUGGINGFACE_API_KEY
+```
+
+## Create the Petals instance​
+
+You can specify different parameters such as the model name, max new tokens, temperature, etc.
+
+```python
+# this can take several minutes to download big files!
+
+llm = Petals(model_name="bigscience/bloom-petals")
+```
+
+```text
+    Downloading:   1%|▏                        | 40.8M/7.19G [00:24<15:44, 7.57MB/s]
+```
+
+## Create a Prompt Template​
+
+We will create a prompt template for Question and Answer.
+
+```python
+template = """Question: {question}
+
+Answer: Let's think step by step."""
+
+prompt = PromptTemplate(template=template, input_variables=["question"])
+```
+
+## Initiate the LLMChain​
+
+```python
+llm_chain = LLMChain(prompt=prompt, llm=llm)
+```
+
+## Run the LLMChain​
+
+Provide a question and run the LLMChain.
+
+```python
+question = "What NFL team won the Super Bowl in the year Justin Beiber was born?"
+
+llm_chain.run(question)
+```
+
+- [Install petals](#install-petals)
+
+- [Imports](#imports)
+
+- [Set the Environment API Key](#set-the-environment-api-key)
+
+- [Create the Petals instance](#create-the-petals-instance)
+
+- [Create a Prompt Template](#create-a-prompt-template)
+
+- [Initiate the LLMChain](#initiate-the-llmchain)
+
+- [Run the LLMChain](#run-the-llmchain)</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/providers/petals</source>
+<doc_content>Petals | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Petals
+
+This page covers how to use the Petals ecosystem within LangChain.
+It is broken into two parts: installation and setup, and then references to specific Petals wrappers.
+
+## Installation and Setup​
+
+- Install with `pip install petals`
+
+- Get a Hugging Face api key and set it as an environment variable (`HUGGINGFACE_API_KEY`)
+
+## Wrappers​
+
+### LLM​
+
+There exists an Petals LLM wrapper, which you can access with 
+
+```python
+from langchain.llms import Petals
+```
+
+- [Installation and Setup](#installation-and-setup)
+
+- [Wrappers](#wrappers)- [LLM](#llm)</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>llms.sagemaker_endpoint.LineIterator(stream)
+A helper class for parsing the byte stream input.
+
+llms.sagemaker_endpoint.SagemakerEndpoint
+Sagemaker Inference Endpoint models.
+
+llms.self_hosted.SelfHostedPipeline
+Model inference on self-hosted remote hardware.
+
+llms.self_hosted_hugging_face.SelfHostedHuggingFaceLLM
+HuggingFace Pipeline API to run on self-hosted remote hardware.
+
+llms.stochasticai.StochasticAI
+StochasticAI large language models.
+
+llms.symblai_nebula.Nebula
+Nebula Service models.
+
+llms.textgen.TextGen
+text-generation-webui models.
+
+llms.titan_takeoff.TitanTakeoff
+Wrapper around Titan Takeoff APIs.
+
+llms.titan_takeoff_pro.TitanTakeoffPro
+Create a new model by parsing and validating input data from keyword arguments.
+
+llms.together.Together
+Wrapper around Together AI models.
+
+llms.tongyi.Tongyi
+Tongyi Qwen large language models.
+
+llms.vertexai.VertexAI
+Google Vertex AI large language models.
+
+llms.vertexai.VertexAIModelGarden
+Large language models served from Vertex AI Model Garden.
+
+llms.vllm.VLLM
+VLLM language model.
+
+llms.vllm.VLLMOpenAI
+vLLM OpenAI-compatible API client
+
+llms.writer.Writer
+Writer large language models.
+
+llms.xinference.Xinference
+Wrapper for accessing Xinference's large-scale model inference service.
+
+llms.yandex.YandexGPT
+Yandex large language models.
+
+Functions¶
+
+llms.anyscale.create_llm_result(choices, ...)
+Create the LLMResult from the choices and prompts.
+
+llms.anyscale.update_token_usage(keys, ...)
+Update token usage.
+
+llms.aviary.get_completions(model, prompt[, ...])
+Get completions from Aviary models.
+
+llms.aviary.get_models()
+List available models
+
+llms.base.create_base_retry_decorator(...[, ...])
+Create a retry decorator for a given LLM and provided list of error types.
+
+llms.base.get_prompts(params, prompts)
+Get prompts that are already cached.
+
+llms.base.update_cache(existing_prompts, ...)
+Update the cache and get the LLM output.
+
+llms.cohere.acompletion_with_retry(llm, **kwargs)
+Use tenacity to retry the completion call.
+
+llms.cohere.completion_with_retry(llm, **kwargs)
+Use tenacity to retry the completion call.
+
+llms.databricks.get_default_api_token()
+Gets the default Databricks personal access token.
+
+llms.databricks.get_default_host()
+Gets the default Databricks workspace hostname.
+
+llms.databricks.get_repl_context()
+Gets the notebook REPL context if running inside a Databricks notebook.
+
+llms.fireworks.acompletion_with_retry(llm, ...)
+Use tenacity to retry the completion call.
+
+llms.fireworks.acompletion_with_retry_batching(...)
+Use tenacity to retry the completion call.
+
+llms.fireworks.acompletion_with_retry_streaming(...)
+Use tenacity to retry the completion call for streaming.
+
+llms.fireworks.completion_with_retry(llm, ...)
+Use tenacity to retry the completion call.
+
+llms.fireworks.completion_with_retry_batching(...)
+Use tenacity to retry the completion call.
+
+llms.fireworks.conditional_decorator(...)
+
+llms.google_palm.generate_with_retry(llm, ...)
+Use tenacity to retry the completion call.
+
+llms.koboldai.clean_url(url)
+Remove trailing slash and /api from url if present.
+
+llms.loading.load_llm(file)
+Load LLM from file.
+
+llms.loading.load_llm_from_config(config)
+Load LLM from Config Dict.
+
+llms.openai.acompletion_with_retry(llm[, ...])
+Use tenacity to retry the async completion call.
+
+llms.openai.completion_with_retry(llm[, ...])
+Use tenacity to retry the completion call.
+
+llms.openai.update_token_usage(keys, ...)
+Update token usage.
+
+llms.symblai_nebula.completion_with_retry(...)
+Use tenacity to retry the completion call.
+
+llms.symblai_nebula.make_request(self, ...)
+Generate text from the model.
+
+llms.tongyi.generate_with_retry(llm, **kwargs)
+Use tenacity to retry the completion call.
+
+llms.tongyi.stream_generate_with_retry(llm, ...)
+Use tenacity to retry the completion call.
+
+llms.utils.enforce_stop_tokens(text, stop)
+Cut off the text as soon as any stop words occur.
+
+llms.vertexai.acompletion_with_retry(llm, *args)
+Use tenacity to retry the completion call.
+
+llms.vertexai.completion_with_retry(llm, *args)
+Use tenacity to retry the completion call.
+
+llms.vertexai.is_codey_model(model_name)
+Returns True if the model name is a Codey model.
+
+llms.vertexai.stream_completion_with_retry(...)
+Use tenacity to retry the completion call.
+
+langchain.load¶
+Serialization and deserialization.
+
+Classes¶
+
+load.load.Reviver([secrets_map, ...])
+Reviver for JSON objects.
+
+load.serializable.BaseSerialized
+Base class for serialized objects.
+
+load.serializable.Serializable
+Serializable base class.
+
+load.serializable.SerializedConstructor
+Serialized constructor.
+
+load.serializable.SerializedNotImplemented
+Serialized not implemented.
+
+load.serializable.SerializedSecret
+Serialized secret.
+
+Functions¶
+
+load.dump.default(obj)
+Return a default value for a Serializable object or a SerializedNotImplemented object.
+
+load.dump.dumpd(obj)
+Return a json dict representation of an object.
+
+load.dump.dumps(obj, *[, pretty])
+Return a json string representation of an object.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/callbacks/langchain.callbacks.streamlit.streamlit_callback_handler.LLMThoughtState.html</source>
+<doc_content>langchain.callbacks.streamlit.streamlit_callback_handler.LLMThoughtState — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.callbacks.streamlit.streamlit_callback_handler.LLMThoughtState
+
+langchain.callbacks.streamlit.streamlit_callback_handler.LLMThoughtState¶
+
+class langchain.callbacks.streamlit.streamlit_callback_handler.LLMThoughtState(value, names=None, *, module=None, qualname=None, type=None, start=1, boundary=None)[source]¶
+Enumerator of the LLMThought state.
+
+THINKING = 'THINKING'¶
+
+RUNNING_TOOL = 'RUNNING_TOOL'¶
+
+COMPLETE = 'COMPLETE'¶
+
+            © 2023, Harrison Chase.
+          Last updated on Nov 17, 2023.
+          Show this page source</doc_content>
+</document>
+
+
+
+
+
+<document index='7'>
+<source>https://python.langchain.com/docs/modules/model_io/chat/streaming</source>
+<doc_content>Streaming | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Streaming
+
+All ChatModels implement the Runnable interface, which comes with default implementations of all methods, ie. ainvoke, batch, abatch, stream, astream. This gives all ChatModels basic support for streaming.
+
+Streaming support defaults to returning an Iterator (or AsyncIterator in the case of async streaming) of a single value, the final result returned by the underlying ChatModel provider. This obviously doesn't give you token-by-token streaming, which requires native support from the ChatModel provider, but ensures your code that expects an iterator of tokens can work for any of our ChatModel integrations.
+
+See which [integrations support token-by-token streaming here](/docs/integrations/chat/).
+
+```python
+from langchain.chat_models import ChatAnthropic
+```
+
+```python
+chat = ChatAnthropic(model="claude-2")
+for chunk in chat.stream("Write me a song about goldfish on the moon"):
+    print(chunk.content, end="", flush=True)
+```
+
+```text
+     Here's a song I just improvised about goldfish on the moon:
+    
+    Floating in space, looking for a place 
+    To call their home, all alone
+    Swimming through stars, these goldfish from Mars
+    Left their fishbowl behind, a new life to find
+    On the moon, where the craters loom
+    Searching for food, maybe some lunar food
+    Out of their depth, close to death
+    How they wish, for just one small fish
+    To join them up here, their future unclear
+    On the moon, where the Earth looms
+    Dreaming of home, filled with foam
+    Their bodies adapt, continuing to last 
+    On the moon, where they learn to swoon
+    Over cheese that astronauts tease
+    As they stare back at Earth, the planet of birth
+    These goldfish out of water, swim on and on
+    Lunar pioneers, conquering their fears
+    On the moon, where they happily swoon
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='8'>
+<source>https://python.langchain.com/docs/integrations/chat/litellm</source>
+<doc_content>🚅 LiteLLM | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# 🚅 LiteLLM
+
+[LiteLLM](https://github.com/BerriAI/litellm) is a library that simplifies calling Anthropic, Azure, Huggingface, Replicate, etc. 
+
+This notebook covers how to get started with using Langchain + the LiteLLM I/O library. 
+
+```python
+from langchain.chat_models import ChatLiteLLM
+from langchain.schema import HumanMessage
+```
+
+```python
+chat = ChatLiteLLM(model="gpt-3.5-turbo")
+```
+
+```python
+messages = [
+    HumanMessage(
+        content="Translate this sentence from English to French. I love programming."
+    )
+]
+chat(messages)
+```
+
+```text
+    AIMessage(content=" J'aime la programmation.", additional_kwargs={}, example=False)
+```
+
+## ChatLiteLLM also supports async and streaming functionality:​
+
+```python
+from langchain.callbacks.manager import CallbackManager
+from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+```
+
+```python
+await chat.agenerate([messages])
+```
+
+```text
+    LLMResult(generations=[[ChatGeneration(text=" J'aime programmer.", generation_info=None, message=AIMessage(content=" J'aime programmer.", additional_kwargs={}, example=False))]], llm_output={}, run=[RunInfo(run_id=UUID('8cc8fb68-1c35-439c-96a0-695036a93652'))])
+```
+
+```python
+chat = ChatLiteLLM(
+    streaming=True,
+    verbose=True,
+    callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]),
+)
+chat(messages)
+```
+
+```text
+     J'aime la programmation.
+
+    AIMessage(content=" J'aime la programmation.", additional_kwargs={}, example=False)
+```
+
+- [ChatLiteLLM also supports async and streaming functionality:](#chatlitellm-also-supports-async-and-streaming-functionality)</doc_content>
+</document>
+
+
+
+
+
+<document index='9'>
+<source>https://api.python.langchain.com/en/latest/callbacks/langchain.callbacks.streaming_stdout.StreamingStdOutCallbackHandler.html</source>
+<doc_content>langchain.callbacks.streaming_stdout.StreamingStdOutCallbackHandler — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.callbacks.streaming_stdout.StreamingStdOutCallbackHandler
+
+langchain.callbacks.streaming_stdout.StreamingStdOutCallbackHandler¶
+
+class langchain.callbacks.streaming_stdout.StreamingStdOutCallbackHandler[source]¶
+Callback handler for streaming. Only works with LLMs that support streaming.
+Attributes
+
+ignore_agent
+Whether to ignore agent callbacks.
+
+ignore_chain
+Whether to ignore chain callbacks.
+
+ignore_chat_model
+Whether to ignore chat model callbacks.
+
+ignore_llm
+Whether to ignore LLM callbacks.
+
+ignore_retriever
+Whether to ignore retriever callbacks.
+
+ignore_retry
+Whether to ignore retry callbacks.
+
+raise_error
+
+run_inline
+
+Methods
+
+__init__()
+
+on_agent_action(action, **kwargs)
+Run on agent action.
+
+on_agent_finish(finish, **kwargs)
+Run on agent end.
+
+on_chain_end(outputs, **kwargs)
+Run when chain ends running.
+
+on_chain_error(error, **kwargs)
+Run when chain errors.
+
+on_chain_start(serialized, inputs, **kwargs)
+Run when chain starts running.
+
+on_chat_model_start(serialized, messages, ...)
+Run when LLM starts running.
+
+on_llm_end(response, **kwargs)
+Run when LLM ends running.
+
+on_llm_error(error, **kwargs)
+Run when LLM errors.
+
+on_llm_new_token(token, **kwargs)
+Run on new LLM token.
+
+on_llm_start(serialized, prompts, **kwargs)
+Run when LLM starts running.
+
+on_retriever_end(documents, *, run_id[, ...])
+Run when Retriever ends running.
+
+on_retriever_error(error, *, run_id[, ...])
+Run when Retriever errors.
+
+on_retriever_start(serialized, query, *, run_id)
+Run when Retriever starts running.
+
+on_retry(retry_state, *, run_id[, parent_run_id])
+Run on a retry event.
+
+on_text(text, **kwargs)
+Run on arbitrary text.
+
+on_tool_end(output, **kwargs)
+Run when tool ends running.
+
+on_tool_error(error, **kwargs)
+Run when tool errors.
+
+on_tool_start(serialized, input_str, **kwargs)
+Run when tool starts running.
+
+__init__()¶
+
+on_agent_action(action: AgentAction, **kwargs: Any) → Any[source]¶
+Run on agent action.
+
+on_agent_finish(finish: AgentFinish, **kwargs: Any) → None[source]¶
+Run on agent end.
+
+on_chain_end(outputs: Dict[str, Any], **kwargs: Any) → None[source]¶
+Run when chain ends running.
+
+on_chain_error(error: BaseException, **kwargs: Any) → None[source]¶
+Run when chain errors.
+
+on_chain_start(serialized: Dict[str, Any], inputs: Dict[str, Any], **kwargs: Any) → None[source]¶
+Run when chain starts running.
+
+on_chat_model_start(serialized: Dict[str, Any], messages: List[List[BaseMessage]], **kwargs: Any) → None[source]¶
+Run when LLM starts running.
+
+on_llm_end(response: LLMResult, **kwargs: Any) → None[source]¶
+Run when LLM ends running.
+
+on_llm_error(error: BaseException, **kwargs: Any) → None[source]¶
+Run when LLM errors.
+
+on_llm_new_token(token: str, **kwargs: Any) → None[source]¶
+Run on new LLM token. Only available when streaming is enabled.
+
+on_llm_start(serialized: Dict[str, Any], prompts: List[str], **kwargs: Any) → None[source]¶
+Run when LLM starts running.
+
+on_retriever_end(documents: Sequence[Document], *, run_id: UUID, parent_run_id: Optional[UUID] = None, **kwargs: Any) → Any¶
+Run when Retriever ends running.
+
+on_retriever_error(error: BaseException, *, run_id: UUID, parent_run_id: Optional[UUID] = None, **kwargs: Any) → Any¶
+Run when Retriever errors.
+
+on_retriever_start(serialized: Dict[str, Any], query: str, *, run_id: UUID, parent_run_id: Optional[UUID] = None, tags: Optional[List[str]] = None, metadata: Optional[Dict[str, Any]] = None, **kwargs: Any) → Any¶
+Run when Retriever starts running.
+
+on_retry(retry_state: RetryCallState, *, run_id: UUID, parent_run_id: Optional[UUID] = None, **kwargs: Any) → Any¶
+Run on a retry event.
+
+on_text(text: str, **kwargs: Any) → None[source]¶
+Run on arbitrary text.
+
+on_tool_end(output: str, **kwargs: Any) → None[source]¶
+Run when tool ends running.
+
+on_tool_error(error: BaseException, **kwargs: Any) → None[source]¶
+Run when tool errors.
+
+on_tool_start(serialized: Dict[str, Any], input_str: str, **kwargs: Any) → None[source]¶
+Run when tool starts running.
+
+Examples using StreamingStdOutCallbackHandler¶
+
+Anthropic
+🚅 LiteLLM
+Ollama
+GPT4All
+Arthur
+Chat Over Documents with Vectara
+TextGen
+Llama.cpp
+Titan Takeoff
+Eden AI
+C Transformers
+Huggingface TextGen Inference
+Replicate
+Run LLMs locally
+Set env var OPENAI_API_KEY or load from a .env file
+Use local LLMs
+WebResearchRetriever
+
+            © 2023, Harrison Chase.
+          Last updated on Nov 17, 2023.
+          Show this page source</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: According to the retrieved documents, there is no mention of "Petals llm" or its native support for streaming. The documents only discuss LangChain and other AI models, but not Petals llm.

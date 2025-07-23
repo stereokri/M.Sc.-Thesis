@@ -1,0 +1,233 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/platforms/google</source>
+<doc_content>See a [usage example](/docs/integrations/document_loaders/youtube_transcript).
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+- [LLMs](#llms)- [Vertex AI](#vertex-ai)
+
+- [Model Garden](#model-garden)
+
+- [Chat models](#chat-models)- [Vertex AI](#vertex-ai-1)
+
+- [Document Loaders](#document-loaders)- [Google BigQuery](#google-bigquery)
+
+- [Google Cloud Storage](#google-cloud-storage)
+
+- [Google Drive](#google-drive)
+
+- [Speech-to-Text](#speech-to-text)
+
+- [Vector Stores](#vector-stores)- [Google Vertex AI Vector Search](#google-vertex-ai-vector-search)
+
+- [Google ScaNN](#google-scann)
+
+- [Retrievers](#retrievers)- [Google Drive](#google-drive-1)
+
+- [Vertex AI Search](#vertex-ai-search)
+
+- [Document AI Warehouse](#document-ai-warehouse)</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/providers/scann</source>
+<doc_content>See a [usage example](/docs/integrations/document_loaders/youtube_transcript).
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+- [LLMs](#llms)- [Vertex AI](#vertex-ai)
+
+- [Model Garden](#model-garden)
+
+- [Chat models](#chat-models)- [Vertex AI](#vertex-ai-1)
+
+- [Document Loaders](#document-loaders)- [Google BigQuery](#google-bigquery)
+
+- [Google Cloud Storage](#google-cloud-storage)
+
+- [Google Drive](#google-drive)
+
+- [Speech-to-Text](#speech-to-text)
+
+- [Vector Stores](#vector-stores)- [Google Vertex AI Vector Search](#google-vertex-ai-vector-search)
+
+- [Google ScaNN](#google-scann)
+
+- [Retrievers](#retrievers)- [Google Drive](#google-drive-1)
+
+- [Vertex AI Search](#vertex-ai-search)
+
+- [Document AI Warehouse](#document-ai-warehouse)</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://api.python.langchain.com/en/latest/document_loaders/langchain.document_loaders.youtube.GoogleApiYoutubeLoader.html</source>
+<doc_content>class langchain.document_loaders.youtube.GoogleApiYoutubeLoader(google_api_client: GoogleApiClient, channel_name: Optional[str] = None, video_ids: Optional[List[str]] = None, add_video_info: bool = True, captions_language: str = 'en', continue_on_failure: bool = False)[source]¶
+Load all Videos from a YouTube Channel.
+To use, you should have the googleapiclient,youtube_transcript_api
+python package installed.
+As the service needs a google_api_client, you first have to initialize
+the GoogleApiClient.
+Additionally you have to either provide a channel name or a list of videoids
+“https://developers.google.com/docs/api/quickstart/python”
+Example
+from langchain.document_loaders import GoogleApiClient
+from langchain.document_loaders import GoogleApiYoutubeLoader</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content>YouTube transcripts | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# YouTube transcripts
+
+[YouTube](https://www.youtube.com/) is an online video sharing and social media platform created by Google.
+
+This notebook covers how to load documents from `YouTube transcripts`.
+
+```python
+from langchain.document_loaders import YoutubeLoader
+```
+
+```python
+# !pip install youtube-transcript-api
+```
+
+```python
+loader = YoutubeLoader.from_youtube_url(
+    "https://www.youtube.com/watch?v=QsYGlZkevEg", add_video_info=True
+)
+```
+
+```python
+loader.load()
+```
+
+### Add video info​
+
+```python
+# ! pip install pytube
+```
+
+```python
+loader = YoutubeLoader.from_youtube_url(
+    "https://www.youtube.com/watch?v=QsYGlZkevEg", add_video_info=True
+)
+loader.load()
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>document_loaders.xorbits.XorbitsLoader(...)
+Load Xorbits DataFrame.
+
+document_loaders.youtube.GoogleApiClient([...])
+Generic Google API Client.
+
+document_loaders.youtube.GoogleApiYoutubeLoader(...)
+Load all Videos from a YouTube Channel.
+
+document_loaders.youtube.YoutubeLoader(video_id)
+Load YouTube transcripts.
+
+Functions¶
+
+document_loaders.base_o365.fetch_mime_types(...)
+Fetch the mime types for the specified file types.
+
+document_loaders.chatgpt.concatenate_rows(...)
+Combine message information in a readable format ready to be used.
+
+document_loaders.facebook_chat.concatenate_rows(row)
+Combine message information in a readable format ready to be used.
+
+document_loaders.helpers.detect_file_encodings(...)
+Try to detect the file encoding.</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://api.python.langchain.com/en/latest/document_loaders/langchain.document_loaders.youtube.YoutubeLoader.html</source>
+<doc_content>from_youtube_url(youtube_url, **kwargs)
+Given youtube URL, load video.
+
+lazy_load()
+A lazy loader for Documents.
+
+load()
+Load documents.
+
+load_and_split([text_splitter])
+Load Documents and split into chunks.
+
+__init__(video_id: str, add_video_info: bool = False, language: Union[str, Sequence[str]] = 'en', translation: str = 'en', continue_on_failure: bool = False)[source]¶
+Initialize with YouTube video ID.
+
+static extract_video_id(youtube_url: str) → str[source]¶
+Extract video id from common YT urls.
+
+classmethod from_youtube_url(youtube_url: str, **kwargs: Any) → YoutubeLoader[source]¶
+Given youtube URL, load video.
+
+lazy_load() → Iterator[Document]¶
+A lazy loader for Documents.
+
+load() → List[Document][source]¶
+Load documents.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/youtube_transcript</source>
+<doc_content>## YouTube loader from Google Cloud​
+
+### Prerequisites​
+
+1. Create a Google Cloud project or use an existing project
+
+2. Enable the [Youtube Api](https://console.cloud.google.com/apis/enableflow?apiid=youtube.googleapis.com&project=sixth-grammar-344520)
+
+3. [Authorize credentials for desktop app](https://developers.google.com/drive/api/quickstart/python#authorize_credentials_for_a_desktop_application)
+
+4. `pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib youtube-transcript-api`
+
+### 🧑 Instructions for ingesting your Google Docs data​</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: You can load YouTube transcripts using `YoutubeLoader` from `langchain.document_loaders`. For example, `loader = YoutubeLoader.from_youtube_url("https://www.youtube.com/watch?v=QsYGlZkevEg", add_video_info=True)` and then call `loader.load()`.

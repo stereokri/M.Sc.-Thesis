@@ -1,0 +1,195 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/providers/gpt4all</source>
+<doc_content>For a more detailed walkthrough of this, see [this notebook](/docs/integrations/llms/gpt4all)
+
+- [Installation and Setup](#installation-and-setup)
+
+- [Usage](#usage)- [GPT4All](#gpt4all-1)
+
+- [Model File](#model-file)</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/guides/evaluation/trajectory/trajectory_eval</source>
+<doc_content>## Configuring the Evaluation LLM​
+
+If you don't select an LLM to use for evaluation, the [load_evaluator](https://api.python.langchain.com/en/latest/evaluation/langchain.evaluation.loading.load_evaluator.html#langchain.evaluation.loading.load_evaluator) function will use `gpt-4` to power the evaluation chain. You can select any chat model for the agent trajectory evaluator as below.
+
+```python
+# %pip install anthropic
+# ANTHROPIC_API_KEY=<YOUR ANTHROPIC API KEY>
+```
+
+```python
+from langchain.chat_models import ChatAnthropic
+
+eval_llm = ChatAnthropic(temperature=0)
+evaluator = load_evaluator("trajectory", llm=eval_llm)
+```
+
+```python
+evaluation_result = evaluator.evaluate_agent_trajectory(
+    prediction=result["output"],
+    input=result["input"],
+    agent_trajectory=result["intermediate_steps"],
+)
+evaluation_result
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/guides/local_llms</source>
+<doc_content>### GPT4All​
+
+We can use model weights downloaded from [GPT4All](https://python.langchain.com/docs/integrations/llms/gpt4all) model explorer.
+
+Similar to what is shown above, we can run inference and use [the API reference](https://api.python.langchain.com/en/latest/llms/langchain.llms.gpt4all.GPT4All.html?highlight=gpt4all#langchain.llms.gpt4all.GPT4All) to set parameters of interest.
+
+```python
+pip install gpt4all
+```
+
+```python
+from langchain.llms import GPT4All
+
+llm = GPT4All(
+    model="/Users/rlm/Desktop/Code/gpt4all/models/nous-hermes-13b.ggmlv3.q4_0.bin"
+)
+```
+
+```python
+llm("The first man on the moon was ... Let's think step by step")
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/providers/gpt4all</source>
+<doc_content>GPT4All | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# GPT4All
+
+This page covers how to use the `GPT4All` wrapper within LangChain. The tutorial is divided into two parts: installation and setup, followed by usage with an example.
+
+## Installation and Setup​
+
+- Install the Python package with `pip install pyllamacpp`
+
+- Download a [GPT4All model](https://github.com/nomic-ai/pyllamacpp#supported-model) and place it in your desired directory
+
+## Usage​
+
+### GPT4All​
+
+To use the GPT4All wrapper, you need to provide the path to the pre-trained model file and the model's configuration.
+
+```python
+from langchain.llms import GPT4All
+
+# Instantiate the model. Callbacks support token-wise streaming
+model = GPT4All(model="./models/gpt4all-model.bin", n_ctx=512, n_threads=8)
+
+# Generate text
+response = model("Once upon a time, ")
+```
+
+You can also customize the generation parameters, such as n_predict, temp, top_p, top_k, and others.</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/guides/evaluation/string/criteria_eval_chain</source>
+<doc_content>## Configuring the LLM​
+
+If you don't specify an eval LLM, the `load_evaluator` method will initialize a `gpt-4` LLM to power the grading chain. Below, use an anthropic model instead.
+
+```python
+# %pip install ChatAnthropic
+# %env ANTHROPIC_API_KEY=<API_KEY>
+```
+
+```python
+from langchain.chat_models import ChatAnthropic
+
+llm = ChatAnthropic(temperature=0)
+evaluator = load_evaluator("criteria", llm=llm, criteria="conciseness")
+```
+
+```python
+eval_result = evaluator.evaluate_strings(
+    prediction="What's 2+2? That's an elementary question. The answer you're looking for is that two and two is four.",
+    input="What's 2+2?",
+)
+print(eval_result)
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/expression_language/how_to/routing</source>
+<doc_content>new capabilities as they continue to develop their AI technology.\n\n- Follow Anthropic on social media or subscribe to their newsletter to stay up to date on new features and releases.\n\n- For most people, the easiest way to leverage Anthropic's technology is through their website - just create an account to get started!", additional_kwargs={}, example=False)</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/integrations/text_embedding/gpt4all</source>
+<doc_content>GPT4All | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# GPT4All
+
+[GPT4All](https://gpt4all.io/index.html) is a free-to-use, locally running, privacy-aware chatbot. There is no GPU or internet required. It features popular models and its own models such as GPT4All Falcon, Wizard, etc.
+
+This notebook explains how to use [GPT4All embeddings](https://docs.gpt4all.io/gpt4all_python_embedding.html#gpt4all.gpt4all.Embed4All) with LangChain.
+
+## Install GPT4All's Python Bindings​
+
+```python
+%pip install gpt4all > /dev/null
+```
+
+Note: you may need to restart the kernel to use updated packages.
+
+```python
+from langchain.embeddings import GPT4AllEmbeddings
+```
+
+```python
+gpt4all_embd = GPT4AllEmbeddings()
+```
+
+```text
+    100%|████████████████████████| 45.5M/45.5M [00:02<00:00, 18.5MiB/s]
+
+    Model downloaded at:  /Users/rlm/.cache/gpt4all/ggml-all-MiniLM-L6-v2-f16.bin</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: You can use GPT-4 on Anthropic by selecting it as your chat model for the agent trajectory evaluator. To do this, you need to install Anthropic and set your API key, then create a `ChatAnthropic` object with your desired temperature, and pass it to the `load_evaluator` function.

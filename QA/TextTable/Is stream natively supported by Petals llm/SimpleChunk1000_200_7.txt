@@ -1,0 +1,242 @@
+<documents>
+<document index='0'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>llms.petals.Petals
+Petals Bloom models.
+
+llms.pipelineai.PipelineAI
+PipelineAI large language models.
+
+llms.predibase.Predibase
+Use your Predibase models with Langchain.
+
+llms.predictionguard.PredictionGuard
+Prediction Guard large language models.
+
+llms.promptlayer_openai.PromptLayerOpenAI
+PromptLayer OpenAI large language models.
+
+llms.promptlayer_openai.PromptLayerOpenAIChat
+Wrapper around OpenAI large language models.
+
+llms.replicate.Replicate
+Replicate models.
+
+llms.rwkv.RWKV
+RWKV language models.
+
+llms.sagemaker_endpoint.ContentHandlerBase()
+A handler class to transform input from LLM to a format that SageMaker endpoint expects.
+
+llms.sagemaker_endpoint.LLMContentHandler()
+Content handler for LLM class.
+
+llms.sagemaker_endpoint.LineIterator(stream)
+A helper class for parsing the byte stream input.
+
+llms.sagemaker_endpoint.SagemakerEndpoint
+Sagemaker Inference Endpoint models.
+
+llms.self_hosted.SelfHostedPipeline
+Model inference on self-hosted remote hardware.</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/modules/model_io/llms/streaming_llm</source>
+<doc_content>Streaming | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Streaming
+
+All `LLM`s implement the `Runnable` interface, which comes with default implementations of all methods, ie. ainvoke, batch, abatch, stream, astream. This gives all `LLM`s basic support for streaming.
+
+Streaming support defaults to returning an Iterator (or AsyncIterator in the case of async streaming) of a single value, the final result returned by the underlying `LLM` provider. This obviously doesn't give you token-by-token streaming, which requires native support from the `LLM` provider, but ensures your code that expects an iterator of tokens can work for any of our `LLM` integrations.
+
+See which [integrations support token-by-token streaming here](/docs/integrations/llms/).
+
+```python
+from langchain.llms import OpenAI</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/llms/</source>
+<doc_content>- _Streaming_ support defaults to returning an `Iterator` (or `AsyncIterator` in the case of async streaming) of a single value, the final result returned by the underlying LLM provider. This obviously doesn't give you token-by-token streaming, which requires native support from the LLM provider, but ensures your code that expects an iterator of tokens can work for any of our LLM integrations.
+
+- _Batch_ support defaults to calling the underlying LLM in parallel for each input by making use of a thread pool executor (in the sync batch case) or `asyncio.gather` (in the async batch case). The concurrency can be controlled with the `max_concurrency` key in `RunnableConfig`.
+
+Each LLM integration can optionally provide native implementations for async, streaming or batch, which, for providers that support it, can be more efficient. The table shows, for each integration, which features have been implemented with native support.</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://api.python.langchain.com/en/latest/llms/langchain.llms.petals.Petals.html</source>
+<doc_content>langchain.llms.petals.Petals — 🦜🔗 LangChain 0.0.337
+
+API
+
+Experimental
+
+Python Docs
+
+Toggle Menu
+
+PrevUp
+Next
+
+LangChain 0.0.337
+
+langchain.llms.petals.Petals
+
+langchain.llms.petals.Petals¶
+
+class langchain.llms.petals.Petals[source]¶
+Bases: LLM
+Petals Bloom models.
+To use, you should have the petals python package installed, and the
+environment variable HUGGINGFACE_API_KEY set with your API key.
+Any parameters that are valid to be passed to the call can be passed
+in, even if not explicitly saved on this class.
+Example
+from langchain.llms import petals
+petals = Petals()
+
+Create a new model by parsing and validating input data from keyword arguments.
+Raises ValidationError if the input data cannot be parsed to form a valid model.
+
+param cache: Optional[bool] = None¶
+
+param callback_manager: Optional[BaseCallbackManager] = None¶
+
+param callbacks: Callbacks = None¶
+
+param client: Any = None¶
+The client to use for the API calls.</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/llms/petals</source>
+<doc_content>Petals | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Petals
+
+`Petals` runs 100B+ language models at home, BitTorrent-style.
+
+This notebook goes over how to use Langchain with [Petals](https://github.com/bigscience-workshop/petals).
+
+## Install petals​
+
+The `petals` package is required to use the Petals API. Install `petals` using `pip3 install petals`.
+
+For Apple Silicon(M1/M2) users please follow this guide [https://github.com/bigscience-workshop/petals/issues/147#issuecomment-1365379642](https://github.com/bigscience-workshop/petals/issues/147#issuecomment-1365379642) to install petals 
+
+```bash
+pip3 install petals
+```
+
+## Imports​
+
+```python
+import os
+
+from langchain.chains import LLMChain
+from langchain.llms import Petals
+from langchain.prompts import PromptTemplate
+```
+
+## Set the Environment API Key​
+
+Make sure to get [your API key](https://huggingface.co/docs/api-inference/quicktour#get-your-api-token) from Huggingface.</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>llms.nlpcloud.NLPCloud
+NLPCloud large language models.
+
+llms.octoai_endpoint.OctoAIEndpoint
+OctoAI LLM Endpoints.
+
+llms.ollama.Ollama
+Ollama locally runs large language models.
+
+llms.opaqueprompts.OpaquePrompts
+An LLM wrapper that uses OpaquePrompts to sanitize prompts.
+
+llms.openai.AzureOpenAI
+Azure-specific OpenAI large language models.
+
+llms.openai.BaseOpenAI
+Base OpenAI large language model class.
+
+llms.openai.OpenAI
+OpenAI large language models.
+
+llms.openai.OpenAIChat
+OpenAI Chat large language models.
+
+llms.openllm.IdentifyingParams
+Parameters for identifying a model as a typed dict.
+
+llms.openllm.OpenLLM
+OpenLLM, supporting both in-process model instance and remote OpenLLM servers.
+
+llms.openlm.OpenLM
+OpenLM models.
+
+llms.pai_eas_endpoint.PaiEasEndpoint
+Langchain LLM class to help to access eass llm service.
+
+llms.petals.Petals
+Petals Bloom models.
+
+llms.pipelineai.PipelineAI
+PipelineAI large language models.
+
+llms.predibase.Predibase
+Use your Predibase models with Langchain.</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/modules/model_io/llms/streaming_llm</source>
+<doc_content>See which [integrations support token-by-token streaming here](/docs/integrations/llms/).
+
+```python
+from langchain.llms import OpenAI
+
+llm = OpenAI(model="gpt-3.5-turbo-instruct", temperature=0, max_tokens=512)
+for chunk in llm.stream("Write me a song about sparkling water."):
+    print(chunk, end="", flush=True)
+```</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: According to the retrieved documents, there is no indication that Petals LLM natively supports token-by-token streaming. The default implementation of `Runnable` interface in Langchain provides basic support for streaming, but it does not provide native token-by-token streaming unless the underlying LLM provider supports it.

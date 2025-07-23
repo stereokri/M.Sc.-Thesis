@@ -1,0 +1,193 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/retrievers/chatgpt-plugin</source>
+<doc_content>```python
+# STEP 1: Load
+
+# Load documents using LangChain's DocumentLoaders
+# This is from https://langchain.readthedocs.io/en/latest/modules/document_loaders/examples/csv.html
+
+from langchain.document_loaders.csv_loader import CSVLoader
+
+loader = CSVLoader(
+    file_path="../../document_loaders/examples/example_data/mlb_teams_2012.csv"
+)
+data = loader.load()
+
+# STEP 2: Convert</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/retrievers/chatgpt-plugin</source>
+<doc_content>```python
+# STEP 1: Load
+
+# Load documents using LangChain's DocumentLoaders
+# This is from https://langchain.readthedocs.io/en/latest/modules/document_loaders/examples/csv.html
+
+from langchain.document_loaders.csv_loader import CSVLoader
+
+loader = CSVLoader(
+    file_path="../../document_loaders/examples/example_data/mlb_teams_2012.csv"
+)
+data = loader.load()
+
+# STEP 2: Convert</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://python.langchain.com/docs/integrations/retrievers/chatgpt-plugin</source>
+<doc_content>```python
+# STEP 1: Load
+
+# Load documents using LangChain's DocumentLoaders
+# This is from https://langchain.readthedocs.io/en/latest/modules/document_loaders/examples/csv.html
+
+from langchain.document_loaders.csv_loader import CSVLoader
+
+loader = CSVLoader(
+    file_path="../../document_loaders/examples/example_data/mlb_teams_2012.csv"
+)
+data = loader.load()
+
+# STEP 2: Convert</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://api.python.langchain.com/en/latest/api_reference.html</source>
+<doc_content>document_loaders.csv_loader.CSVLoader(file_path)
+Load a CSV file into a list of Documents.
+
+document_loaders.csv_loader.UnstructuredCSVLoader(...)
+Load CSV files using Unstructured.
+
+document_loaders.cube_semantic.CubeSemanticLoader(...)
+Load Cube semantic layer metadata.
+
+document_loaders.datadog_logs.DatadogLogsLoader(...)
+Load Datadog logs.
+
+document_loaders.dataframe.BaseDataFrameLoader(...)
+Initialize with dataframe object.
+
+document_loaders.dataframe.DataFrameLoader(...)
+Load Pandas DataFrame.
+
+document_loaders.diffbot.DiffbotLoader(...)
+Load Diffbot json file.
+
+document_loaders.directory.DirectoryLoader(...)
+Load from a directory.
+
+document_loaders.discord.DiscordChatLoader(...)
+Load Discord chat logs.
+
+document_loaders.docugami.DocugamiLoader
+Load from Docugami.</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/csv</source>
+<doc_content>## Customizing the csv parsing and loading​
+
+See the [csv module](https://docs.python.org/3/library/csv.html) documentation for more information of what csv args are supported.
+
+```python
+loader = CSVLoader(
+    file_path="./example_data/mlb_teams_2012.csv",
+    csv_args={
+        "delimiter": ",",
+        "quotechar": '"',
+        "fieldnames": ["MLB Team", "Payroll in millions", "Wins"],
+    },
+)
+
+data = loader.load()
+```
+
+```python
+print(data)
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/csv</source>
+<doc_content>## Customizing the csv parsing and loading​
+
+See the [csv module](https://docs.python.org/3/library/csv.html) documentation for more information of what csv args are supported.
+
+```python
+loader = CSVLoader(
+    file_path="./example_data/mlb_teams_2012.csv",
+    csv_args={
+        "delimiter": ",",
+        "quotechar": '"',
+        "fieldnames": ["MLB Team", "Payroll in millions", "Wins"],
+    },
+)
+
+data = loader.load()
+```
+
+```python
+print(data)
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/integrations/document_loaders/csv</source>
+<doc_content>## Customizing the csv parsing and loading​
+
+See the [csv module](https://docs.python.org/3/library/csv.html) documentation for more information of what csv args are supported.
+
+```python
+loader = CSVLoader(
+    file_path="./example_data/mlb_teams_2012.csv",
+    csv_args={
+        "delimiter": ",",
+        "quotechar": '"',
+        "fieldnames": ["MLB Team", "Payroll in millions", "Wins"],
+    },
+)
+
+data = loader.load()
+```
+
+```python
+print(data)
+```</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: To load a CSV file, you can use LangChain's `CSVLoader` from the `document_loaders.csv_loader` module. You need to specify the `file_path` parameter and optionally customize the CSV parsing using the `csv_args` parameter. For example: `loader = CSVLoader(file_path="../../document_loaders/examples/example_data/mlb_teams_2012.csv")`.

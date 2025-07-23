@@ -1,0 +1,124 @@
+<documents>
+<document index='0'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>```text
+    16:58:26 [RedisVL] INFO   Indices:
+    16:58:26 [RedisVL] INFO   1. users
+```
+
+The `Redis` VectorStore implementation will attempt to generate index schema (fields for filtering) for any metadata passed through the `from_texts`, `from_texts_return_keys`, and `from_documents` methods. This way, whatever metadata is passed will be indexed into the Redis search index allowing
+for filtering on those fields.
+
+Below we show what fields were created from the metadata we defined above</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>## More Resources​
+
+For more information on how to use Redis as a vector database, check out the following resources:
+
+- [RedisVL Documentation](https://redisvl.com) - Documentation for the Redis Vector Library Client
+
+- [Redis Vector Similarity Docs](https://redis.io/docs/stack/search/reference/vectors/) - Redis official docs for Vector Search.
+
+- [Redis-py Search Docs](https://redis.readthedocs.io/en/latest/redismodules.html#redisearch-commands) - Documentation for redis-py client library</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.elastic_vector_search.ElasticVectorSearch.html</source>
+<doc_content>ElasticsearchStore also supports metadata filtering, customising the
+query retriever and much more!
+You can read more on ElasticsearchStore:
+https://python.langchain.com/docs/integrations/vectorstores/elasticsearch
+To connect to an Elasticsearch instance that does not require
+login credentials, pass the Elasticsearch URL and index name along with the
+embedding object to the constructor.
+Example
+from langchain.vectorstores import ElasticVectorSearch</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/faiss</source>
+<doc_content>## Similarity Search with filtering​
+
+FAISS vectorstore can also support filtering, since the FAISS does not natively support filtering we have to do it manually. This is done by first fetching more results than `k` and then filtering them. You can filter the documents based on metadata. You can also set the `fetch_k` parameter when calling any search method to set how many documents you want to fetch before filtering. Here is a small example:
+
+```python
+from langchain.schema import Document</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.redis.base.Redis.html</source>
+<doc_content>Returns
+Redis VectorStore instance.
+
+Return type
+Redis
+
+Raises
+
+ValueError – If the number of metadatas does not match the number of texts.
+ImportError – If the redis python package is not installed.</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/use_cases/question_answering/document-context-aware-QA</source>
+<doc_content>Metadata filtering is an alternative approach that pre-filters chunks based on a user-defined criteria in a VectorDB using', metadata={'Section': 'Introduction'}),</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/redis</source>
+<doc_content>- `max_marginal_relevance_search`: Find the most similar vectors to a given vector while also optimizing for diversity
+
+```python
+results = rds.similarity_search("foo")
+print(results[0].page_content)
+```
+
+```text
+    foo
+```
+
+```python
+# return metadata
+results = rds.similarity_search("foo", k=3)
+meta = results[1].metadata
+print("Key of the document in Redis: ", meta.pop("id"))
+print("Metadata of the document: ", meta)
+```</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: In Redis VectorStore, you can search and filter metadata using the `from_texts`, `from_texts_return_keys`, and `from_documents` methods. These methods will generate an index schema for any metadata passed through them, allowing for filtering on those fields. The Redis VectorStore implementation attempts to create indices for whatever metadata is passed, which enables filtering based on that metadata.

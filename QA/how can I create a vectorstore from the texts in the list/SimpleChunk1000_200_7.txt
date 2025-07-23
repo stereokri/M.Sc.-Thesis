@@ -1,0 +1,273 @@
+<documents>
+<document index='0'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.redis.base.Redis.html</source>
+<doc_content>Parameters
+
+texts (List[str]) – List of texts to add to the vectorstore.
+embedding (Embeddings) – Embeddings to use for the vectorstore.
+metadatas (Optional[List[dict]], optional) – Optional list of metadata
+dicts to add to the vectorstore. Defaults to None.
+index_name (Optional[str], optional) – Optional name of the index to
+create or add to. Defaults to None.
+index_schema (Optional[Union[Dict[str, str], str, os.PathLike]], optional) – Optional fields to index within the metadata. Overrides generated
+schema. Defaults to None.
+vector_schema (Optional[Dict[str, Union[str, int]]], optional) – Optional
+vector schema to use. Defaults to None.
+**kwargs (Any) – Additional keyword arguments to pass to the Redis client.
+
+Returns
+
+Tuple of the Redis instance and the keys ofthe newly created documents.
+
+Return type
+Tuple[Redis, List[str]]
+
+Raises
+ValueError – If the number of metadatas does not match the number of texts.</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>https://python.langchain.com/docs/integrations/retrievers/fleet_context</source>
+<doc_content>def _populate_vectorstore(
+    df: pd.DataFrame,
+    vectorstore_cls: Type[VectorStore],
+) -> VectorStore:
+    if not hasattr(vectorstore_cls, "from_embeddings"):
+        raise ValueError(
+            f"Incompatible vector store class {vectorstore_cls}."
+            "Must implement `from_embeddings` class method."
+        )
+    texts_embeddings = []
+    metadatas = []
+    for _, row in df.iterrows():
+        texts_embeddings.append((row.metadata["text"], row["dense_embeddings"]))
+        metadatas.append(row.metadata)
+    return vectorstore_cls.from_embeddings(
+        texts_embeddings,
+        OpenAIEmbeddings(model="text-embedding-ada-002"),
+        metadatas=metadatas,
+    )</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.redis.base.Redis.html</source>
+<doc_content>Parameters
+
+texts (List[str]) – List of texts to add to the vectorstore.
+embedding (Embeddings) – Embedding model class (i.e. OpenAIEmbeddings)
+for embedding queries.
+metadatas (Optional[List[dict]], optional) – Optional list of metadata dicts
+to add to the vectorstore. Defaults to None.
+index_name (Optional[str], optional) – Optional name of the index to create
+or add to. Defaults to None.
+index_schema (Optional[Union[Dict[str, str], str, os.PathLike]], optional) – Optional fields to index within the metadata. Overrides generated
+schema. Defaults to None.
+vector_schema (Optional[Dict[str, Union[str, int]]], optional) – Optional
+vector schema to use. Defaults to None.
+**kwargs (Any) – Additional keyword arguments to pass to the Redis client.
+
+Returns
+Redis VectorStore instance.
+
+Return type
+Redis
+
+Raises
+
+ValueError – If the number of metadatas does not match the number of texts.
+ImportError – If the redis python package is not installed.</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>https://python.langchain.com/docs/integrations/vectorstores/matchingengine</source>
+<doc_content>## Create VectorStore from texts​
+
+```python
+from langchain.vectorstores import MatchingEngine
+```
+
+```python
+texts = [
+    "The cat sat on",
+    "the mat.",
+    "I like to",
+    "eat pizza for",
+    "dinner.",
+    "The sun sets",
+    "in the west.",
+]
+
+vector_store = MatchingEngine.from_components(
+    texts=texts,
+    project_id="<my_project_id>",
+    region="<my_region>",
+    gcs_bucket_uri="<my_gcs_bucket>",
+    index_id="<my_matching_engine_index_id>",
+    endpoint_id="<my_matching_engine_endpoint_id>",
+)
+
+vector_store.add_texts(texts=texts)
+
+vector_store.similarity_search("lunch", k=2)
+```
+
+## Create Index and deploy it to an Endpoint​
+
+### Imports, Constants and Configs​
+
+```bash
+# Installing dependencies.
+pip install tensorflow \
+            google-cloud-aiplatform \
+            tensorflow-hub \
+            tensorflow-text
+```
+
+```python
+import json
+
+import tensorflow_hub as hub
+from google.cloud import aiplatform
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='4'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.tiledb.TileDB.html</source>
+<doc_content>Parameters
+
+texts – Iterable of strings to add to the vectorstore.
+metadatas – Optional list of metadatas associated with the texts.
+ids – Optional ids of each text object.
+timestamp – Optional timestamp to write new texts with.
+kwargs – vectorstore specific parameters
+
+Returns
+List of ids from adding the texts into the vectorstore.
+
+async adelete(ids: Optional[List[str]] = None, **kwargs: Any) → Optional[bool]¶
+Delete by vector ID or other criteria.
+
+Parameters
+
+ids – List of ids to delete.
+**kwargs – Other keyword arguments that subclasses might use.
+
+Returns
+True if deletion is successful,
+False otherwise, None if not implemented.
+
+Return type
+Optional[bool]
+
+async classmethod afrom_documents(documents: List[Document], embedding: Embeddings, **kwargs: Any) → VST¶
+Return VectorStore initialized from documents and embeddings.</doc_content>
+</document>
+
+
+
+
+
+<document index='5'>
+<source>https://python.langchain.com/docs/integrations/toolkits/vectorstore</source>
+<doc_content>Vectorstore | 🦜️🔗 Langchain
+
+[Skip to main content](#docusaurus_skipToContent_fallback)# Vectorstore
+
+This notebook showcases an agent designed to retrieve information from one or more vectorstores, either with or without sources.
+
+## Create Vectorstores​
+
+```python
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.llms import OpenAI
+from langchain.text_splitter import CharacterTextSplitter
+from langchain.vectorstores import Chroma
+
+llm = OpenAI(temperature=0)
+```
+
+```python
+from langchain.document_loaders import TextLoader
+
+loader = TextLoader("../../modules/state_of_the_union.txt")
+documents = loader.load()
+text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+texts = text_splitter.split_documents(documents)
+
+embeddings = OpenAIEmbeddings()
+state_of_union_store = Chroma.from_documents(
+    texts, embeddings, collection_name="state-of-union"
+)
+```</doc_content>
+</document>
+
+
+
+
+
+<document index='6'>
+<source>https://api.python.langchain.com/en/latest/vectorstores/langchain.vectorstores.redis.base.Redis.html</source>
+<doc_content>Parameters
+
+texts (Iterable[str]) – Iterable of strings/text to add to the vectorstore.
+metadatas (Optional[List[dict]], optional) – Optional list of metadatas.
+Defaults to None.
+embeddings (Optional[List[List[float]]], optional) – Optional pre-generated
+embeddings. Defaults to None.
+keys (List[str]) or ids (List[str]) – Identifiers of entries.
+Defaults to None.
+batch_size (int, optional) – Batch size to use for writes. Defaults to 1000.
+
+Returns
+List of ids added to the vectorstore
+
+Return type
+List[str]
+
+async adelete(ids: Optional[List[str]] = None, **kwargs: Any) → Optional[bool]¶
+Delete by vector ID or other criteria.
+
+Parameters
+
+ids – List of ids to delete.
+**kwargs – Other keyword arguments that subclasses might use.
+
+Returns
+True if deletion is successful,
+False otherwise, None if not implemented.
+
+Return type
+Optional[bool]</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Answer: You can create a VectorStore from the texts in the list using the `MatchingEngine` class. Here's an example:
+```
+from langchain.vectorstores import MatchingEngine
+texts = ["text1", "text2", ...]
+vector_store = MatchingEngine.from_components(texts=texts, ...)
+```
+This will create a VectorStore instance from the given texts.
