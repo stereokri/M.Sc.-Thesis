@@ -1,0 +1,79 @@
+<documents>
+<document index='0'>
+<source>None</source>
+<doc_content>Operating income -- Y/Y growth (decline), excluding F/X  28 %  1 %  (10) %  (26) %  (8) %  30 % N/A
+  Operating margin -- % of AWS net sales  29.0 %  26.3 %  24.3 %  24.0 %  24.2 %  30.3 % N/A
+  Operating income -- TTM $ 22,409 $ 22,929 $ 22,841 $ 21,446 $ 21,096 $ 22,669  (1) %
+  Operating margin -- TTM % of AWS net sales  31.1 %  30.0 %  28.5 %  25.8 %  24.7 %  25.8 % N/A</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>None</source>
+<doc_content>AWS $ 19,739 $ 20,538 $ 21,378 $ 21,354 $ 22,140 $ 23,059  12 %
+AWS -- Y/Y growth, excluding F/X  33 %  28 %  20 %  16 %  12 %  12 % N/A
+Other (6) $ 1,070 $ 1,263 $ 1,253 $ 1,027 $ 1,344 $ 1,226  (3) %
+Other -- Y/Y growth (decline), excluding F/X  135 %  168 %  80 %  57 %  26 %  (3) % N/A
+Stock-based Compensation Expense
+Cost of sales $ 213 $ 190 $ 208 $ 165 $ 251 $ 193  2 %
+Fulfillment $ 763 $ 727 $ 757 $ 603 $ 932 $ 732  1 %
+Technology and infrastructure $ 2,814 $ 3,036 $ 3,126 $ 2,574 $ 4,043 $ 3,284  8 %</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>None</source>
+<doc_content>AWS Segment:
+  Net sales $ 19,739 $ 20,538 $ 21,378 $ 21,354 $ 22,140 $ 23,059  12 %
+  Net sales -- Y/Y growth, excluding F/X  33 %  28 %  20 %  16 %  12 %  12 % N/A
+  Net sales -- TTM $ 72,070 $ 76,498 $ 80,096 $ 83,009 $ 85,410 $ 87,931  15 %
+  Operating income $ 5,715 $ 5,403 $ 5,205 $ 5,123 $ 5,365 $ 6,976  29 %
+  F/X impact -- favorable (unfavorable) $ 335 $ 478 $ 468 $ 272 $ 79 $ (69) N/A
+  Operating income -- Y/Y growth (decline), excluding F/X  28 %  1 %  (10) %  (26) %  (8) %  30 % N/A</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>None</source>
+<doc_content>AWS
+Net sales $ 20,538 $ 23,059 $ 58,718 $ 66,553 
+Operating expenses  15,135  16,083  41,082  49,089 
+Operating income $ 5,403 $ 6,976 $ 17,636 $ 17,464 
+Consolidated
+Net sales $ 127,101 $ 143,083 $ 364,779 $ 404,824 
+Operating expenses  124,576  131,895  355,268  381,181 
+Operating income  2,525  11,188  9,511  23,643 
+Total non-operating income (expense)  419  1,001  (14,485)  228 
+Benefit (provision) for income taxes  (69)  (2,306)  1,990  (4,058) 
+Equity-method investment activity, net of tax  (3)  (4)  (16)  (12) 
+Net income (loss) $ 2,872 $ 9,879 $ (3,000) $ 19,801</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+Based on the provided context, we can find the operating income for AWS segment:
+
+Operating income $ 5,403 $ 5,205 $ 5,123 $ 5,365 $ 6,976 
+
+To calculate the year-over-year percentage change in AWS operating income for the three months that ended September 30, 2023, we need to find the difference between the current and previous year's operating income.
+
+Current year: $ 6,976
+Previous year: $ 5,403
+
+Year-over-year percentage change = (($ 6,976 - $ 5,403) / $ 5,403) * 100% ≈ 29.3%
+
+So, the year-over-year percentage change in AWS operating income for the three months that ended September 30, 2023 is approximately 29.3%.

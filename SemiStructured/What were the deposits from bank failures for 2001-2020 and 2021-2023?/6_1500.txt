@@ -1,0 +1,173 @@
+<documents>
+<document index='0'>
+<source>None</source>
+<doc_content>insured limits after bank failures.  
+Table 1. Bank Failures 2001-2023 
+ 
+Bank 
+Failures 
+Assets 
+(in billions) 
+Deposits 
+(in billions) 
+2001-2020 561 $721 $522 
+2021-2023 2 $319 $264 
+Source: CRS with data from FDIC, Bank Failures in Brief. 
+Notes: As of March 22, 2023. 
+The FDIC deposit insurance is backed by the full faith and 
+credit of the United States through a line of credit with the 
+U.S. Treasury. While the DIF was funded to its statutory 
+limit before the last financial crisis, bank failures rapidly 
+depleted it during the crisis. The DIF balance was at its 
+lowest at the end of 2009 with a negative balance of $20.9 
+billion. Through regular bank assessments the FDIC has 
+increased the DIF to $128.2 billion as of December 2022. 
+The fund has remained largely self-financed with some 
+borrowings from the Treasury. As of year-end 2022, the 
+FDIC insured deposits of nearly $10 trillion at 4,715 banks. 
+Total deposits at the end of 2022 were over $19 trillion—
+with FDIC insuring nearly 50% of all deposits. 
+Overview of the Resolution Process 
+As receiver of a failed bank, the FDIC evaluates all possible 
+resolution alternatives and selects the one that is least costly 
+to the DIF, per statute, unless the systemic risk exception 
+(described below) is invoked. Typically, uninsured 
+depositors, creditors, and shareholders are not protected 
+against losses in order to meet the least cost requirement. 
+The FDIC normally uses two main resolution methods: (1) 
+purchase and assumption transactions and (2) deposit 
+payoffs. Another method, bridge banks, is a type of 
+resolution method the FDIC has used on a limited basis to 
+resolve large or complex failing banks. 
+Purchase and Assumption Agreement (P&A). The most 
+commonly used resolution method is the P&A with an 
+acquirer. The FDIC seeks bids from qualified bidders for</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>None</source>
+<doc_content>banks, with a large majority having less than $1 billion in 
+deposits. Not all banks fail after becoming distressed—the 
+number of problem banks identified by the bank regulators 
+reached a high of 884, representing $390 billion in assets at 
+the end of 2010.  
+In response to the bank failures between 2007 and 2010 and 
+the related financial crisis, the Dodd-Frank Wall Street and 
+Consumer Protection Act in 2010 (P.L. 111-203) was 
+enacted to reform the financial regulatory system. The act 
+permanently increased the deposit insurance limit from 
+$100,000 to $250,000. Subsequently, in 2018, the 
+Economic Growth, Regulatory Relief, and Consumer 
+Protection Act (P.L. 115-174) was enacted, providing banks 
+regulatory relief from certain requirements.  
+Bank Failures, 2021-2023. There were no bank failures in 
+2021 or 2022. The two bank failures in 2023—SVB and 
+SB—collectively held $319 billion in assets and $264 
+billion in deposits (see Table 1). The second-largest bank 
+failure in U.S. history was SVB, with $209 billion in assets 
+and $175 billion in deposits. SB had $110 billion in assets 
+and $89 billion in deposits when it failed. The number of 
+problem banks as of Q3 2022 was 39, with combined assets 
+of $47.5 billion.  
+Deposit Insurance Fund (DIF). Deposit insurance 
+guarantees repayments of deposits at a bank up to the 
+statutory insured limit, $250,000. It is intended to protect 
+depositors, prevent bank runs, and reduce the risk of 
+systemic failure of the banking system. Banks pay deposit 
+insurance premiums to the FDIC, which maintains the DIF 
+to meet its obligations of insuring deposits and resolving 
+failed banks. Since the start of federal deposit insurance in 
+1934, all depositors have been made whole up to their 
+insured limits after bank failures.  
+Table 1. Bank Failures 2001-2023 
+ 
+Bank 
+Failures 
+Assets 
+(in billions)</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>None</source>
+<doc_content>the Deposit Insurance National Bank of Santa Clara to 
+Silicon Valley Bridge Bank, N.A. Likewise, the FDIC 
+created a bridge bank for SB, transferring all deposits and 
+substantially all assets to Signature Bridge Bank, N.A. 
+On Sunday, March 12—with the failure of SB—the FDIC, 
+Federal Reserve, and Treasury Secretary, after consultation 
+with the President, determined that systemic risk existed 
+that could potentially have adverse economic conditions or 
+affect financial stability and decided to guarantee uninsured 
+deposits under the systemic risk exception to least cost 
+resolution—enacted in the Federal Deposit Insurance 
+Corporation Improvement Act of 1991 (P.L. 102-242).  
+Deposit Insurance. There has been much discussion 
+surrounding how deposit insurance should be used in the 
+event of additional bank failures. One policy question is 
+whether Congress should give all deposits in the United 
+States insurance coverage or whether it should be limited. 
+Another issue widely discussed surrounds whether failing 
+banks of smaller size, including community banks, will be 
+temporarily provided the systemic risk exception to provide 
+guarantee of all deposits.   
+Monitoring and Examination of Problem Banks. The 
+total number of problem banks and their collective assets is 
+regularly published in the Quarterly Banking Profile (QBP) 
+by the FDIC. When FDIC published its latest QBP in 2023, 
+based on Q3 2022 information, it reported 39 problem 
+banks with collective assets of $47.5 billion. Based on the 
+amount of assets reported at the end of September 2022, 
+bank regulators did not consider SVB and SB problem 
+banks. This was also the case when Washington Mutual 
+Bank failed in September 2008. 
+Arguably, the issues surrounding the bank failures in 2023 
+evolved quickly, but some of the underlying issues existed 
+even five years ago. In a report published by the Financial 
+Stability Oversight Council in 2018, among medium-size 
+banks, SVB had the highest percentage of uninsured 
+deposits at nearly 80%. It had nearly $44 billion in total 
+deposits in March 2018, and the deposits grew to $175</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>None</source>
+<doc_content>banks, SVB had the highest percentage of uninsured 
+deposits at nearly 80%. It had nearly $44 billion in total 
+deposits in March 2018, and the deposits grew to $175 
+billion by March 2023—nearly a fourfold increase.  
+As a consequence of these recent failures, questions have 
+arisen surrounding the large bank regulatory regime created 
+in the first two decades of this century and how they should 
+be tailored to address the systemic risks posed by medium-
+size banks, not just the largest banks.  
+For more information, see CRS Insight IN12125, Silicon 
+Valley Bank and Signature Bank Failures, by Andrew P. 
+Scott and Marc Labonte; and CRS In Focus IF10035, 
+Introduction to Financial Services: Banking, by Raj 
+Gnanarajah and Andrew P. Scott.  
+Raj Gnanarajah, Analyst in Financial Economics   
+IF10055</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+According to Table 1, the deposits from bank failures were:
+
+* For 2001-2020: $522 billion
+* For 2021-2023: $264 billion

@@ -1,0 +1,121 @@
+<documents>
+<document index='0'>
+<source>None</source>
+<doc_content>Components 2011-2013 2020-2021 
+Nonfiling $37 (8%) $65 (10%) 
+Underreported 
+Income 
+$349 (80%) $511 (79%) 
+Underpayment of 
+tax 
+$52 (12%) $69 (11%) 
+Gross Tax Gap $438 $644 
+Source: Internal Revenue Service; Research, Applied Analytics, and 
+Statistics; Tax Gap Projections for Tax Years 2020 & 2021, Publication 
+5869; October 2023. 
+As Table 2 shows, underreported income is by far the 
+largest source of the federal tax gap, accounting for 80% of 
+the gross tax gap in 2011-2013 and 2020-2021. The three 
+components’ shares shifted little between the two periods. 
+The main source of the gross tax gap is individual income 
+underreporting. In 2021, it accounted for 73% of total 
+underreported income and 58% of the gross tax gap. 
+Unreported individual business and nonbusiness income 
+made up 74% of total individual underreported income and</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>None</source>
+<doc_content>Federal Tax Gap: Size, Contributing Factors, and the Debate over Reducing It 
+https://crsreports.congress.gov 
+2020-
+2021 $582 $582 13.8% 
+Source: Internal Revenue Service, Tax Gap Estimates; and Bureau of 
+Labor Statistics, Annual Average Consumer Price Indexes. 
+a. The percentage of federal taxes owed in a year that were not 
+paid on time, after IRS enforcement actions and late taxpayer 
+payments. 
+Sources of the Federal Tax Gap 
+The federal tax gap has three main sources: (1) 
+understatement of tax liability through unreported income 
+or overstated deductions, credits, and other income 
+adjustments; (2) failure to pay taxes owed on time; and (3) 
+failure to file a return on time.  
+Table 2. Components of the Gross Federal Tax Gap 
+(billions of current dollars) 
+Components 2011-2013 2020-2021 
+Nonfiling $37 (8%) $65 (10%) 
+Underreported 
+Income 
+$349 (80%) $511 (79%)</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>None</source>
+<doc_content>underreported income and 58% of the gross tax gap. 
+Unreported individual business and nonbusiness income 
+made up 74% of total individual underreported income and 
+over 42% of the gross tax gap. Much of individual business 
+income is subject to little or no withholding and 
+information reporting, making it more difficult for the IRS 
+to detect than wage, interest, and dividend income. 
+According to IRS estimates, in 2014 to 2016, the net 
+misreporting percentage for wages and salaries was 1%, but 
+it was 15% for partnership and S corporation income and 
+55% for sole proprietor income.  
+Contributing Factors 
+IRS Resources 
+The sizes of the IRS budget and staff, especially for 
+enforcement activities and taxpayer services, affect the tax 
+gap through their impact on taxpayer compliance. 
+Substantial decreases in those resources since FY2010 have 
+resulted in sharp declines in audit rates for high-income 
+individuals, partnerships, and large corporations. 
+Between FY2010 and FY2022, the IRS budget (measured 
+as total obligations in 2022 dollars) declined 18%. The</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>None</source>
+<doc_content>individuals, partnerships, and large corporations. 
+Between FY2010 and FY2022, the IRS budget (measured 
+as total obligations in 2022 dollars) declined 18%. The 
+IRS’s full-time equivalent workforce declined 17% in the 
+same period, with higher rates of decline among employees 
+involved in examinations and collections (58%) and 
+prefiling assistance (28%).  
+Income Visibility 
+Another force is the IRS’s ability to track down taxable 
+income. Income is easiest to track when it is subject to 
+information reporting by third parties. Compliance is even 
+greater when income is also subject to employer 
+withholding, as is the case for wages and salaries. 
+According to IRS estimates, underreported tax liability in 
+2021 was $167 billion for income subject to little or no 
+information reporting (e.g., farm income, sole proprietor 
+income, rents, and royalties), but only $9 billion for income 
+subject to substantial reporting and withholding.  
+Tax Code Complexity 
+The federal tax gap is also thought to be influenced by the</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+According to Table 2, the total amount of underreported federal tax income from 2011-2013 is $349 billion.

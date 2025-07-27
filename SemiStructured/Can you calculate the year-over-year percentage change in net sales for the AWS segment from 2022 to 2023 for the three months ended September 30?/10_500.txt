@@ -1,0 +1,117 @@
+<documents>
+<document index='0'>
+<source>None</source>
+<doc_content>Net sales -- Y/Y growth, excluding F/X  33 %  28 %  20 %  16 %  12 %  12 % N/A
+  Net sales -- TTM $ 72,070 $ 76,498 $ 80,096 $ 83,009 $ 85,410 $ 87,931  15 %
+  Operating income $ 5,715 $ 5,403 $ 5,205 $ 5,123 $ 5,365 $ 6,976  29 %
+  F/X impact -- favorable (unfavorable) $ 335 $ 478 $ 468 $ 272 $ 79 $ (69) N/A
+  Operating income -- Y/Y growth (decline), excluding F/X  28 %  1 %  (10) %  (26) %  (8) %  30 % N/A
+  Operating margin -- % of AWS net sales  29.0 %  26.3 %  24.3 %  24.0 %  24.2 %  30.3 % N/A
+  Operating income -- TTM $ 22,409 $ 22,929 $ 22,841 $ 21,446 $ 21,096 $ 22,669  (1) %
+  Operating margin -- TTM % of AWS net sales  31.1 %  30.0 %  28.5 %  25.8 %  24.7 %  25.8 % N/A</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>None</source>
+<doc_content>International Segment:
+  Net sales $ 27,065 $ 27,720 $ 34,463 $ 29,123 $ 29,697 $ 32,137  16 %
+  Net sales -- Y/Y growth (decline), excluding F/X  (1) %  12 %  5 %  9 %  10 %  11 % N/A
+  Net sales -- TTM $ 122,241 $ 120,816 $ 118,007 $ 118,371 $ 121,003 $ 125,420  4 %
+  Operating loss $ (1,771) $ (2,466) $ (2,228) $ (1,247) $ (895) $ (95)  (96) %
+  F/X impact -- favorable (unfavorable) $ (231) $ (216) $ (331) $ (174) $ 32 $ 228 N/A
+  Operating loss -- Y/Y growth (decline), excluding F/X  (526) %  147 %  17 %  (16) %  (48) %  (87) % N/A
+  Operating margin -- % of International net sales  (6.5) %  (8.9) %  (6.5) %  (4.3) %  (3.0) %  (0.3) % N/A
+  Operating loss -- TTM $ (5,590) $ (7,145) $ (7,746) $ (7,712) $ (6,836) $ (4,465)  (38) %
+  Operating margin -- TTM % of International net sales  (4.6) %  (5.9) %  (6.6) %  (6.5) %  (5.6) %  (3.6) % N/A
+AWS Segment:
+  Net sales $ 19,739 $ 20,538 $ 21,378 $ 21,354 $ 22,140 $ 23,059  12 %
+  Net sales -- Y/Y growth, excluding F/X  33 %  28 %  20 %  16 %  12 %  12 % N/A</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>None</source>
+<doc_content>Segment Highlights:
+Y/Y net sales growth (decline):
+North America  20 %  11 %  13 %  11 %
+International  (5)  16  (8)  9 
+AWS  27  12  32  13 
+Consolidated  15  13  10  11 
+Net sales mix:
+North America  62 %  61 %  61 %  61 %
+International  22  23  23  23 
+AWS  16  16  16  16 
+Consolidated  100 %  100 %  100 %  100 %</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>None</source>
+<doc_content>AMAZON.COM, INC.
+Segment Information
+(in millions)
+(unaudited) 
+  
+Three Months Ended
+September 30,
+Nine Months Ended
+September 30,
+2022 2023 2022 2023
+North America
+Net sales $ 78,843 $ 87,887 $ 222,517 $ 247,314 
+Operating expenses  79,255  83,580  225,124  238,898 
+Operating income (loss) $ (412) $ 4,307 $ (2,607) $ 8,416 
+International
+Net sales $ 27,720 $ 32,137 $ 83,544 $ 90,957 
+Operating expenses  30,186  32,232  89,062  93,194 
+Operating loss $ (2,466) $ (95) $ (5,518) $ (2,237) 
+AWS
+Net sales $ 20,538 $ 23,059 $ 58,718 $ 66,553 
+Operating expenses  15,135  16,083  41,082  49,089 
+Operating income $ 5,403 $ 6,976 $ 17,636 $ 17,464 
+Consolidated
+Net sales $ 127,101 $ 143,083 $ 364,779 $ 404,824 
+Operating expenses  124,576  131,895  355,268  381,181 
+Operating income  2,525  11,188  9,511  23,643 
+Total non-operating income (expense)  419  1,001  (14,485)  228 
+Benefit (provision) for income taxes  (69)  (2,306)  1,990  (4,058) 
+Equity-method investment activity, net of tax  (3)  (4)  (16)  (12) 
+Net income (loss) $ 2,872 $ 9,879 $ (3,000) $ 19,801 
+Segment Highlights:
+Y/Y net sales growth (decline):
+North America  20 %  11 %  13 %  11 %
+International  (5)  16  (8)  9</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+Based on the table, the net sales for the AWS segment are:
+
+* 2022: $20,538
+* 2023: $23,059
+
+To calculate the year-over-year percentage change in net sales from 2022 to 2023, you can use the following formula:
+
+((2023 - 2022) / 2022) * 100
+
+Plugging in the numbers, you get:
+
+((23,059 - 20,538) / 20,538) * 100 = (2,521 / 20,538) * 100 = 12.1%
+
+So, the year-over-year percentage change in net sales for the AWS segment from 2022 to 2023 is 12.1%.

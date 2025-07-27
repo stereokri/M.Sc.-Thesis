@@ -1,0 +1,149 @@
+<documents>
+<document index='0'>
+<source>None</source>
+<doc_content>Datadog, Inc.
+Condensed Consolidated Statements of Operations
+(In thousands, except per share data; unaudited)
+Three Months Ended
+September 30,
+Nine Months Ended
+September 30,
+2023 2022 2023 2022
+Revenue $ 547,536 $ 436,533 $ 1,538,710 $ 1,205,701 
+Cost of revenue (1)(2)(3)  103,319  93,599  305,079  249,986 
+Gross profit  444,217  342,934  1,233,631  955,715 
+Operating expenses:
+Research and development (1)(3)  240,225  205,388  709,197  533,695 
+Sales and marketing (1)(2)(3)  156,870  129,493  449,296  345,929 
+General and administrative (1)(3)  51,352  39,395  136,344  100,158 
+Total operating expenses  448,447  374,276  1,294,837  979,782 
+Operating loss  (4,230)  (31,342)  (61,206)  (24,067) 
+Other income (loss):
+Interest expense (4)  (1,303)  (3,728)  (5,010)  (13,516) 
+Interest income and other income, net  29,833  12,011  69,184  25,367 
+Other income, net  28,530  8,283  64,174  11,851 
+Income (loss) before provision for income taxes  24,300  (23,059)  2,968  (12,216) 
+Provision for income taxes  (1,670)  (2,926)  (8,393)  (8,910) 
+Net income (loss) $ 22,630 $ (25,985) $ (5,425) $ (21,126) 
+Net income (loss) per share - basic $ 0.07 $ (0.08) $ (0.02) $ (0.07)</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>None</source>
+<doc_content>Datadog Announces Third Quarter 2023 Financial Results
+November 7, 2023 
+Third quarter revenue grew 25% year-over-year to $548 million
+Strong growth of larger customers, with about 3,130 $100k+ ARR customers, up from about 2,600 a year ago
+NEW YORK-- Datadog, Inc. (NASDAQ:DDOG), the monitoring and security platform for cloud applications, 
+today announced financial results for its third quarter ended September 30, 2023.
+"We were pleased with our execution in the third quarter, with 25% year-over-year revenue growth, robust new 
+logo bookings, and a continued focus on solving our customers' DevSecOps pain points," said Olivier Pomel, 
+co-founder and CEO of Datadog. 
+Pomel added, "Companies across all industries and sizes are building cloud applications and services to 
+deliver positive business outcomes, including more users, higher revenue growth, improved productivity, and 
+cost savings. With our unified, cloud-native, end-to-end observability and security platform, Datadog is uniquely 
+positioned to help our customers reach their goals." 
+Third Quarter 2023 Financial Highlights:
+• Revenue was $547.5 million, an increase of 25% year-over-year.
+• GAAP operating loss was $(4.2) million; GAAP operating margin was (1)%. 
+• Non-GAAP operating income was $130.8 million; non-GAAP operating margin was 24%. 
+• GAAP net income per diluted share was $0.06; non-GAAP net income per diluted share was $0.45.
+• Operating cash flow was $152.8 million, with free cash flow of $138.2 million.
+• Cash, cash equivalents, and marketable securities were $2.3 billion as of September 30, 2023.
+Third Quarter & Recent Business Highlights:
+• As of September 30, 2023, we had about 3,130 customers with ARR of $100,000 or more, an increase 
+of 20% from about 2,600 as of September 30, 2022.
+Exhibit 99.1</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>None</source>
+<doc_content>Datadog, Inc.
+Condensed Consolidated Statements of Cash Flow
+(In thousands; unaudited)
+Three Months Ended
+September 30,
+Nine Months Ended
+September 30,
+2023 2022 2023 2022
+CASH FLOWS FROM OPERATING ACTIVITIES:
+Net income (loss) $ 22,630 $ (25,985) $ (5,425) $ (21,126) 
+Adjustments to reconcile net income (loss) to net cash provided by operating activities:
+Depreciation and amortization  11,609  9,313  32,434  24,825 
+(Accretion) amortization of (discounts) premiums on marketable securities  (12,965)  520  (26,256)  7,217 
+Amortization of issuance costs  848  843  2,539  2,525 
+Amortization of deferred contract costs  10,227  7,361  28,223  19,941 
+Stock-based compensation, net of amounts capitalized  123,114  101,362  354,179  250,645 
+Non-cash lease expense  7,136  5,550  19,332  15,236 
+Allowance for credit losses on accounts receivable  2,786  1,998  9,097  3,929 
+Loss on disposal of property and equipment  (2)  3  419  1,152 
+Changes in operating assets and liabilities:
+Accounts receivable, net  (70,333)  (45,638)  (10,194)  (83,738) 
+Deferred contract costs  (14,994)  (13,202)  (42,612)  (34,671) 
+Prepaid expenses and other current assets  6,509  1,349  (10,314)  (11,280) 
+Other assets  (998)  (168)  1,243  (1,920) 
+Accounts payable  32,371  (20,696)  57,268  2,483 
+Accrued expenses and other liabilities  (24,153)  31,660  (68,242)  27,350</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>None</source>
+<doc_content>Datadog, Inc.
+Condensed Consolidated Balance Sheets
+(In thousands; unaudited)
+September 30,
+2023
+December 31,
+2022
+ASSETS
+CURRENT ASSETS:
+Cash and cash equivalents $ 261,309 $ 338,985 
+Marketable securities  2,080,380  1,545,341 
+Accounts receivable, net of allowance for credit losses of $11,091 and $5,626 as of 
+September 30, 2023 and December 31, 2022, respectively  400,649  399,551 
+Deferred contract costs, current  39,805  33,054 
+Prepaid expenses and other current assets  37,341  27,303 
+Total current assets  2,819,484  2,344,234 
+Property and equipment, net  157,689  125,346 
+Operating lease assets  121,913  87,629 
+Goodwill  348,697  348,277 
+Intangible assets, net  10,145  16,365 
+Deferred contract costs, non-current  62,976  55,338 
+Restricted cash  —  3,303 
+Other assets  22,398  24,360 
+TOTAL ASSETS $ 3,543,302 $ 3,004,852 
+LIABILITIES AND STOCKHOLDERS' EQUITY
+CURRENT LIABILITIES:
+Accounts payable $ 85,362 $ 23,474 
+Accrued expenses and other current liabilities  101,837  171,158 
+Operating lease liabilities, current  18,777  22,092 
+Deferred revenue, current  636,500  543,024 
+Total current liabilities  842,476  759,748 
+Operating lease liabilities, non-current  127,800  76,582 
+Convertible senior notes, net  741,386  738,847 
+Deferred revenue, non-current  17,505  12,944 
+Other liabilities  7,659  6,226 
+Total liabilities  1,736,826  1,594,347 
+STOCKHOLDERS' EQUITY:
+Common stock  3  3</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+Datadog's net income for the three months that ended September 30, 2023 was $22,630. For the same period in 2022, it was $(25,985).

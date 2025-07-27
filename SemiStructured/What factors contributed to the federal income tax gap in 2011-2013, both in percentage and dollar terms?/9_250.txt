@@ -1,0 +1,133 @@
+<documents>
+<document index='0'>
+<source>None</source>
+<doc_content>Federal Tax Gap: Size, Contributing Factors, and the Debate over Reducing It 
+https://crsreports.congress.gov 
+2020-
+2021 $582 $582 13.8% 
+Source: Internal Revenue Service, Tax Gap Estimates; and Bureau of 
+Labor Statistics, Annual Average Consumer Price Indexes. 
+a. The percentage of federal taxes owed in a year that were not 
+paid on time, after IRS enforcement actions and late taxpayer 
+payments. 
+Sources of the Federal Tax Gap 
+The federal tax gap has three main sources: (1) 
+understatement of tax liability through unreported income 
+or overstated deductions, credits, and other income 
+adjustments; (2) failure to pay taxes owed on time; and (3) 
+failure to file a return on time.  
+Table 2. Components of the Gross Federal Tax Gap 
+(billions of current dollars) 
+Components 2011-2013 2020-2021 
+Nonfiling $37 (8%) $65 (10%) 
+Underreported 
+Income 
+$349 (80%) $511 (79%)</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>None</source>
+<doc_content>Components 2011-2013 2020-2021 
+Nonfiling $37 (8%) $65 (10%) 
+Underreported 
+Income 
+$349 (80%) $511 (79%) 
+Underpayment of 
+tax 
+$52 (12%) $69 (11%) 
+Gross Tax Gap $438 $644 
+Source: Internal Revenue Service; Research, Applied Analytics, and 
+Statistics; Tax Gap Projections for Tax Years 2020 & 2021, Publication 
+5869; October 2023. 
+As Table 2 shows, underreported income is by far the 
+largest source of the federal tax gap, accounting for 80% of 
+the gross tax gap in 2011-2013 and 2020-2021. The three 
+components’ shares shifted little between the two periods. 
+The main source of the gross tax gap is individual income 
+underreporting. In 2021, it accounted for 73% of total 
+underreported income and 58% of the gross tax gap. 
+Unreported individual business and nonbusiness income 
+made up 74% of total individual underreported income and</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>None</source>
+<doc_content>https://crsreports.congress.gov 
+ 
+Updated October 30, 2023
+Federal Tax Gap: Size, Contributing Factors, and the Debate 
+over Reducing It
+Nature of the Federal Tax Gap 
+The federal tax gap is a measure of overall taxpayer 
+noncompliance in a specified period. The Internal Revenue 
+Service (IRS) provides two estimates of the federal tax gap: 
+a gross measure and a net measure. The gross tax gap is the 
+difference between the total amount of federal individual 
+and corporate income, employment, and estate and gift 
+taxes owed in a year and the total amount of those taxes 
+paid voluntarily on time. The net tax gap is the difference 
+between all taxes owed and taxes paid after accounting for 
+late taxpayer payments and taxes collected through IRS 
+enforcement actions. This estimate does not consider the 
+deterrent effects of IRS enforcement on taxpayer 
+noncompliance. 
+The federal tax gap has three main components: failure to 
+file, income underreporting, and tax underpayment. 
+There are several reasons why the federal tax gap may be a</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>None</source>
+<doc_content>2016.  
+Table 1. Net Federal Tax Gap Estimates from 2001 to 
+2021 
+Year(s) 
+Billions of 
+Current 
+Dollars 
+Billions of 
+2021 
+Dollars 
+Net Taxpayer 
+Noncompliance 
+Ratea (%) 
+2001 $290 $444 13.7% 
+2006 $385 $516 14.5% 
+2008-
+2010 $406 $508 16.3% 
+2011-
+2013 $380 $450 14.2% 
+2014-
+2016 $428 $486 13.0% 
+2017-
+2019 $481 $514 13.2%</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+According to Table 2, the components of the Gross Federal Tax Gap for 2011-2013 are:
+
+* Nonfiling: $37 (8%)
+* Underreported Income: $349 (80%)
+* Underpayment of tax: $52 (12%)
+
+So, in percentage terms, underreported income contributed 80% to the federal income tax gap, nonfiling contributed 8%, and underpayment of tax contributed 12%.
+
+In dollar terms, underreported income contributed $349 billion, nonfiling contributed $37 billion, and underpayment of tax contributed $52 billion.

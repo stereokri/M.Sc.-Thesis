@@ -1,0 +1,99 @@
+<documents>
+<document index='0'>
+<source>None</source>
+<doc_content>AWS Segment:
+  Net sales $ 19,739 $ 20,538 $ 21,378 $ 21,354 $ 22,140 $ 23,059  12 %
+  Net sales -- Y/Y growth, excluding F/X  33 %  28 %  20 %  16 %  12 %  12 % N/A
+  Net sales -- TTM $ 72,070 $ 76,498 $ 80,096 $ 83,009 $ 85,410 $ 87,931  15 %
+  Operating income $ 5,715 $ 5,403 $ 5,205 $ 5,123 $ 5,365 $ 6,976  29 %
+  F/X impact -- favorable (unfavorable) $ 335 $ 478 $ 468 $ 272 $ 79 $ (69) N/A
+  Operating income -- Y/Y growth (decline), excluding F/X  28 %  1 %  (10) %  (26) %  (8) %  30 % N/A</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>None</source>
+<doc_content>AMAZON.COM, INC.
+Consolidated Statements of Operations
+(in millions, except per share data)
+(unaudited)
+  
+Three Months Ended
+September 30,
+Nine Months Ended
+September 30,
+2022 2023 2022 2023
+Net product sales $ 59,340 $ 63,171 $ 172,370 $ 179,184 
+Net service sales  67,761  79,912  192,409  225,640 
+Total net sales  127,101  143,083  364,779  404,824 
+Operating expenses:
+Cost of sales  70,268  75,022  203,191  212,186 
+Fulfillment  20,583  22,314  61,196  64,524 
+Technology and infrastructure  19,485  21,203  52,399  63,584 
+Sales and marketing  11,014  10,551  29,420  31,468 
+General and administrative  3,061  2,561  8,558  8,806</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>None</source>
+<doc_content>AMAZON.COM, INC.
+Segment Information
+(in millions)
+(unaudited) 
+  
+Three Months Ended
+September 30,
+Nine Months Ended
+September 30,
+2022 2023 2022 2023
+North America
+Net sales $ 78,843 $ 87,887 $ 222,517 $ 247,314 
+Operating expenses  79,255  83,580  225,124  238,898 
+Operating income (loss) $ (412) $ 4,307 $ (2,607) $ 8,416 
+International
+Net sales $ 27,720 $ 32,137 $ 83,544 $ 90,957 
+Operating expenses  30,186  32,232  89,062  93,194 
+Operating loss $ (2,466) $ (95) $ (5,518) $ (2,237) 
+AWS
+Net sales $ 20,538 $ 23,059 $ 58,718 $ 66,553 
+Operating expenses  15,135  16,083  41,082  49,089</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>None</source>
+<doc_content>AMAZON.COM ANNOUNCES THIRD QUARTER RESULTS
+SEATTLE—(BUSINESS WIRE) October 26, 2023—Amazon.com, Inc. (NASDAQ: AMZN) today announced financial 
+results for its third quarter ended September 30, 2023. 
+• Net sales increased 13% to $143.1 billion in the third quarter, compared with $127.1 billion in third quarter 2022.
+Excluding the $1.4 billion favorable impact from year-over-year changes in foreign exchange rates throughout the
+quarter, net sales increased 11% compared with third quarter 2022.
+• North America segment sales increased 11% year-over-year to $87.9 billion.
+• International segment sales increased 16% year-over-year to $32.1 billion, or increased 11% excluding
+changes in foreign exchange rates.
+• AWS segment sales increased 12% year-over-year to $23.1 billion.
+• Operating income increased to $11.2 billion in the third quarter, compared with $2.5 billion in third quarter 2022.</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+Based on the provided context, for the three months that ended September 30, 2023, AWS contributed $23,059 million out of a total of $143,083 million in net sales. Therefore, the percentage of total net sales that AWS contributed is:
+
+$23,059 / $143,083 = 16.1%
+
+So, for the three months that ended September 30, 2023, AWS contributed approximately 16.1% of total net sales.

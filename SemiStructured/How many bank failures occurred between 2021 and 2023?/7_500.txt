@@ -1,0 +1,109 @@
+<documents>
+<document index='0'>
+<source>None</source>
+<doc_content>Protection Act (P.L. 115-174) was enacted, providing banks 
+regulatory relief from certain requirements.  
+Bank Failures, 2021-2023. There were no bank failures in 
+2021 or 2022. The two bank failures in 2023—SVB and 
+SB—collectively held $319 billion in assets and $264 
+billion in deposits (see Table 1). The second-largest bank 
+failure in U.S. history was SVB, with $209 billion in assets 
+and $175 billion in deposits. SB had $110 billion in assets 
+and $89 billion in deposits when it failed. The number of 
+problem banks as of Q3 2022 was 39, with combined assets 
+of $47.5 billion.  
+Deposit Insurance Fund (DIF). Deposit insurance 
+guarantees repayments of deposits at a bank up to the 
+statutory insured limit, $250,000. It is intended to protect 
+depositors, prevent bank runs, and reduce the risk of 
+systemic failure of the banking system. Banks pay deposit</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>None</source>
+<doc_content>based on Q3 2022 information, it reported 39 problem 
+banks with collective assets of $47.5 billion. Based on the 
+amount of assets reported at the end of September 2022, 
+bank regulators did not consider SVB and SB problem 
+banks. This was also the case when Washington Mutual 
+Bank failed in September 2008. 
+Arguably, the issues surrounding the bank failures in 2023 
+evolved quickly, but some of the underlying issues existed 
+even five years ago. In a report published by the Financial 
+Stability Oversight Council in 2018, among medium-size 
+banks, SVB had the highest percentage of uninsured 
+deposits at nearly 80%. It had nearly $44 billion in total 
+deposits in March 2018, and the deposits grew to $175 
+billion by March 2023—nearly a fourfold increase.  
+As a consequence of these recent failures, questions have 
+arisen surrounding the large bank regulatory regime created 
+in the first two decades of this century and how they should 
+be tailored to address the systemic risks posed by medium-</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>None</source>
+<doc_content>history was Washington Mutual Bank in 2008 with $307 
+billion in assets and $188 billion in deposits. Most 
+depository institutions that failed were relatively small 
+banks, with a large majority having less than $1 billion in 
+deposits. Not all banks fail after becoming distressed—the 
+number of problem banks identified by the bank regulators 
+reached a high of 884, representing $390 billion in assets at 
+the end of 2010.  
+In response to the bank failures between 2007 and 2010 and 
+the related financial crisis, the Dodd-Frank Wall Street and 
+Consumer Protection Act in 2010 (P.L. 111-203) was 
+enacted to reform the financial regulatory system. The act 
+permanently increased the deposit insurance limit from 
+$100,000 to $250,000. Subsequently, in 2018, the 
+Economic Growth, Regulatory Relief, and Consumer 
+Protection Act (P.L. 115-174) was enacted, providing banks 
+regulatory relief from certain requirements.  
+Bank Failures, 2021-2023. There were no bank failures in</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>None</source>
+<doc_content>deposits under the systemic risk exception to least cost 
+resolution—enacted in the Federal Deposit Insurance 
+Corporation Improvement Act of 1991 (P.L. 102-242).  
+Deposit Insurance. There has been much discussion 
+surrounding how deposit insurance should be used in the 
+event of additional bank failures. One policy question is 
+whether Congress should give all deposits in the United 
+States insurance coverage or whether it should be limited. 
+Another issue widely discussed surrounds whether failing 
+banks of smaller size, including community banks, will be 
+temporarily provided the systemic risk exception to provide 
+guarantee of all deposits.   
+Monitoring and Examination of Problem Banks. The 
+total number of problem banks and their collective assets is 
+regularly published in the Quarterly Banking Profile (QBP) 
+by the FDIC. When FDIC published its latest QBP in 2023, 
+based on Q3 2022 information, it reported 39 problem 
+banks with collective assets of $47.5 billion. Based on the 
+amount of assets reported at the end of September 2022,</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+According to the text, there were no bank failures in 2021 or 2022, but two bank failures occurred in 2023.

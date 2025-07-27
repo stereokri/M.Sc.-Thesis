@@ -24,17 +24,12 @@ files = [str(p) for p in paths]
 
 
 # # ------------------- 2. Load & Split -------------------
-def load_and_split(files, token_count=500):
-    splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
-        chunk_size=token_count, chunk_overlap=50
-    )   
-    texts = []
+def load_and_split(files):
+
     for file in files:
         loader = PyPDFLoader(file)
         pages = loader.load()
-        chunks = splitter.split_documents(pages) 
-        texts.extend([doc.page_content for doc in chunks])
-    return texts
+    return pages
 
 texts = load_and_split(files)
 

@@ -1,0 +1,226 @@
+<documents>
+<document index='0'>
+<source>None</source>
+<doc_content>AMAZON.COM, INC.
+Segment Information
+(in millions)
+(unaudited) 
+  
+Three Months Ended
+September 30,
+Nine Months Ended
+September 30,
+2022 2023 2022 2023
+North America
+Net sales $ 78,843 $ 87,887 $ 222,517 $ 247,314 
+Operating expenses  79,255  83,580  225,124  238,898 
+Operating income (loss) $ (412) $ 4,307 $ (2,607) $ 8,416 
+International
+Net sales $ 27,720 $ 32,137 $ 83,544 $ 90,957 
+Operating expenses  30,186  32,232  89,062  93,194 
+Operating loss $ (2,466) $ (95) $ (5,518) $ (2,237) 
+AWS
+Net sales $ 20,538 $ 23,059 $ 58,718 $ 66,553 
+Operating expenses  15,135  16,083  41,082  49,089 
+Operating income $ 5,403 $ 6,976 $ 17,636 $ 17,464 
+Consolidated
+Net sales $ 127,101 $ 143,083 $ 364,779 $ 404,824 
+Operating expenses  124,576  131,895  355,268  381,181 
+Operating income  2,525  11,188  9,511  23,643 
+Total non-operating income (expense)  419  1,001  (14,485)  228 
+Benefit (provision) for income taxes  (69)  (2,306)  1,990  (4,058) 
+Equity-method investment activity, net of tax  (3)  (4)  (16)  (12) 
+Net income (loss) $ 2,872 $ 9,879 $ (3,000) $ 19,801 
+Segment Highlights:
+Y/Y net sales growth (decline):
+North America  20 %  11 %  13 %  11 %
+International  (5)  16  (8)  9 
+AWS  27  12  32  13 
+Consolidated  15  13  10  11 
+Net sales mix:
+North America  62 %  61 %  61 %  61 %
+International  22  23  23  23 
+AWS  16  16  16  16 
+Consolidated  100 %  100 %  100 %  100 %</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>None</source>
+<doc_content>AMAZON.COM, INC.
+Consolidated Statements of Operations
+(in millions, except per share data)
+(unaudited)
+  
+Three Months Ended
+September 30,
+Nine Months Ended
+September 30,
+2022 2023 2022 2023
+Net product sales $ 59,340 $ 63,171 $ 172,370 $ 179,184 
+Net service sales  67,761  79,912  192,409  225,640 
+Total net sales  127,101  143,083  364,779  404,824 
+Operating expenses:
+Cost of sales  70,268  75,022  203,191  212,186 
+Fulfillment  20,583  22,314  61,196  64,524 
+Technology and infrastructure  19,485  21,203  52,399  63,584 
+Sales and marketing  11,014  10,551  29,420  31,468 
+General and administrative  3,061  2,561  8,558  8,806 
+Other operating expense (income), net  165  244  504  613 
+Total operating expenses  124,576  131,895  355,268  381,181 
+Operating income  2,525  11,188  9,511  23,643 
+Interest income  277  776  544  2,048 
+Interest expense  (617)  (806)  (1,673)  (2,469) 
+Other income (expense), net  759  1,031  (13,356)  649 
+Total non-operating income (expense)  419  1,001  (14,485)  228 
+Income (loss) before income taxes  2,944  12,189  (4,974)  23,871 
+Benefit (provision) for income taxes  (69)  (2,306)  1,990  (4,058) 
+Equity-method investment activity, net of tax  (3)  (4)  (16)  (12) 
+Net income (loss) $ 2,872 $ 9,879 $ (3,000) $ 19,801 
+Basic earnings per share $ 0.28 $ 0.96 $ (0.29) $ 1.93 
+Diluted earnings per share $ 0.28 $ 0.94 $ (0.29) $ 1.89 
+Weighted-average shares used in computation of earnings per 
+Basic  10,191  10,322  10,178  10,286 
+Diluted  10,331  10,558  10,178  10,452 </doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>None</source>
+<doc_content>AMAZON.COM, INC.
+Consolidated Statements of Cash Flows
+(in millions)
+(unaudited) 
+  
+Three Months Ended
+September 30,
+Nine Months Ended
+September 30,
+Twelve Months Ended
+September 30,
+ 2022 2023 2022 2023 2022 2023
+CASH, CASH EQUIVALENTS, AND RESTRICTED CASH, BEGINNING OF 
+PERIOD $ 37,700 $ 50,067 $ 36,477 $ 54,253 $ 30,177 $ 35,178 
+OPERATING ACTIVITIES:
+Net income (loss)  2,872  9,879  (3,000)  19,801  11,323  20,079 
+Adjustments to reconcile net income (loss) to net cash from operating activities:
+Depreciation and amortization of property and equipment and capitalized 
+content costs, operating lease assets, and other  10,327  12,131  29,236  34,843  39,103  47,528 
+Stock-based compensation  5,556  5,829  14,015  17,704  17,695  23,310 
+Non-operating expense (income), net  (1,272)  (990)  13,521  (409)  1,589  3,036 
+Deferred income taxes  (825)  (1,196)  (4,781)  (4,412)  (8,404)  (7,779) 
+Changes in operating assets and liabilities:
+Inventories  732  808  (5,772)  (1,194)  (7,687)  1,986 
+Accounts receivable, net and other  (4,794)  (6,718)  (13,109)  (10,364)  (19,665)  (19,152) 
+Accounts payable  (1,226)  2,820  (6,907)  (5,415)  1,082  4,437 
+Accrued expenses and other  (20)  (1,321)  (7,335)  (9,022)  1,998  (3,245) 
+Unearned revenue  54  (25)  1,711  949  2,631  1,454 
+Net cash provided by (used in) operating activities  11,404  21,217  17,579  42,481  39,665  71,654 
+INVESTING ACTIVITIES:
+Purchases of property and equipment  (16,378)  (12,479)  (47,053)  (38,141)  (65,988)  (54,733) 
+Proceeds from property and equipment sales and incentives  1,337  1,181  4,172  3,361  6,637  4,513 
+Acquisitions, net of cash acquired, non-marketable investments, and other  (885)  (1,629)  (7,485)  (5,458)  (7,866)  (6,289) 
+Sales and maturities of marketable securities  557  1,393  25,918  4,059  38,455  9,742 
+Purchases of marketable securities  (239)  (219)  (2,332)  (1,053)  (10,598)  (1,286) 
+Net cash provided by (used in) investing activities  (15,608)  (11,753)  (26,780)  (37,232)  (39,360)  (48,053) 
+FINANCING ACTIVITIES:
+Common stock repurchased  —  —  (6,000)  —  (6,000)  — 
+Proceeds from short-term debt, and other  12,338  216  30,946  17,395  33,613  28,002 
+Repayments of short-term debt, and other  (7,916)  (8,095)  (21,757)  (19,339)  (24,416)  (35,136) 
+Proceeds from long-term debt  107  —  12,931  —  13,131  8,235 
+Repayments of long-term debt  —  —  (1)  (3,386)  (1,002)  (4,643) 
+Principal repayments of finance leases  (1,465)  (1,005)  (6,301)  (3,605)  (8,561)  (5,245) 
+Principal repayments of financing obligations  (48)  (64)  (186)  (198)  (233)  (260) 
+Net cash provided by (used in) financing activities  3,016  (8,948)  9,632  (9,133)  6,532  (9,047) 
+Foreign currency effect on cash, cash equivalents, and restricted cash  (1,334)  (502)  (1,730)  (288)  (1,836)  349 
+Net increase (decrease) in cash, cash equivalents, and restricted cash  (2,522)  14  (1,299)  (4,172)  5,001  14,903 
+CASH, CASH EQUIVALENTS, AND RESTRICTED CASH, END OF PERIOD $ 35,178 $ 50,081 $ 35,178 $ 50,081 $ 35,178 $ 50,081 
+SUPPLEMENTAL CASH FLOW INFORMATION:
+Cash paid for interest on debt, net of capitalized interest $ 304 $ 465 $ 932 $ 1,821 $ 1,299 $ 2,450 
+Cash paid for operating leases  1,813  2,692  6,268  7,687  7,961  10,052 
+Cash paid for interest on finance leases  88  76  290  234  404  318 
+Cash paid for interest on financing obligations  39  50  152  150  189  205 
+Cash paid for income taxes, net of refunds  742  2,628  4,340  6,982  4,674  8,677 
+Assets acquired under operating leases  6,755  3,345  14,031  11,075  19,839  15,844 
+Property and equipment acquired under finance leases, net of remeasurements and 
+modifications  131  183  358  431  1,966  748 
+Property and equipment recognized during the construction period of build-to-suit 
+lease arrangements  526  93  2,877  308  4,847  618 
+Property and equipment derecognized after the construction period of build-to-suit 
+lease arrangements, with the associated leases recognized as operating  2,195  492  3,307  1,212  3,363  3,063 </doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>None</source>
+<doc_content>AMAZON.COM, INC.
+Supplemental Financial Information and Business Metrics
+(in millions)
+(unaudited)
+Q2 2022 Q3 2022 Q4 2022 Q1 2023 Q2 2023 Q3 2023
+Y/Y %
+Change
+Segments
+North America Segment:
+  Net sales $ 74,430 $ 78,843 $ 93,363 $ 76,881 $ 82,546 $ 87,887  11 %
+  Net sales -- Y/Y growth, excluding F/X  10 %  20 %  14 %  11 %  11 %  11 % N/A
+  Net sales -- TTM $ 291,591 $ 304,877 $ 315,880 $ 323,517 $ 331,633 $ 340,677  12 %
+  Operating income (loss) $ (627) $ (412) $ (240) $ 898 $ 3,211 $ 4,307 N/A
+  F/X impact -- favorable (unfavorable) $ 61 $ 95 $ 76 $ 41 $ (7) $ (27) N/A
+  Operating income (loss) -- Y/Y growth (decline), excluding F/X  (122) %  (158) %  53 % N/A N/A N/A N/A
+  Operating margin -- % of North America net sales  (0.8) %  (0.5) %  (0.3) %  1.2 %  3.9 %  4.9 % N/A
+  Operating income (loss) -- TTM $ (1,521) $ (2,813) $ (2,847) $ (381) $ 3,457 $ 8,176 N/A
+  Operating margin -- TTM % of North America net sales  (0.5) %  (0.9) %  (0.9) %  (0.1) %  1.0 %  2.4 % N/A
+International Segment:
+  Net sales $ 27,065 $ 27,720 $ 34,463 $ 29,123 $ 29,697 $ 32,137  16 %
+  Net sales -- Y/Y growth (decline), excluding F/X  (1) %  12 %  5 %  9 %  10 %  11 % N/A
+  Net sales -- TTM $ 122,241 $ 120,816 $ 118,007 $ 118,371 $ 121,003 $ 125,420  4 %
+  Operating loss $ (1,771) $ (2,466) $ (2,228) $ (1,247) $ (895) $ (95)  (96) %
+  F/X impact -- favorable (unfavorable) $ (231) $ (216) $ (331) $ (174) $ 32 $ 228 N/A
+  Operating loss -- Y/Y growth (decline), excluding F/X  (526) %  147 %  17 %  (16) %  (48) %  (87) % N/A
+  Operating margin -- % of International net sales  (6.5) %  (8.9) %  (6.5) %  (4.3) %  (3.0) %  (0.3) % N/A
+  Operating loss -- TTM $ (5,590) $ (7,145) $ (7,746) $ (7,712) $ (6,836) $ (4,465)  (38) %
+  Operating margin -- TTM % of International net sales  (4.6) %  (5.9) %  (6.6) %  (6.5) %  (5.6) %  (3.6) % N/A
+AWS Segment:
+  Net sales $ 19,739 $ 20,538 $ 21,378 $ 21,354 $ 22,140 $ 23,059  12 %
+  Net sales -- Y/Y growth, excluding F/X  33 %  28 %  20 %  16 %  12 %  12 % N/A
+  Net sales -- TTM $ 72,070 $ 76,498 $ 80,096 $ 83,009 $ 85,410 $ 87,931  15 %
+  Operating income $ 5,715 $ 5,403 $ 5,205 $ 5,123 $ 5,365 $ 6,976  29 %
+  F/X impact -- favorable (unfavorable) $ 335 $ 478 $ 468 $ 272 $ 79 $ (69) N/A
+  Operating income -- Y/Y growth (decline), excluding F/X  28 %  1 %  (10) %  (26) %  (8) %  30 % N/A
+  Operating margin -- % of AWS net sales  29.0 %  26.3 %  24.3 %  24.0 %  24.2 %  30.3 % N/A
+  Operating income -- TTM $ 22,409 $ 22,929 $ 22,841 $ 21,446 $ 21,096 $ 22,669  (1) %
+  Operating margin -- TTM % of AWS net sales  31.1 %  30.0 %  28.5 %  25.8 %  24.7 %  25.8 % N/A</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+Based on the provided context, we can find the relevant data in the AWS Segment table.
+
+The operating income for Q3 2022 is $5,205 and for Q3 2023 is $5,123. 
+
+To calculate the year-over-year percentage change, we can use the following formula:
+
+Year-over-year percentage change = ((Current year's value - Previous year's value) / Previous year's value) * 100
+
+Plugging in the values, we get:
+
+Year-over-year percentage change = (($5,123 - $5,205) / $5,205) * 100
+Year-over-year percentage change = (-$82 / $5,205) * 100
+Year-over-year percentage change ≈ -1.58%
+
+So, the year-over-year percentage change in AWS operating income for the three months that ended September 30, 2023 is approximately -1.58%.

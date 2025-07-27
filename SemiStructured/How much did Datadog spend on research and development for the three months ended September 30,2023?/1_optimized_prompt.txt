@@ -1,0 +1,63 @@
+<documents>
+<document index='0'>
+<source>None</source>
+<doc_content>deliver positive business outcomes, including more users, higher revenue growth, improved productivity, and 
+cost savings. With our unified, cloud-native, end-to-end observability and security platform, Datadog is uniquely 
+positioned to help our customers reach their goals." 
+Third Quarter 2023 Financial Highlights:
+• Revenue was $547.5 million, an increase of 25% year-over-year.
+• GAAP operating loss was $(4.2) million; GAAP operating margin was (1)%. 
+• Non-GAAP operating income was $130.8 million; non-GAAP operating margin was 24%. 
+• GAAP net income per diluted share was $0.06; non-GAAP net income per diluted share was $0.45.
+• Operating cash flow was $152.8 million, with free cash flow of $138.2 million.
+• Cash, cash equivalents, and marketable securities were $2.3 billion as of September 30, 2023.
+Third Quarter & Recent Business Highlights:</doc_content>
+</document>
+<document index='1'>
+<source>None</source>
+<doc_content>Datadog Announces Third Quarter 2023 Financial Results
+November 7, 2023 
+Third quarter revenue grew 25% year-over-year to $548 million
+Strong growth of larger customers, with about 3,130 $100k+ ARR customers, up from about 2,600 a year ago
+NEW YORK-- Datadog, Inc. (NASDAQ:DDOG), the monitoring and security platform for cloud applications, 
+today announced financial results for its third quarter ended September 30, 2023.
+"We were pleased with our execution in the third quarter, with 25% year-over-year revenue growth, robust new 
+logo bookings, and a continued focus on solving our customers' DevSecOps pain points," said Olivier Pomel, 
+co-founder and CEO of Datadog. 
+Pomel added, "Companies across all industries and sizes are building cloud applications and services to 
+deliver positive business outcomes, including more users, higher revenue growth, improved productivity, and 
+cost savings. With our unified, cloud-native, end-to-end observability and security platform, Datadog is uniquely</doc_content>
+</document>
+<document index='2'>
+<source>None</source>
+<doc_content>Datadog, Inc.
+Condensed Consolidated Statements of Operations
+(In thousands, except per share data; unaudited)
+Three Months Ended
+September 30,
+Nine Months Ended
+September 30,
+2023 2022 2023 2022
+Revenue $ 547,536 $ 436,533 $ 1,538,710 $ 1,205,701 
+Cost of revenue (1)(2)(3)  103,319  93,599  305,079  249,986 
+Gross profit  444,217  342,934  1,233,631  955,715 
+Operating expenses:
+Research and development (1)(3)  240,225  205,388  709,197  533,695 
+Sales and marketing (1)(2)(3)  156,870  129,493  449,296  345,929 
+General and administrative (1)(3)  51,352  39,395  136,344  100,158 
+Total operating expenses  448,447  374,276  1,294,837  979,782</doc_content>
+</document>
+<document index='3'>
+<source>None</source>
+<doc_content>important to note that these factors could be material to Datadog’s results computed in accordance with GAAP.
+Conference Call Details:
+• What: Datadog financial results for the third quarter of 2023 and outlook for the fourth quarter and the 
+full year 2023
+• When: November 7, 2023 at 8:00 A.M. Eastern Time (5:00 A.M. Pacific Time)
+• Dial in: To access the call in the U.S., please register here. Callers are encouraged to dial into the call 
+10 to 15 minutes prior to the start to prevent any delay in joining.</doc_content>
+</document>
+</documents>
+
+
+According to the Condensed Consolidated Statements of Operations, Datadog spent $240,225 thousand on Research and Development (R&D) in Q3 2023.

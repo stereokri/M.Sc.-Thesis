@@ -1,0 +1,102 @@
+<documents>
+<document index='0'>
+<source>None</source>
+<doc_content>Datadog, Inc.
+Condensed Consolidated Balance Sheets
+(In thousands; unaudited)
+September 30,
+2023
+December 31,
+2022
+ASSETS
+CURRENT ASSETS:
+Cash and cash equivalents $ 261,309 $ 338,985 
+Marketable securities  2,080,380  1,545,341 
+Accounts receivable, net of allowance for credit losses of $11,091 and $5,626 as of 
+September 30, 2023 and December 31, 2022, respectively  400,649  399,551 
+Deferred contract costs, current  39,805  33,054 
+Prepaid expenses and other current assets  37,341  27,303 
+Total current assets  2,819,484  2,344,234 
+Property and equipment, net  157,689  125,346 
+Operating lease assets  121,913  87,629 
+Goodwill  348,697  348,277 
+Intangible assets, net  10,145  16,365</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>None</source>
+<doc_content>Datadog, Inc.
+Condensed Consolidated Statements of Cash Flow
+(In thousands; unaudited)
+Three Months Ended
+September 30,
+Nine Months Ended
+September 30,
+2023 2022 2023 2022
+CASH FLOWS FROM OPERATING ACTIVITIES:
+Net income (loss) $ 22,630 $ (25,985) $ (5,425) $ (21,126) 
+Adjustments to reconcile net income (loss) to net cash provided by operating activities:
+Depreciation and amortization  11,609  9,313  32,434  24,825 
+(Accretion) amortization of (discounts) premiums on marketable securities  (12,965)  520  (26,256)  7,217 
+Amortization of issuance costs  848  843  2,539  2,525 
+Amortization of deferred contract costs  10,227  7,361  28,223  19,941 
+Stock-based compensation, net of amounts capitalized  123,114  101,362  354,179  250,645</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>None</source>
+<doc_content>Datadog, Inc.
+Condensed Consolidated Statements of Operations
+(In thousands, except per share data; unaudited)
+Three Months Ended
+September 30,
+Nine Months Ended
+September 30,
+2023 2022 2023 2022
+Revenue $ 547,536 $ 436,533 $ 1,538,710 $ 1,205,701 
+Cost of revenue (1)(2)(3)  103,319  93,599  305,079  249,986 
+Gross profit  444,217  342,934  1,233,631  955,715 
+Operating expenses:
+Research and development (1)(3)  240,225  205,388  709,197  533,695 
+Sales and marketing (1)(2)(3)  156,870  129,493  449,296  345,929 
+General and administrative (1)(3)  51,352  39,395  136,344  100,158 
+Total operating expenses  448,447  374,276  1,294,837  979,782</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>None</source>
+<doc_content>2023. Additional information will be made available in our Quarterly Report on Form 10-Q for the quarter ended 
+September 30, 2023 and other filings and reports that we may file from time to time with the SEC. Moreover, 
+we operate in a very competitive and rapidly changing environment. New risks emerge from time to time. It is 
+not possible for our management to predict all risks, nor can we assess the impact of all factors on our 
+business or the extent to which any factor, or combination of factors, may cause actual results to differ 
+materially from those contained in any forward-looking statements we may make. In light of these risks, 
+uncertainties and assumptions, we cannot guarantee future results, levels of activity, performance, 
+achievements, or events and circumstances reflected in the forward-looking statements will occur. Forward-
+looking statements represent our beliefs and assumptions only as of the date of this press release. We 
+disclaim any obligation to update forward-looking statements.
+About Non-GAAP Financial Measures
+Datadog discloses the following non-GAAP financial measures in this release and the earnings call referencing</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+Based on the provided context, there is no "deferred revenue" in Datadog's Condensed Consolidated Balance Sheets report. The report only provides information about assets, including current and non-current assets such as cash and cash equivalents, marketable securities, accounts receivable, deferred contract costs, prepaid expenses, property and equipment, operating lease assets, goodwill, and intangible assets.
+
+Therefore, it is not possible to determine Datadog's current and non-current deferred revenue as of September 30, 2023.

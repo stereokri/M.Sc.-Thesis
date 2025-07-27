@@ -1,0 +1,112 @@
+<documents>
+<document index='0'>
+<source>None</source>
+<doc_content>Datadog, Inc.
+Condensed Consolidated Statements of Operations
+(In thousands, except per share data; unaudited)
+Three Months Ended
+September 30,
+Nine Months Ended
+September 30,
+2023 2022 2023 2022
+Revenue $ 547,536 $ 436,533 $ 1,538,710 $ 1,205,701 
+Cost of revenue (1)(2)(3)  103,319  93,599  305,079  249,986 
+Gross profit  444,217  342,934  1,233,631  955,715 
+Operating expenses:
+Research and development (1)(3)  240,225  205,388  709,197  533,695 
+Sales and marketing (1)(2)(3)  156,870  129,493  449,296  345,929 
+General and administrative (1)(3)  51,352  39,395  136,344  100,158 
+Total operating expenses  448,447  374,276  1,294,837  979,782</doc_content>
+</document>
+
+
+
+
+
+<document index='1'>
+<source>None</source>
+<doc_content>Datadog, Inc.
+Condensed Consolidated Statements of Cash Flow
+(In thousands; unaudited)
+Three Months Ended
+September 30,
+Nine Months Ended
+September 30,
+2023 2022 2023 2022
+CASH FLOWS FROM OPERATING ACTIVITIES:
+Net income (loss) $ 22,630 $ (25,985) $ (5,425) $ (21,126) 
+Adjustments to reconcile net income (loss) to net cash provided by operating activities:
+Depreciation and amortization  11,609  9,313  32,434  24,825 
+(Accretion) amortization of (discounts) premiums on marketable securities  (12,965)  520  (26,256)  7,217 
+Amortization of issuance costs  848  843  2,539  2,525 
+Amortization of deferred contract costs  10,227  7,361  28,223  19,941 
+Stock-based compensation, net of amounts capitalized  123,114  101,362  354,179  250,645</doc_content>
+</document>
+
+
+
+
+
+<document index='2'>
+<source>None</source>
+<doc_content>Datadog, Inc.
+Reconciliation of GAAP Cash Flow from Operating Activities to Free Cash Flow
+(In thousands; unaudited)
+Three Months Ended
+September 30,
+Nine Months Ended
+September 30,
+2023 2022 2023 2022
+Net cash provided by operating activities $ 152,783 $ 83,618 $ 439,728 $ 303,966 
+Less: Purchases of property and equipment  (6,113)  (9,706)  (17,191)  (25,207) 
+Less: Capitalized software development costs  (8,481)  (6,812)  (26,279)  (21,592) 
+Free cash flow $ 138,189 $ 67,100 $ 396,258 $ 257,167 
+Free cash flow margin  25 %  15 %  26 %  21 %
+Contact Information
+Yuka Broderick 
+Datadog Investor Relations
+IR@datadoghq.com
+Dan Haggerty
+Datadog Public Relations
+Press@datadoghq.com
+Datadog is a registered trademark of Datadog, Inc.</doc_content>
+</document>
+
+
+
+
+
+<document index='3'>
+<source>None</source>
+<doc_content>Datadog Announces Third Quarter 2023 Financial Results
+November 7, 2023 
+Third quarter revenue grew 25% year-over-year to $548 million
+Strong growth of larger customers, with about 3,130 $100k+ ARR customers, up from about 2,600 a year ago
+NEW YORK-- Datadog, Inc. (NASDAQ:DDOG), the monitoring and security platform for cloud applications, 
+today announced financial results for its third quarter ended September 30, 2023.
+"We were pleased with our execution in the third quarter, with 25% year-over-year revenue growth, robust new 
+logo bookings, and a continued focus on solving our customers' DevSecOps pain points," said Olivier Pomel, 
+co-founder and CEO of Datadog. 
+Pomel added, "Companies across all industries and sizes are building cloud applications and services to 
+deliver positive business outcomes, including more users, higher revenue growth, improved productivity, and 
+cost savings. With our unified, cloud-native, end-to-end observability and security platform, Datadog is uniquely</doc_content>
+</document>
+
+
+
+
+
+</documents>
+
+
+
+
+To calculate the year-over-year percentage change in Datadog's research and development spending for the three months ended September 30, 2023, we need to find the difference between the two periods and then divide by the previous period.
+
+Research and development expenses for Three Months Ended September 30, 2023: $240,225
+Research and development expenses for Three Months Ended September 30, 2022: $205,388
+
+The year-over-year percentage change is:
+($240,225 - $205,388) / $205,388 = 16.9%
+
+So, the year-over-year percentage change in Datadog's research and development spending for the three months ended September 30, 2023 is 16.9%.
