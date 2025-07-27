@@ -1,0 +1,115 @@
+## Hybrid Filtering​
+
+With the Redis Filter Expression language one can filter metdata in Redis vectorstore.
+
+The following are the available filter types:
+
+- `RedisText`: Filter by full-text search against metadata fields. Supports exact, fuzzy, and wildcard matching.
+
+- `RedisNum`: Filter by numeric range against metadata fields.
+
+- `RedisTag`: Filter by exact match against string based categorical metadata fields. Multiple tags can be specified like "tag1,tag2,tag3".
+
+The following are examples of utilizing these filters.
+
+```python
+
+from langchain.vectorstores.redis import RedisText, RedisNum, RedisTag
+
+# exact matching
+has_high_credit = RedisTag("credit_score") == "high"
+does_not_have_high_credit = RedisTag("credit_score") != "low"
+
+# fuzzy matching
+job_starts_with_eng = RedisText("job") % "eng*"
+job_is_engineer = RedisText("job") == "engineer"
+job_is_not_engineer = RedisText("job") != "engineer"
+
+# numeric filtering
+age_is_18 = RedisNum("age") == 18
+age_is_not_18 = RedisNum("age") != 18
+age_is_greater_than_18 = RedisNum("age") > 18
+age_is_less_than_18 = RedisNum("age") < 18
+age_is_greater_than_or_equal_to_18 = RedisNum("age") >= 18
+age_is_less_than_or_equal_to_18 = RedisNum("age") <= 18
+
+```
+
+The `RedisFilter` class can be used to simplify the import of these filters as follows
+
+```python
+
+from langchain.vectorstores.redis import RedisFilter
+
+# same examples as above
+has_high_credit = RedisFilter.tag("credit_score") == "high"
+does_not_have_high_credit = RedisFilter.num("age") > 8
+job_starts_with_eng = RedisFilter.text("job") % "eng*"
+```
+
+The following are examples of using hybrid filter for search
+
+```python
+from langchain.vectorstores.redis import RedisText
+
+is_engineer = RedisText("job") == "engineer"
+results = rds.similarity_search("foo", k=3, filter=is_engineer)
+
+print("Job:", results[0].metadata["job"])
+print("Engineers in the dataset:", len(results))
+```
+
+```text
+    Job: engineer
+    Engineers in the dataset: 2
+```
+
+```python
+# fuzzy match
+starts_with_doc = RedisText("job") % "doc*"
+results = rds.similarity_search("foo", k=3, filter=starts_with_doc)
+
+for result in results:
+    print("Job:", result.metadata["job"])
+print("Jobs in dataset that start with 'doc':", len(results))
+```
+
+```text
+    Job: doctor
+    Job: doctor
+    Jobs in dataset that start with 'doc': 2
+```
+
+```python
+from langchain.vectorstores.redis import RedisNum
+
+is_over_18 = RedisNum("age") > 18
+is_under_99 = RedisNum("age") < 99
+age_range = is_over_18 & is_under_99
+results = rds.similarity_search("foo", filter=age_range)
+
+for result in results:
+    print("User:", result.metadata["user"], "is", result.metadata["age"])
+```
+
+```text
+    User: derrick is 45
+    User: nancy is 94
+    User: joe is 35
+```
+
+```python
+# make sure to use parenthesis around FilterExpressions
+# if initializing them while constructing them
+age_range = (RedisNum("age") > 18) & (RedisNum("age") < 99)
+results = rds.similarity_search("foo", filter=age_range)
+
+for result in results:
+    print("User:", result.metadata["user"], "is", result.metadata["age"])
+```
+
+```text
+    User: derrick is 45
+    User: nancy is 94
+    User: joe is 35
+```
